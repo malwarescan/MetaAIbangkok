@@ -99,12 +99,19 @@ export function ChatInterface() {
     }
   };
   const scrollToBottom = () => {
-    (messagesEndRef.current as unknown as HTMLElement)?.scrollIntoView({
-      behavior: 'smooth'
-    });
+    // Only scroll on desktop/larger screens, not on mobile
+    if (window.innerWidth >= 768) {
+      (messagesEndRef.current as unknown as HTMLElement)?.scrollIntoView({
+        behavior: 'smooth'
+      });
+    }
   };
+  
   useEffect(() => {
-    scrollToBottom();
+    // Only scroll when AI responds, not when user types
+    if (messages.length > 1 && messages[messages.length - 1].sender === 'ai') {
+      scrollToBottom();
+    }
   }, [messages]);
   return <div className="max-w-4xl mx-auto mt-8">
       <div className="bg-white rounded-3xl shadow-lg overflow-hidden border border-pink-100">
