@@ -7,7 +7,7 @@ export default defineConfig({
   define: {
     'import.meta.env': 'import.meta.env'
   },
-  base: '/MetaAIbangkok/',
+  base: './',
   build: {
     outDir: 'dist',
     assetsDir: 'assets'
