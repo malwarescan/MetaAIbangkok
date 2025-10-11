@@ -1,7 +1,10 @@
 import React, { useState } from 'react';
 import { MenuIcon, X as CloseIcon, Sparkles } from 'lucide-react';
+import { useLanguage } from '../contexts/LanguageContext';
+import { LanguageSelector } from './LanguageSelector';
 export function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const { t } = useLanguage();
   return <header className="bg-white/80 backdrop-blur-md sticky top-0 z-10 border-b border-pink-100">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
@@ -39,18 +42,21 @@ export function Header() {
           </div>
           <nav className="hidden md:flex space-x-8">
             <a href="#" className="text-gray-700 hover:text-pink-500 px-3 py-2 rounded-md text-sm font-medium transition duration-150">
-              Home
+              {t('header.home')}
             </a>
             <a href="#" className="text-gray-700 hover:text-pink-500 px-3 py-2 rounded-md text-sm font-medium transition duration-150">
-              Services
+              {t('header.services')}
             </a>
             <a href="#" className="text-gray-700 hover:text-pink-500 px-3 py-2 rounded-md text-sm font-medium transition duration-150">
-              About Us
+              {t('header.about')}
             </a>
             <a href="#" className="text-gray-700 hover:text-pink-500 px-3 py-2 rounded-md text-sm font-medium transition duration-150">
-              Contact
+              {t('header.contact')}
             </a>
           </nav>
+          <div className="hidden md:flex items-center">
+            <LanguageSelector />
+          </div>
           <div className="flex md:hidden">
             <button type="button" className="inline-flex items-center justify-center p-2 rounded-md text-gray-700 hover:text-pink-500 focus:outline-none" onClick={() => setMobileMenuOpen(!mobileMenuOpen)}>
               {mobileMenuOpen ? <CloseIcon size={24} /> : <MenuIcon size={24} />}
@@ -62,17 +68,20 @@ export function Header() {
       {mobileMenuOpen && <div className="md:hidden">
           <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-white shadow-lg rounded-b-lg">
             <a href="#" className="text-gray-700 hover:text-pink-500 block px-3 py-2 rounded-md text-base font-medium">
-              Home
+              {t('header.home')}
             </a>
             <a href="#" className="text-gray-700 hover:text-pink-500 block px-3 py-2 rounded-md text-base font-medium">
-              Services
+              {t('header.services')}
             </a>
             <a href="#" className="text-gray-700 hover:text-pink-500 block px-3 py-2 rounded-md text-base font-medium">
-              About Us
+              {t('header.about')}
             </a>
             <a href="#" className="text-gray-700 hover:text-pink-500 block px-3 py-2 rounded-md text-base font-medium">
-              Contact
+              {t('header.contact')}
             </a>
+            <div className="px-3 py-2">
+              <LanguageSelector />
+            </div>
           </div>
         </div>}
     </header>;

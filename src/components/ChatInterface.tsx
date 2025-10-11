@@ -2,48 +2,72 @@ import React, { useEffect, useState, useRef } from 'react';
 import { SendIcon, User, Bot, CalendarIcon, InfoIcon } from 'lucide-react';
 import { AppointmentForm } from './AppointmentForm';
 import { SymptomCard } from './SymptomCard';
-// Mock diagnosis database
-const diagnosisDatabase = {
-  headache: 'Based on your description, you might be experiencing a tension headache. This is common and can be caused by stress, dehydration, or eye strain.',
-  skin: 'Your skin symptoms could indicate several conditions such as eczema, contact dermatitis, or an allergic reaction.',
-  hair: 'Hair loss or thinning can be caused by various factors including hormonal changes, stress, nutritional deficiencies, or certain medical conditions.',
-  nails: 'The changes in your nails might be related to fungal infection, nutritional deficiencies, or could be a sign of an underlying health condition.',
-  cold: 'Your symptoms align with a common cold or upper respiratory infection, which is typically viral in nature.',
-  feet: 'The discomfort in your feet could be related to plantar fasciitis, a fungal infection, or possibly an early sign of arthritis.',
-  default: "Based on the symptoms you've described, I recommend scheduling an appointment with our specialists at Meta Esthetic Thailand for a proper diagnosis and treatment plan."
-};
-// Helper function to generate AI response
-const generateResponse = message => {
-  const lowerMsg = message.toLowerCase();
-  // Check for keywords in the message
-  if (lowerMsg.includes('headache') || lowerMsg.includes('head pain') || lowerMsg.includes('migraine')) {
-    return diagnosisDatabase.headache;
-  } else if (lowerMsg.includes('skin') || lowerMsg.includes('rash') || lowerMsg.includes('acne')) {
-    return diagnosisDatabase.skin;
-  } else if (lowerMsg.includes('hair') || lowerMsg.includes('baldness') || lowerMsg.includes('thinning')) {
-    return diagnosisDatabase.hair;
-  } else if (lowerMsg.includes('nail') || lowerMsg.includes('fingernail') || lowerMsg.includes('toenail')) {
-    return diagnosisDatabase.nails;
-  } else if (lowerMsg.includes('cold') || lowerMsg.includes('flu') || lowerMsg.includes('cough')) {
-    return diagnosisDatabase.cold;
-  } else if (lowerMsg.includes('foot') || lowerMsg.includes('feet') || lowerMsg.includes('toe')) {
-    return diagnosisDatabase.feet;
-  } else {
-    return diagnosisDatabase.default;
+import { useLanguage } from '../contexts/LanguageContext';
+import OpenAI from 'openai';
+
+// Initialize OpenAI client
+const openai = new OpenAI({
+  apiKey: import.meta.env.VITE_OPENAI_API_KEY,
+  dangerouslyAllowBrowser: true // Only for client-side usage
+});
+
+// Helper function to generate AI response using OpenAI
+const generateResponse = async (message, language) => {
+  const systemPrompts = {
+    en: "You are Meta Esthetic AI, a helpful assistant for Meta Esthetic Thailand clinic. You provide preliminary health assessments and guidance for aesthetic and medical concerns. Always recommend professional consultation for proper diagnosis. Be empathetic, professional, and helpful. Respond in English.",
+    ko: "당신은 Meta Esthetic Thailand 클리닉의 도움이 되는 어시스턴트인 Meta Esthetic AI입니다. 미용 및 의료 문제에 대한 예비 건강 평가와 지침을 제공합니다. 적절한 진단을 위해 항상 전문 상담을 권장하세요. 공감적이고 전문적이며 도움이 되도록 하세요. 한국어로 응답하세요.",
+    th: "คุณคือ Meta Esthetic AI ผู้ช่วยที่เป็นประโยชน์สำหรับคลินิก Meta Esthetic Thailand คุณให้การประเมินสุขภาพเบื้องต้นและคำแนะนำสำหรับปัญหาทางความงามและการแพทย์ ควรแนะนำการปรึกษาผู้เชี่ยวชาญเสมอเพื่อการวินิจฉัยที่เหมาะสม จงมีความเห็นอกเห็นใจ เป็นมืออาชีพ และเป็นประโยชน์ ตอบเป็นภาษาไทย"
+  };
+
+  const errorMessages = {
+    en: "I apologize, but I'm having trouble processing your request. Please try again or schedule an appointment for a professional consultation.",
+    ko: "요청을 처리하는 데 문제가 있어 죄송합니다. 다시 시도하거나 전문 상담을 위해 예약을 해주세요.",
+    th: "ขออภัยที่เกิดปัญหาในการประมวลผลคำขอของคุณ กรุณาลองอีกครั้งหรือนัดหมายเพื่อการปรึกษาแบบมืออาชีพ"
+  };
+
+  const fallbackMessages = {
+    en: "I apologize, but I'm currently unable to process your request. Please schedule an appointment with our specialists at Meta Esthetic Thailand for a professional consultation.",
+    ko: "현재 요청을 처리할 수 없어 죄송합니다. 전문 상담을 위해 Meta Esthetic Thailand의 전문가와 예약을 해주세요.",
+    th: "ขออภัยที่ปัจจุบันไม่สามารถประมวลผลคำขอของคุณได้ กรุณานัดหมายกับผู้เชี่ยวชาญของเราที่ Meta Esthetic Thailand เพื่อการปรึกษาแบบมืออาชีพ"
+  };
+
+  try {
+    const completion = await openai.chat.completions.create({
+      model: "gpt-3.5-turbo",
+      messages: [
+        {
+          role: "system",
+          content: systemPrompts[language] || systemPrompts.en
+        },
+        {
+          role: "user",
+          content: message
+        }
+      ],
+      max_tokens: 300,
+      temperature: 0.7,
+    });
+
+    return completion.choices[0]?.message?.content || errorMessages[language] || errorMessages.en;
+  } catch (error) {
+    console.error('OpenAI API error:', error);
+    return fallbackMessages[language] || fallbackMessages.en;
   }
 };
 export function ChatInterface() {
+  const { language, t } = useLanguage();
   const [messages, setMessages] = useState([{
     id: 1,
-    content: "Hello! I'm the Meta Esthetic AI assistant. Please describe your symptoms, and I'll help diagnose your condition and schedule an appointment if needed.",
+    content: t('chat.welcome'),
     sender: 'ai'
   }]);
   const [inputValue, setInputValue] = useState('');
   const [isTyping, setIsTyping] = useState(false);
   const [showAppointment, setShowAppointment] = useState(false);
   const messagesEndRef = useRef(null);
-  const handleSendMessage = () => {
+  const handleSendMessage = async () => {
     if (inputValue.trim() === '') return;
+    
     // Add user message
     const userMessage = {
       id: messages.length + 1,
@@ -51,30 +75,41 @@ export function ChatInterface() {
       sender: 'user'
     };
     setMessages(prev => [...prev, userMessage]);
+    const currentInput = inputValue;
     setInputValue('');
     setIsTyping(true);
-    // Simulate AI thinking
-    setTimeout(() => {
-      // Generate AI response
-      const aiResponse = generateResponse(userMessage.content);
+    
+    try {
+      // Generate AI response using OpenAI
+      const aiResponse = await generateResponse(currentInput, language);
       const aiMessage = {
         id: messages.length + 2,
         content: aiResponse,
         sender: 'ai'
       };
       setMessages(prev => [...prev, aiMessage]);
+      
       // Add appointment suggestion
       setTimeout(() => {
         const appointmentMessage = {
           id: messages.length + 3,
-          content: 'Would you like to schedule an appointment at Meta Esthetic Thailand for a professional consultation?',
+          content: t('chat.schedulePrompt'),
           sender: 'ai',
           isAppointmentPrompt: true
         };
         setMessages(prev => [...prev, appointmentMessage]);
         setIsTyping(false);
       }, 1000);
-    }, 1500);
+    } catch (error) {
+      console.error('Error generating response:', error);
+      const errorMessage = {
+        id: messages.length + 2,
+        content: t('chat.errorMessage'),
+        sender: 'ai'
+      };
+      setMessages(prev => [...prev, errorMessage]);
+      setIsTyping(false);
+    }
   };
   const handleKeyDown = e => {
     if (e.key === 'Enter' && !e.shiftKey) {
@@ -97,7 +132,7 @@ export function ChatInterface() {
           <div className="w-3 h-3 bg-yellow-400 rounded-full mr-2"></div>
           <div className="w-3 h-3 bg-green-400 rounded-full mr-2"></div>
           <h2 className="text-lg font-medium text-gray-700 ml-2">
-            Meta Esthetic AI Assistant
+            {t('chat.title')}
           </h2>
         </div>
         {!showAppointment ? <>
@@ -111,17 +146,16 @@ export function ChatInterface() {
                       <div className="flex items-start mb-1">
                         {message.sender === 'ai' ? <Bot size={16} className="mr-2 text-pink-500 mt-1" /> : <User size={16} className="mr-2 text-white mt-1" />}
                         <span className={`text-xs font-medium ${message.sender === 'user' ? 'text-white' : 'text-pink-500'}`}>
-                          {message.sender === 'user' ? 'You' : 'Meta Esthetic AI'}
+                          {message.sender === 'user' ? 'You' : t('chat.title')}
                         </span>
                       </div>
                       <p>{message.content}</p>
                       {message.isAppointmentPrompt && <div className="mt-3 flex space-x-2">
                           <button onClick={() => setShowAppointment(true)} className="px-3 py-1 bg-pink-500 text-white text-sm rounded-full flex items-center">
-                            <CalendarIcon size={14} className="mr-1" /> Schedule
-                            Now
+                            <CalendarIcon size={14} className="mr-1" /> {t('chat.scheduleNow')}
                           </button>
                           <button className="px-3 py-1 bg-gray-200 text-gray-700 text-sm rounded-full flex items-center">
-                            <InfoIcon size={14} className="mr-1" /> More Info
+                            <InfoIcon size={14} className="mr-1" /> {t('chat.moreInfo')}
                           </button>
                         </div>}
                     </div>
@@ -146,7 +180,7 @@ export function ChatInterface() {
             </div>
             <div className="p-4 border-t border-gray-200 bg-white">
               <div className="flex items-center">
-                <textarea value={inputValue} onChange={e => setInputValue(e.target.value)} onKeyDown={handleKeyDown} placeholder="Describe your symptoms..." className="flex-grow resize-none border border-gray-200 rounded-2xl p-3 focus:outline-none focus:ring-2 focus:ring-pink-500 focus:border-transparent" rows={1} />
+                <textarea value={inputValue} onChange={e => setInputValue(e.target.value)} onKeyDown={handleKeyDown} placeholder={t('chat.placeholder')} className="flex-grow resize-none border border-gray-200 rounded-2xl p-3 focus:outline-none focus:ring-2 focus:ring-pink-500 focus:border-transparent" rows={1} />
                 <button onClick={handleSendMessage} disabled={inputValue.trim() === '' || isTyping} className={`ml-3 p-3 rounded-full ${inputValue.trim() === '' || isTyping ? 'bg-gray-200 text-gray-500' : 'bg-gradient-to-r from-pink-500 to-purple-500 text-white'} flex items-center justify-center`}>
                   <SendIcon size={18} />
                 </button>
@@ -154,15 +188,15 @@ export function ChatInterface() {
             </div>
             <div className="p-4 border-t border-gray-200 bg-white">
               <h3 className="text-sm font-medium text-gray-700 mb-3">
-                Common symptoms you can ask about:
+                {t('chat.commonSymptoms')}
               </h3>
               <div className="flex flex-wrap gap-2">
-                <SymptomCard label="Skin Issues" />
-                <SymptomCard label="Hair Problems" />
-                <SymptomCard label="Nail Concerns" />
-                <SymptomCard label="Headaches" />
-                <SymptomCard label="Cold & Flu" />
-                <SymptomCard label="Foot Pain" />
+                <SymptomCard label={t('chat.skinIssues')} />
+                <SymptomCard label={t('chat.hairProblems')} />
+                <SymptomCard label={t('chat.nailConcerns')} />
+                <SymptomCard label={t('chat.headaches')} />
+                <SymptomCard label={t('chat.coldFlu')} />
+                <SymptomCard label={t('chat.footPain')} />
               </div>
             </div>
           </> : <AppointmentForm onBack={() => setShowAppointment(false)} />}
