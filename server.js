@@ -12,13 +12,14 @@ app.use(express.json());
 app.use(express.static(path.join(__dirname, 'dist')));
 
 // Initialize OpenAI client
-const openai = new OpenAI({
-  apiKey: process.env.OPENAI_API_KEY
-});
-
-// Check if API key is available
-if (!process.env.OPENAI_API_KEY) {
-  console.error('OPENAI_API_KEY environment variable is not set');
+let openai = null;
+if (process.env.OPENAI_API_KEY) {
+  openai = new OpenAI({
+    apiKey: process.env.OPENAI_API_KEY
+  });
+  console.log('OpenAI client initialized with API key');
+} else {
+  console.warn('OPENAI_API_KEY environment variable is not set');
   console.log('Available environment variables:', Object.keys(process.env));
 }
 
@@ -66,6 +67,12 @@ app.post('/api/chat', async (req, res) => {
     
     if (!message) {
       return res.status(400).json({ error: 'Message is required' });
+    }
+
+    if (!openai) {
+      return res.status(500).json({ 
+        error: "AI service is currently unavailable. Please set OPENAI_API_KEY environment variable."
+      });
     }
 
     // Analyze symptoms using medical knowledge base
