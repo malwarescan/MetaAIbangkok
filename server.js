@@ -16,6 +16,12 @@ const openai = new OpenAI({
   apiKey: process.env.OPENAI_API_KEY
 });
 
+// Check if API key is available
+if (!process.env.OPENAI_API_KEY) {
+  console.error('OPENAI_API_KEY environment variable is not set');
+  console.log('Available environment variables:', Object.keys(process.env));
+}
+
 // Medical knowledge base
 const medicalKnowledge = {
   symptomPatterns: {
@@ -176,4 +182,9 @@ app.get('*', (req, res) => {
 
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
+  console.log(`Environment: ${process.env.NODE_ENV || 'development'}`);
+  console.log(`OpenAI API Key available: ${!!process.env.OPENAI_API_KEY}`);
+}).on('error', (err) => {
+  console.error('Server failed to start:', err);
+  process.exit(1);
 });
