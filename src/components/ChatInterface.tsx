@@ -3,6 +3,7 @@ import { SendIcon, User, Bot, CalendarIcon, InfoIcon } from 'lucide-react';
 import { AppointmentForm } from './AppointmentForm';
 import { SymptomCard } from './SymptomCard';
 import { useLanguage } from '../contexts/LanguageContext';
+import { analyzeSymptoms } from '../utils/medicalKnowledge';
 import OpenAI from 'openai';
 
 // Initialize OpenAI client
@@ -11,12 +12,85 @@ const openai = new OpenAI({
   dangerouslyAllowBrowser: true // Only for client-side usage
 });
 
-// Helper function to generate AI response using OpenAI
+// Helper function to generate AI response using OpenAI with medical knowledge
 const generateResponse = async (message, language) => {
+  // First, analyze symptoms using our medical knowledge base
+  const symptomAnalysis = analyzeSymptoms(message);
+  
+  // Create enhanced prompt with medical analysis
+  const enhancedPrompt = `${message}
+
+Based on the medical knowledge base analysis:
+- Possible causes: ${symptomAnalysis.analysis}
+- Severity level: ${symptomAnalysis.severity}
+- Self-care recommendations: ${symptomAnalysis.recommendations.join(', ')}
+- Urgency level: ${symptomAnalysis.urgency}
+- Relevant Meta Esthetic services: ${symptomAnalysis.services.join(', ')}
+
+Please provide a comprehensive response that includes:
+1. Detailed analysis of the symptoms
+2. Possible causes and explanations
+3. Specific self-care recommendations
+4. When to seek professional care
+5. Relevant Meta Esthetic Thailand services
+6. Professional consultation recommendation`;
   const systemPrompts = {
-    en: "You are Meta Esthetic AI, a helpful assistant for Meta Esthetic Thailand clinic. You provide preliminary health assessments and guidance for aesthetic and medical concerns. Always recommend professional consultation for proper diagnosis. Be empathetic, professional, and helpful. Respond in English.",
-    ko: "당신은 Meta Esthetic Thailand 클리닉의 도움이 되는 어시스턴트인 Meta Esthetic AI입니다. 미용 및 의료 문제에 대한 예비 건강 평가와 지침을 제공합니다. 적절한 진단을 위해 항상 전문 상담을 권장하세요. 공감적이고 전문적이며 도움이 되도록 하세요. 한국어로 응답하세요.",
-    th: "คุณคือ Meta Esthetic AI ผู้ช่วยที่เป็นประโยชน์สำหรับคลินิก Meta Esthetic Thailand คุณให้การประเมินสุขภาพเบื้องต้นและคำแนะนำสำหรับปัญหาทางความงามและการแพทย์ ควรแนะนำการปรึกษาผู้เชี่ยวชาญเสมอเพื่อการวินิจฉัยที่เหมาะสม จงมีความเห็นอกเห็นใจ เป็นมืออาชีพ และเป็นประโยชน์ ตอบเป็นภาษาไทย"
+    en: `You are Meta Esthetic AI, a specialized medical assistant for Meta Esthetic Thailand clinic. You have extensive knowledge in aesthetic medicine, dermatology, and general health conditions.
+
+Your role is to:
+1. Analyze symptoms thoroughly and provide detailed preliminary assessments
+2. Explain possible causes and conditions based on described symptoms
+3. Provide specific self-care recommendations and home remedies when appropriate
+4. Assess severity and urgency - indicate when immediate medical attention is needed
+5. Suggest relevant treatments and procedures available at Meta Esthetic Thailand
+6. Always emphasize the importance of professional consultation for definitive diagnosis
+
+Guidelines:
+- Be empathetic, professional, and detailed in your responses
+- Use medical terminology appropriately but explain in accessible language
+- Consider both aesthetic and medical aspects of conditions
+- Provide specific recommendations for symptom relief
+- Mention relevant Meta Esthetic Thailand services when applicable
+- Always recommend professional consultation for proper diagnosis
+- Respond in English with comprehensive, helpful information`,
+
+    ko: `당신은 Meta Esthetic Thailand 클리닉의 전문 의료 어시스턴트인 Meta Esthetic AI입니다. 미용의학, 피부과, 일반 건강 상태에 대한 광범위한 지식을 가지고 있습니다.
+
+당신의 역할:
+1. 증상을 철저히 분석하고 상세한 예비 평가 제공
+2. 설명된 증상에 기반한 가능한 원인과 상태 설명
+3. 적절한 경우 구체적인 자가 관리 권장사항과 가정 요법 제공
+4. 심각도와 긴급성 평가 - 즉시 의료진 상담이 필요한 경우 표시
+5. Meta Esthetic Thailand에서 제공하는 관련 치료 및 시술 제안
+6. 확정적 진단을 위한 전문 상담의 중요성 항상 강조
+
+지침:
+- 공감적이고 전문적이며 상세한 응답 제공
+- 의학 용어를 적절히 사용하되 접근 가능한 언어로 설명
+- 상태의 미용적 및 의학적 측면 모두 고려
+- 증상 완화를 위한 구체적 권장사항 제공
+- 해당하는 경우 Meta Esthetic Thailand 서비스 언급
+- 적절한 진단을 위한 전문 상담 항상 권장
+- 포괄적이고 도움이 되는 정보로 한국어 응답`,
+
+    th: `คุณคือ Meta Esthetic AI ผู้ช่วยทางการแพทย์เฉพาะทางสำหรับคลินิก Meta Esthetic Thailand คุณมีความรู้อย่างกว้างขวางในด้านการแพทย์ความงาม, ตจวิทยา, และภาวะสุขภาพทั่วไป
+
+บทบาทของคุณ:
+1. วิเคราะห์อาการอย่างละเอียดและให้การประเมินเบื้องต้นที่ครอบคลุม
+2. อธิบายสาเหตุและภาวะที่เป็นไปได้ตามอาการที่อธิบาย
+3. ให้คำแนะนำการดูแลตนเองและวิธีรักษาที่บ้านเมื่อเหมาะสม
+4. ประเมินความรุนแรงและความเร่งด่วน - บ่งชี้เมื่อต้องได้รับการดูแลทางการแพทย์ทันที
+5. เสนอการรักษาและขั้นตอนที่เกี่ยวข้องที่มีใน Meta Esthetic Thailand
+6. เน้นย้ำความสำคัญของการปรึกษาผู้เชี่ยวชาญเพื่อการวินิจฉัยที่แน่นอนเสมอ
+
+แนวทาง:
+- ให้คำตอบที่เห็นอกเห็นใจ เป็นมืออาชีพ และละเอียด
+- ใช้ศัพท์ทางการแพทย์อย่างเหมาะสมแต่อธิบายด้วยภาษาที่เข้าใจง่าย
+- พิจารณาทั้งด้านความงามและการแพทย์ของภาวะ
+- ให้คำแนะนำเฉพาะเจาะจงสำหรับการบรรเทาอาการ
+- กล่าวถึงบริการ Meta Esthetic Thailand ที่เกี่ยวข้องเมื่อเหมาะสม
+- แนะนำการปรึกษาผู้เชี่ยวชาญเพื่อการวินิจฉัยที่เหมาะสมเสมอ
+- ตอบเป็นภาษาไทยด้วยข้อมูลที่ครอบคลุมและเป็นประโยชน์`
   };
 
   const errorMessages = {
@@ -41,11 +115,11 @@ const generateResponse = async (message, language) => {
         },
         {
           role: "user",
-          content: message
+          content: enhancedPrompt
         }
       ],
-      max_tokens: 300,
-      temperature: 0.7,
+      max_tokens: 600,
+      temperature: 0.3,
     });
 
     return completion.choices[0]?.message?.content || errorMessages[language] || errorMessages.en;
@@ -61,6 +135,15 @@ export function ChatInterface() {
     content: t('chat.welcome'),
     sender: 'ai'
   }]);
+  
+  // Update welcome message when language changes
+  useEffect(() => {
+    setMessages([{
+      id: 1,
+      content: t('chat.welcome'),
+      sender: 'ai'
+    }]);
+  }, [language, t]);
   const [inputValue, setInputValue] = useState('');
   const [isTyping, setIsTyping] = useState(false);
   const [showAppointment, setShowAppointment] = useState(false);
