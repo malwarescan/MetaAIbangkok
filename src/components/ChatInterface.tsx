@@ -4,6 +4,54 @@ import { AppointmentForm } from './AppointmentForm';
 import { SymptomCard } from './SymptomCard';
 import { useLanguage } from '../contexts/LanguageContext';
 
+// Helper function to format AI responses with proper styling
+const formatAIResponse = (text: string) => {
+  if (!text) return text;
+  
+  // Split by double line breaks to create paragraphs
+  const paragraphs = text.split('\n\n').filter(p => p.trim());
+  
+  return paragraphs.map((paragraph, index) => {
+    const trimmed = paragraph.trim();
+    
+    // Check if it's a list item (starts with -, *, or number)
+    if (/^[-*•]\s/.test(trimmed) || /^\d+\.\s/.test(trimmed)) {
+      const listItems = trimmed.split('\n').filter(item => item.trim());
+      return (
+        <ul key={index} className="list-disc list-inside space-y-1 mt-2">
+          {listItems.map((item, itemIndex) => (
+            <li key={itemIndex} className="text-sm">
+              {item.replace(/^[-*•]\s/, '').replace(/^\d+\.\s/, '')}
+            </li>
+          ))}
+        </ul>
+      );
+    }
+    
+    // Check if it contains bold text (**text**)
+    if (/\*\*.*\*\*/.test(trimmed)) {
+      const parts = trimmed.split(/(\*\*.*?\*\*)/g);
+      return (
+        <p key={index} className="text-sm leading-relaxed">
+          {parts.map((part, partIndex) => {
+            if (part.startsWith('**') && part.endsWith('**')) {
+              return <strong key={partIndex} className="font-semibold text-gray-800">{part.slice(2, -2)}</strong>;
+            }
+            return part;
+          })}
+        </p>
+      );
+    }
+    
+    // Regular paragraph
+    return (
+      <p key={index} className="text-sm leading-relaxed">
+        {trimmed}
+      </p>
+    );
+  });
+};
+
 // Helper function to generate AI response using server-side API
 const generateResponse = async (message: string, language: string) => {
   try {
@@ -137,7 +185,9 @@ export function ChatInterface() {
                           {message.sender === 'user' ? 'You' : t('chat.title')}
                         </span>
                       </div>
-                      <p>{message.content}</p>
+                      <div className="space-y-2">
+                        {message.sender === 'ai' ? formatAIResponse(message.content) : <p className="text-sm">{message.content}</p>}
+                      </div>
                       {(message as any).isAppointmentPrompt && <div className="mt-3 flex space-x-2">
                           <button onClick={() => setShowAppointment(true)} className="px-3 py-1 bg-pink-500 text-white text-sm rounded-full flex items-center">
                             <CalendarIcon size={14} className="mr-1" /> {t('chat.scheduleNow')}
