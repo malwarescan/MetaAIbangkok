@@ -1,10 +1,16 @@
-import express from 'express';
-import cors from 'cors';
-import OpenAI from 'openai';
-import path from 'path';
-import { fileURLToPath } from 'url';
-// Embedded client query analysis and response system for Meta Esthetic Thailand
-const clientQueries = [
+// Client Query Analysis and Response System for Meta Esthetic Thailand
+export interface ClientQuery {
+  id: string;
+  category: 'treatment' | 'pricing' | 'procedure' | 'consultation' | 'symptoms' | 'recovery' | 'general';
+  question: string;
+  keywords: string[];
+  response: string;
+  followUpQuestions?: string[];
+  relatedServices?: string[];
+}
+
+// Comprehensive client query database based on Meta Esthetic Thailand services
+export const clientQueries: ClientQuery[] = [
   // Treatment Questions
   {
     id: 'query-001',
@@ -45,6 +51,7 @@ const clientQueries = [
     ],
     relatedServices: ['Botox injection', 'Anti-aging consultation', 'Follow-up care']
   },
+
   // HBOT Questions
   {
     id: 'query-004',
@@ -72,6 +79,7 @@ const clientQueries = [
     ],
     relatedServices: ['HBOT consultation', 'Treatment planning', 'Progress monitoring']
   },
+
   // Hair Restoration Questions
   {
     id: 'query-006',
@@ -99,6 +107,7 @@ const clientQueries = [
     ],
     relatedServices: ['PRP therapy', 'Hair evaluation', 'Follow-up care']
   },
+
   // Pricing Questions
   {
     id: 'query-008',
@@ -126,6 +135,7 @@ const clientQueries = [
     ],
     relatedServices: ['HBOT consultation', 'Treatment planning', 'Payment options']
   },
+
   // Procedure Questions
   {
     id: 'query-010',
@@ -153,6 +163,7 @@ const clientQueries = [
     ],
     relatedServices: ['Laser consultation', 'Pre-treatment instructions', 'Follow-up care']
   },
+
   // Recovery Questions
   {
     id: 'query-012',
@@ -180,6 +191,7 @@ const clientQueries = [
     ],
     relatedServices: ['Safety monitoring', 'Side effect management', 'Medical supervision']
   },
+
   // General Questions
   {
     id: 'query-014',
@@ -210,7 +222,7 @@ const clientQueries = [
 ];
 
 // Function to find matching client queries
-function findMatchingQuery(userMessage) {
+export function findMatchingQuery(userMessage: string): ClientQuery | null {
   const lowerMessage = userMessage.toLowerCase();
   
   // Find exact matches first
@@ -247,7 +259,7 @@ function findMatchingQuery(userMessage) {
 }
 
 // Function to generate response based on client query
-function generateClientResponse(userMessage) {
+export function generateClientResponse(userMessage: string): string {
   const matchingQuery = findMatchingQuery(userMessage);
   
   if (matchingQuery) {
@@ -297,135 +309,12 @@ function generateClientResponse(userMessage) {
 Would you like to schedule a consultation at Meta Esthetic Thailand for a professional evaluation?`;
 }
 
-function generateTrainingSystemPrompt(language = 'en') {
-  const basePrompts = {
-    en: `You are Meta Esthetic AI, a specialized medical assistant for Meta Esthetic Thailand clinic. You have extensive knowledge in aesthetic medicine, dermatology, and general health conditions.
-
-Your role is to:
-1. Analyze symptoms thoroughly and provide detailed preliminary assessments
-2. Explain possible causes and conditions based on described symptoms
-3. Provide specific self-care recommendations and home remedies when appropriate
-4. Assess severity and urgency - indicate when immediate medical attention is needed
-5. Suggest relevant treatments and procedures available at Meta Esthetic Thailand
-6. Always emphasize the importance of professional consultation for definitive diagnosis
-
-Guidelines:
-- Be empathetic, professional, and detailed in your responses
-- Use medical terminology appropriately but explain in accessible language
-- Consider both aesthetic and medical aspects of conditions
-- Provide specific recommendations for symptom relief
-- Mention relevant Meta Esthetic Thailand services when applicable
-- Always recommend professional consultation for proper diagnosis
-- Respond in English with comprehensive, helpful information
-
-**IMPORTANT FORMATTING INSTRUCTIONS:**
-- Use **bold text** for important points and key recommendations
-- Structure information with clear paragraphs separated by double line breaks
-- Use bullet points (- or *) for lists of symptoms, recommendations, or treatments
-- Keep responses well-organized and easy to read
-- Use numbered lists (1., 2., 3.) for step-by-step instructions when appropriate
-
-**TRAINING DATA INTEGRATION:**
-- Use the provided Meta Esthetic Thailand information to enhance your responses
-- Reference specific services, treatments, and protocols when relevant
-- Maintain consistency with clinic standards and procedures
-- Always prioritize patient safety and evidence-based recommendations`
-  };
-  
-  return basePrompts[language] || basePrompts.en;
+// Function to get all query categories
+export function getQueryCategories(): string[] {
+  return [...new Set(clientQueries.map(query => query.category))];
 }
 
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
-
-const app = express();
-const PORT = process.env.PORT || 3000;
-
-// Middleware
-app.use(cors());
-app.use(express.json());
-app.use(express.static(path.join(__dirname, 'dist')));
-
-// Initialize OpenAI client
-let openai = null;
-if (process.env.OPENAI_API_KEY) {
-  openai = new OpenAI({
-    apiKey: process.env.OPENAI_API_KEY
-  });
-  console.log('OpenAI client initialized with API key');
-} else {
-  console.warn('OPENAI_API_KEY environment variable is not set');
-  console.log('Available environment variables:', Object.keys(process.env));
+// Function to get queries by category
+export function getQueriesByCategory(category: string): ClientQuery[] {
+  return clientQueries.filter(query => query.category === category);
 }
-
-// Medical knowledge base
-const medicalKnowledge = {
-  symptomPatterns: {
-    'stuffy nose headache': {
-      possibleCauses: ['Sinusitis (acute or chronic)', 'Allergic rhinitis', 'Common cold or viral infection', 'Nasal polyps', 'Deviated septum'],
-      severity: 'moderate',
-      selfCare: ['Nasal saline irrigation', 'Steam inhalation', 'Adequate hydration', 'Rest and sleep', 'Over-the-counter decongestants (if appropriate)'],
-      whenToSeekCare: 'If symptoms persist >7 days, fever >38°C, or severe headache',
-      metaEstheticServices: ['ENT consultation', 'Allergy testing', 'Nasal endoscopy', 'Sinus imaging if needed']
-    }
-  }
-};
-
-function analyzeSymptoms(symptoms) {
-  const lowerSymptoms = symptoms.toLowerCase();
-  
-  for (const [pattern, info] of Object.entries(medicalKnowledge.symptomPatterns)) {
-    if (lowerSymptoms.includes(pattern)) {
-      return {
-        analysis: `Based on your symptoms, possible causes include: ${info.possibleCauses.join(', ')}.`,
-        severity: info.severity,
-        recommendations: info.selfCare,
-        urgency: info.severity === 'high' ? 'urgent' : 'routine',
-        services: info.metaEstheticServices
-      };
-    }
-  }
-  
-  return {
-    analysis: 'I understand you\'re experiencing symptoms that concern you. While I can provide general guidance, a professional evaluation would be most helpful.',
-    severity: 'unknown',
-    recommendations: ['Monitor symptoms closely', 'Maintain good general health practices', 'Consider professional consultation'],
-    urgency: 'routine',
-    services: ['General consultation', 'Health assessment']
-  };
-}
-
-// API endpoint for AI chat
-app.post('/api/chat', async (req, res) => {
-  try {
-    const { message, language } = req.body;
-    
-    if (!message) {
-      return res.status(400).json({ error: 'Message is required' });
-    }
-
-    // Generate response using our rule-based system (no external AI needed)
-    const response = generateClientResponse(message);
-    
-    res.json({ response });
-  } catch (error) {
-    console.error('Response generation error:', error);
-    res.status(500).json({ 
-      error: "I apologize, but I'm currently unable to process your request. Please schedule an appointment with our specialists at Meta Esthetic Thailand for a professional consultation."
-    });
-  }
-});
-
-// Serve React app for all other routes
-app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname, 'dist', 'index.html'));
-});
-
-app.listen(PORT, () => {
-  console.log(`Server running on port ${PORT}`);
-  console.log(`Environment: ${process.env.NODE_ENV || 'development'}`);
-  console.log(`OpenAI API Key available: ${!!process.env.OPENAI_API_KEY}`);
-}).on('error', (err) => {
-  console.error('Server failed to start:', err);
-  process.exit(1);
-});

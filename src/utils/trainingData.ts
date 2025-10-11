@@ -71,6 +71,19 @@ export const trainingData: TrainingData[] = [
     }
   },
   {
+    id: 'symptom-006',
+    category: 'symptom',
+    language: 'en',
+    title: 'Freckles and Pigmentation',
+    content: `Freckles are small, concentrated areas of melanin that appear on sun-exposed skin. At Meta Esthetic Thailand, we offer advanced treatments for freckle removal including laser therapy, chemical peels, and topical treatments. The number of treatments needed varies based on freckle depth, skin type, and individual response to treatment.`,
+    keywords: ['freckles', 'pigmentation', 'melanin', 'sun spots', 'age spots', 'skin discoloration', 'laser treatment', 'chemical peel'],
+    metadata: {
+      severity: 'low',
+      urgency: 'routine',
+      services: ['Laser therapy', 'Chemical peels', 'Topical treatments', 'Skin consultation']
+    }
+  },
+  {
     id: 'symptom-002',
     category: 'symptom',
     language: 'en',
@@ -98,6 +111,18 @@ export const trainingData: TrainingData[] = [
     }
   },
   {
+    id: 'treatment-008',
+    category: 'treatment',
+    language: 'en',
+    title: 'Freckle Removal Treatment',
+    content: `Freckle removal at Meta Esthetic Thailand typically requires 2-6 treatment sessions depending on freckle depth, skin type, and individual response. We use advanced laser therapy, chemical peels, and topical treatments. Most patients see significant improvement after 2-3 sessions, with complete removal often achieved within 4-6 sessions. Treatment intervals are usually 4-6 weeks apart.`,
+    keywords: ['freckle removal', 'laser therapy', 'chemical peels', 'pigmentation treatment', 'skin lightening'],
+    metadata: {
+      duration: '30-60 minutes per session',
+      services: ['Skin consultation', 'Laser treatment', 'Chemical peel', 'Follow-up care']
+    }
+  },
+  {
     id: 'treatment-002',
     category: 'treatment',
     language: 'en',
@@ -120,6 +145,17 @@ export const trainingData: TrainingData[] = [
     keywords: ['preparation', 'aesthetic treatment', 'consultation', 'medications', 'alcohol', 'smoking'],
     metadata: {
       services: ['Pre-treatment consultation', 'Treatment preparation']
+    }
+  },
+  {
+    id: 'faq-006',
+    category: 'faq',
+    language: 'en',
+    title: 'Freckle Removal Treatment Timeline',
+    content: `Freckle removal at Meta Esthetic Thailand typically requires 2-6 treatment sessions. Most patients see significant improvement after 2-3 sessions, with complete removal often achieved within 4-6 sessions. Treatment intervals are usually 4-6 weeks apart. The exact number of treatments depends on freckle depth, skin type, and individual response to treatment.`,
+    keywords: ['freckle removal timeline', 'treatment sessions', 'how many treatments', 'freckle removal process'],
+    metadata: {
+      services: ['Treatment planning', 'Progress monitoring', 'Follow-up care']
     }
   },
   {
