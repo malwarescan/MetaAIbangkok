@@ -13,7 +13,7 @@ const openai = new OpenAI({
 });
 
 // Helper function to generate AI response using OpenAI with medical knowledge
-const generateResponse = async (message, language) => {
+const generateResponse = async (message: string, language: string) => {
   // First, analyze symptoms using our medical knowledge base
   const symptomAnalysis = analyzeSymptoms(message);
   
@@ -111,7 +111,7 @@ Guidelines:
       messages: [
         {
           role: "system",
-          content: systemPrompts[language] || systemPrompts.en
+          content: systemPrompts[language as keyof typeof systemPrompts] || systemPrompts.en
         },
         {
           role: "user",
@@ -122,10 +122,10 @@ Guidelines:
       temperature: 0.3,
     });
 
-    return completion.choices[0]?.message?.content || errorMessages[language] || errorMessages.en;
+    return completion.choices[0]?.message?.content || errorMessages[language as keyof typeof errorMessages] || errorMessages.en;
   } catch (error) {
     console.error('OpenAI API error:', error);
-    return fallbackMessages[language] || fallbackMessages.en;
+    return fallbackMessages[language as keyof typeof fallbackMessages] || fallbackMessages.en;
   }
 };
 export function ChatInterface() {
@@ -194,14 +194,14 @@ export function ChatInterface() {
       setIsTyping(false);
     }
   };
-  const handleKeyDown = e => {
+  const handleKeyDown = (e: React.KeyboardEvent<HTMLTextAreaElement>) => {
     if (e.key === 'Enter' && !e.shiftKey) {
       e.preventDefault();
       handleSendMessage();
     }
   };
   const scrollToBottom = () => {
-    messagesEndRef.current?.scrollIntoView({
+    (messagesEndRef.current as unknown as HTMLElement)?.scrollIntoView({
       behavior: 'smooth'
     });
   };
@@ -233,7 +233,7 @@ export function ChatInterface() {
                         </span>
                       </div>
                       <p>{message.content}</p>
-                      {message.isAppointmentPrompt && <div className="mt-3 flex space-x-2">
+                      {(message as any).isAppointmentPrompt && <div className="mt-3 flex space-x-2">
                           <button onClick={() => setShowAppointment(true)} className="px-3 py-1 bg-pink-500 text-white text-sm rounded-full flex items-center">
                             <CalendarIcon size={14} className="mr-1" /> {t('chat.scheduleNow')}
                           </button>
@@ -263,7 +263,7 @@ export function ChatInterface() {
             </div>
             <div className="p-4 border-t border-gray-200 bg-white">
               <div className="flex items-center">
-                <textarea value={inputValue} onChange={e => setInputValue(e.target.value)} onKeyDown={handleKeyDown} placeholder={t('chat.placeholder')} className="flex-grow resize-none border border-gray-200 rounded-2xl p-3 focus:outline-none focus:ring-2 focus:ring-pink-500 focus:border-transparent" rows={1} />
+                <textarea value={inputValue} onChange={(e: React.ChangeEvent<HTMLTextAreaElement>) => setInputValue(e.target.value)} onKeyDown={handleKeyDown} placeholder={t('chat.placeholder')} className="flex-grow resize-none border border-gray-200 rounded-2xl p-3 focus:outline-none focus:ring-2 focus:ring-pink-500 focus:border-transparent" rows={1} />
                 <button onClick={handleSendMessage} disabled={inputValue.trim() === '' || isTyping} className={`ml-3 p-3 rounded-full ${inputValue.trim() === '' || isTyping ? 'bg-gray-200 text-gray-500' : 'bg-gradient-to-r from-pink-500 to-purple-500 text-white'} flex items-center justify-center`}>
                   <SendIcon size={18} />
                 </button>
