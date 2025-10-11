@@ -10,6 +10,8 @@
     "preview": "npx vite preview"
   },
   "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^5.1.0",
     "lucide-react": "0.522.0",
     "openai": "^6.3.0",
     "react": "^18.3.1",
