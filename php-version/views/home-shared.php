@@ -71,6 +71,61 @@
   </div>
 </section>
 
+<section id="faq" class="py-10 md:py-16">
+  <div class="max-w-7xl mx-auto px-4">
+    <div class="text-center mb-8 md:mb-12">
+      <h2 class="text-2xl md:text-3xl font-semibold text-gray-800 dark:text-white">Frequently Asked Questions</h2>
+      <p class="mt-3 text-gray-600 dark:text-neutral-400">Quick answers to common questions about Meta Esthetic AI</p>
+    </div>
+    
+    <div class="grid lg:grid-cols-2 gap-8 md:gap-10">
+      <!-- Doctor FAQs -->
+      <div>
+        <div class="mb-4">
+          <span class="inline-flex items-center rounded-full bg-white border border-black/10 px-3 py-1 text-xs text-black/70">For Doctors & Clinic Teams</span>
+          <h3 class="mt-3 text-lg md:text-xl font-semibold">Clinical & Operational</h3>
+        </div>
+        <?php 
+        $faqDoctors = [
+          ['q' => 'How hard is device integration?', 'a' => 'Most devices export CSV/USB or support simple APIs. We provide mapping templates and onboarding support. Typical setup is 1–2 weeks.'],
+          ['q' => 'Will AI override clinical judgment?', 'a' => 'Never. The AI proposes data-backed suggestions, but final decisions remain with the physician. You can disable suggestions per device.'],
+          ['q' => 'Can it generate EMR-ready notes?', 'a' => 'Yes. Procedure parameters and reactions are captured and summarized to EMR-ready notes, cutting charting time by 30–60%.'],
+          ['q' => 'What about privacy compliance?', 'a' => 'Data is encrypted at rest and in transit, stored regionally, and isolated per clinic. We support HIPAA, PDPA, PIPA, and GDPR.']
+        ];
+        $items = $faqDoctors; 
+        $id = 'home-doc-faq'; 
+        include __DIR__ . '/partials/faq_accordion.php'; 
+        ?>
+      </div>
+
+      <!-- Patient FAQs -->
+      <div>
+        <div class="mb-4">
+          <span class="inline-flex items-center rounded-full bg-white border border-black/10 px-3 py-1 text-xs text-black/70">For Patients</span>
+          <h3 class="mt-3 text-lg md:text-xl font-semibold">Care & Safety</h3>
+        </div>
+        <?php 
+        $faqPatients = [
+          ['q' => 'How does AI help choose treatments?', 'a' => 'It explains options in plain language, compares downtime and costs, and personalizes guidance to your skin type and goals.'],
+          ['q' => 'Is my personal data safe?', 'a' => 'Yes. Your data is encrypted and accessible only to your clinic. We follow strict privacy laws and do not sell personal data.'],
+          ['q' => 'Will I still meet a real doctor?', 'a' => 'Absolutely. The AI prepares questions and expectations, but your clinical plan is finalized by a licensed physician.'],
+          ['q' => 'Does it work on my phone?', 'a' => 'Yes. It\'s mobile-first and runs on any modern smartphone without installing an app.']
+        ];
+        $items = $faqPatients; 
+        $id = 'home-pt-faq'; 
+        include __DIR__ . '/partials/faq_accordion.php'; 
+        ?>
+      </div>
+    </div>
+
+    <div class="text-center mt-8 md:mt-12">
+      <a href="/<?= $langCode ?>/faq.php" class="hs-button inline-flex items-center px-5 md:px-6 py-2.5 md:py-3 rounded-2xl bg-me-core text-me-graphite font-medium shadow-me-soft hover:shadow-lg transition">
+        View All FAQs
+      </a>
+    </div>
+  </div>
+</section>
+
 <section id="demo" class="py-10 md:py-16">
   <div class="max-w-7xl mx-auto px-4">
     <div class="bg-white rounded-2xl border border-black/10 shadow-me-soft p-6 md:p-10 flex flex-col md:flex-row items-center justify-between gap-4 md:gap-6">
