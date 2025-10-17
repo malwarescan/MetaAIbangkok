@@ -37,7 +37,7 @@
   </div>
 
   <!-- Composer -->
-  <div class="max-w-4xl mx-auto shrink-0 p-3 sm:py-6">
+  <div class="max-w-4xl mx-auto p-3 sm:py-6">
     <!-- Mobile: Sidebar toggle -->
     <div class="lg:hidden flex justify-end mb-2 sm:mb-3">
       <button type="button" class="p-2 inline-flex items-center gap-x-2 text-gray-800 font-medium rounded-lg border-gray-200 bg-white shadow-2xs hover:bg-gray-50 focus:outline-hidden" aria-haspopup="dialog" aria-expanded="false" aria-controls="hs-application-sidebar" aria-label="Toggle navigation" data-hs-overlay='{"target": "#hs-application-sidebar"}'>
