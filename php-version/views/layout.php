@@ -45,17 +45,7 @@
         <a class="text-sm hover:opacity-80 transition <?= $langCode==='ko'?'font-semibold':'' ?>" href="<?= htmlspecialchars($localePaths['ko']) ?>">KR</a>
       </nav>
 
-      <!-- Language Rotator (Header) -->
-      <div id="hero-rotator"
-           class="w-full md:w-auto mt-1 md:mt-0 md:ml-6 px-2 text-[11px] sm:text-xs md:text-sm leading-tight text-black/70 tracking-tight text-center md:text-left overflow-hidden select-none">
-        <span id="rot-text"
-              class="inline-block transition-all duration-200 ease-in-out
-                     opacity-100 translate-y-0"
-              aria-live="polite">
-          <!-- Fallback text if JS disabled -->
-          Intelligent AI for Doctors and Patients
-        </span>
-      </div>
+      
     </div>
   </header>
 
@@ -81,83 +71,6 @@
     });
   </script>
   
-  <script>
-  (function () {
-    // Taglines in four languages (edit copy here anytime)
-    const phrases = [
-      {
-        lang: "en",
-        text:
-          "Intelligent AI for Doctors and Patients"
-      },
-      {
-        lang: "th",
-        text:
-          "เอไออัจฉริยะสำหรับแพทย์และผู้ป่วย"
-      },
-      {
-        lang: "ko",
-        text:
-          "의사와 환자를 위한 지능형 AI"
-      },
-      {
-        lang: "zh",
-        text:
-          "医生与患者的智能 AI"
-      }
-    ];
-
-    const startLang = "<?= isset($langCode) ? htmlspecialchars($langCode) : 'en' ?>";
-    let idx = Math.max(0, phrases.findIndex(p => p.lang === startLang));
-    const wrap = document.getElementById("hero-rotator");
-    const el = document.getElementById("rot-text");
-    if (!wrap || !el) return;
-
-    function setText(i) {
-      el.setAttribute("lang", phrases[i].lang);
-      el.textContent = phrases[i].text;
-    }
-
-    // Initial text
-    setText(idx);
-
-    let timer = null;
-    const DUR = 3500; // change every 3.5s
-    const FADE = 200; // fade transition ms (matches Tailwind classes)
-
-    function next() {
-      // fade out
-      el.classList.add("opacity-0", "translate-y-1");
-      setTimeout(() => {
-        idx = (idx + 1) % phrases.length;
-        setText(idx);
-        // fade in
-        el.classList.remove("opacity-0", "translate-y-1");
-      }, FADE);
-    }
-
-    function start() {
-      if (timer) return;
-      timer = setInterval(next, DUR);
-    }
-    function stop() {
-      if (!timer) return;
-      clearInterval(timer);
-      timer = null;
-    }
-
-    // Pause on hover/focus for readability
-    wrap.addEventListener("mouseenter", stop);
-    wrap.addEventListener("mouseleave", start);
-    wrap.addEventListener("focusin", stop);
-    wrap.addEventListener("focusout", start);
-
-    // Respect user reduced-motion preference
-    const mq = window.matchMedia("(prefers-reduced-motion: reduce)");
-    if (mq.matches) return; // don't auto-rotate
-    start();
-  })();
-
   // Hero Section Language Rotator
   (function () {
     const heroTitles = [
