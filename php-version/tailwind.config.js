@@ -26,25 +26,6 @@ module.exports = {
   },
   plugins: [
     require("@tailwindcss/forms"),
-    plugin(function ({ addUtilities }) {
-      addUtilities({
-        '.text-engraved': {
-          color: 'rgb(229 231 235)',
-          textShadow: '1px 1px 2px rgba(0,0,0,0.3), -1px -1px 2px rgba(255,255,255,0.7)',
-        },
-        '.text-embedded-dark': {
-          color: 'rgb(107 114 128)',
-          textShadow: 'inset 1px 1px 2px rgba(255,255,255,0.4), inset -1px -1px 2px rgba(0,0,0,0.4)',
-        },
-        // Apply letterpress effect to all descendants when used on a container
-        '.text-engraved-all, .text-engraved-all *': {
-          textShadow: '1px 1px 0 rgba(0,0,0,.18), -1px -1px 0 rgba(255,255,255,.75)'
-        },
-        '.text-embedded-all, .text-embedded-all *': {
-          textShadow: '1px 1px 0 rgba(0,0,0,.65), -1px -1px 0 rgba(255,255,255,.06)'
-        }
-      })
-    })
   ],
   safelist: [
     { pattern: /^hs-/ }, // Preline components
