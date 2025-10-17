@@ -55,7 +55,7 @@ dark:bg-neutral-900 dark:border-neutral-700" role="dialog" tabindex="-1" aria-la
 
 <!-- Content -->
 <div data-hero class="relative min-h-[72dvh] md:min-h-screen w-full lg:ps-64 pt-8 md:pt-12 bg-me-silver bg-[url('/assets/metaaisymbiote-beige.png')] bg-center bg-no-repeat bg-[length:48%_auto] sm:bg-[length:40%_auto] md:bg-[length:28%_auto] lg:bg-[length:18%_auto] flex flex-col" style="min-height: 72dvh;">
-  <div class="py-8 md:py-12 lg:py-16 pt-[22%] sm:pt-[18%] md:pt-[12%] lg:pt-[8%] flex-1">
+  <div class="flex-1 flex items-center justify-center py-6 md:py-10 lg:py-12">
     <!-- Title (Logo only) -->
     <div class="max-w-4xl px-4 sm:px-6 lg:px-8 mx-auto text-center">
       <div class="flex justify-center items-center">
@@ -70,7 +70,7 @@ dark:bg-neutral-900 dark:border-neutral-700" role="dialog" tabindex="-1" aria-la
   </div>
 
   <!-- Composer -->
-  <div class="max-w-4xl mx-auto mt-auto p-3 sm:py-6">
+  <div class="max-w-4xl mx-auto mt-auto shrink-0 p-3 sm:py-6">
     <div class="lg:hidden flex justify-end mb-2 sm:mb-3">
       <button type="button" class="p-2 inline-flex items-center gap-x-2 text-xs font-medium rounded-lg border border-gray-200 bg-white text-gray-800 shadow-2xs hover:bg-gray-50 focus:outline-hidden focus:bg-gray-50 dark:bg-neutral-900 dark:border-neutral-700 dark:text-white dark:hover:bg-neutral-800 dark:focus:bg-neutral-800" aria-haspopup="dialog" aria-expanded="false" aria-controls="hs-application-sidebar" aria-label="Toggle navigation" data-hs-overlay="{\"target\": \"#hs-application-sidebar\"}">
         <svg class="shrink-0 size-3.5" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" x2="21" y1="6" y2="6"/><line x1="3" x2="21" y1="12" y2="12"/><line x1="3" x2="21" y1="18" y2="18"/></svg>
