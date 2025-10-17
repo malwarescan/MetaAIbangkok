@@ -248,6 +248,7 @@
     document.addEventListener('DOMContentLoaded', function() {
     const chatInput = document.getElementById('chat-input');
     const chatMessages = document.getElementById('chat-messages');
+    const sendBtn = document.getElementById('send-btn');
     const uploadBtn = document.getElementById('upload-btn');
     const micBtn = document.getElementById('mic-btn');
     
@@ -259,6 +260,12 @@
           sendMessage();
         }
       });
+
+      if (sendBtn) {
+        sendBtn.addEventListener('click', function() {
+          sendMessage();
+        });
+      }
       
       // Handle click on buttons
       if (uploadBtn) {

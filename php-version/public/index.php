@@ -6,7 +6,7 @@ $title = $i18n['title'];
 $desc  = $i18n['desc'];
 
 ob_start();
-include __DIR__ . '/../views/home-shared.php';
+include __DIR__ . '/../views/partials/chat_layout.php';
 $page = ob_get_clean();
 
 // Localized JSON-LD
