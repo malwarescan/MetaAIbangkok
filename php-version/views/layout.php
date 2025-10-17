@@ -70,7 +70,7 @@
     </div>
   </footer>
 
-  <script src="/node_modules/preline/dist/preline.js"></script>
+  <script src="/node_modules/preline/dist/preline.js" defer></script>
   
   <!-- Tailwind arbitrary class keeper + inline fallback for hero min-height -->
   <div class="hidden min-h-[72dvh] md:min-h-screen"></div>
