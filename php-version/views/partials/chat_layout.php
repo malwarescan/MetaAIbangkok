@@ -54,8 +54,8 @@ dark:bg-neutral-900 dark:border-neutral-700" role="dialog" tabindex="-1" aria-la
 <!-- End Sidebar -->
 
 <!-- Content -->
-<div data-hero class="relative h-[100dvh] md:h-screen w-full lg:ps-64 pt-6 md:pt-10 bg-me-silver bg-[url('/assets/metaaisymbiote-beige.png')] bg-center bg-no-repeat bg-[length:48%_auto] sm:bg-[length:40%_auto] md:bg-[length:28%_auto] lg:bg-[length:18%_auto] grid grid-rows-[1fr_auto] overflow-hidden">
-  <div class="row-start-1 flex items-center justify-center py-4 md:py-8 lg:py-10 min-h-0">
+<div data-hero class="relative h-[100dvh] md:h-screen w-full lg:ps-64 pt-0 md:pt-0 bg-me-silver bg-[url('/assets/metaaisymbiote-beige.png')] bg-center bg-no-repeat bg-[length:48%_auto] sm:bg-[length:40%_auto] md:bg-[length:28%_auto] lg:bg-[length:18%_auto] grid grid-rows-[1fr_auto] overflow-hidden">
+  <div class="row-start-1 flex items-center justify-center py-2 md:py-4 lg:py-6 min-h-0">
     <!-- Title (Logo only) -->
     <div class="max-w-4xl px-4 sm:px-6 lg:px-8 mx-auto text-center">
       <div class="flex justify-center items-center">
