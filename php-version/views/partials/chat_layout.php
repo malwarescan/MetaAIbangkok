@@ -1,5 +1,5 @@
 <!-- Content -->
-<div class="relative h-screen w-full">
+<div class="relative h-screen w-full bg-white">
   <div class="py-10 lg:py-14">
     <!-- Title / Hero -->
     <div data-hero class="max-w-4xl px-4 sm:px-6 lg:px-8 mx-auto text-center">
