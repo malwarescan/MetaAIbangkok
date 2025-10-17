@@ -3,7 +3,7 @@ return [
   'lang' => 'en',
   'title' => 'Meta Esthetic — Clinic Intelligence In Your Palm',
   'desc'  => 'Dual AI for clients and doctors — precise, empathetic, clinically aware.',
-  'hero_h1' => 'meta(ai) , intelligence for Doctors / Patient symbiosis',
+  'hero_h1' => 'meta(ai) , patient/doctor symbiote',
   'hero_p'  => 'Dual intelligence for clients and doctors — precise, empathetic, clinically aware.',
   'cta_primary' => 'Book a Demo',
   'cta_secondary'=> 'Learn More',
