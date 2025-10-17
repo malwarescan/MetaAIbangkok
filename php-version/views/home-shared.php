@@ -1,7 +1,7 @@
 <!-- Content -->
-<div data-hero class="min-h-[72dvh] md:min-h-screen flex flex-col pb-6">
+<div data-hero class="min-h-[72dvh] md:min-h-screen flex flex-col justify-center pb-4 md:pb-6">
   <div class="h-full flex flex-col justify-center">
-    <div class="mt-6 md:mt-12 max-w-4xl w-full text-center mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="mt-0 md:mt-2 max-w-4xl w-full text-center mx-auto px-4 sm:px-6 lg:px-8">
       <div class="mb-4 flex justify-center items-center">
         <!-- Logo -->
         <a class="flex-none rounded-md text-xl inline-block font-semibold focus:outline-hidden focus:opacity-80" href="/" aria-label="Meta Esthetic">
@@ -77,12 +77,12 @@
 
 <section id="faq" class="py-10 md:py-16">
   <div class="max-w-7xl mx-auto px-6 md:px-8">
-    <div class="text-center mb-12 md:mb-16">
+    <div class="text-center mb-6 md:mb-10">
       <h2 class="text-2xl md:text-3xl font-semibold text-gray-800 dark:text-white">Frequently Asked Questions</h2>
       <p class="mt-4 text-gray-600 dark:text-neutral-400">Quick answers to common questions about Meta Esthetic AI</p>
     </div>
     
-    <div class="grid lg:grid-cols-2 gap-12 md:gap-16">
+    <div class="grid lg:grid-cols-2 gap-6 md:gap-10">
       <!-- Doctor FAQs -->
       <div>
         <div class="mb-6">
@@ -122,7 +122,7 @@
       </div>
     </div>
 
-    <div class="text-center mt-12 md:mt-16">
+    <div class="text-center mt-6 md:mt-12">
       <a href="/<?= $langCode ?>/faq.php" class="hs-button inline-flex items-center px-6 md:px-8 py-3 md:py-4 rounded-2xl bg-me-core text-me-graphite font-medium shadow-me-soft hover:shadow-lg transition">
         View All FAQs
       </a>
