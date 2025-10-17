@@ -1,6 +1,6 @@
 <!-- Content -->
-<div class="relative h-screen w-full bg-white">
-  <div class="py-10 lg:py-14">
+<div class="relative h-screen w-full bg-white overflow-hidden flex flex-col">
+  <div class="flex-1 flex flex-col py-6 lg:py-8 min-h-0">
     <!-- Title / Hero -->
     <div data-hero class="max-w-4xl px-4 sm:px-6 lg:px-8 mx-auto text-center">
       <img src="/assets/chat-ui-logo-small.png" alt="Meta Esthetic" class="mx-auto mb-3 h-10 sm:h-12 w-auto select-none" loading="lazy">
@@ -14,11 +14,12 @@
     <!-- End Title -->
 
     <!-- Chat Messages -->
-    <ul id="chat-messages" class="mt-16 space-y-5 max-w-4xl px-4 sm:px-6 lg:px-8 mx-auto"></ul>
+    <ul id="chat-messages" class="mt-4 space-y-5 max-w-4xl px-4 sm:px-6 lg:px-8 mx-auto flex-1 overflow-y-auto min-h-0"></ul>
   </div>
 
   <!-- Composer -->
-  <div class="max-w-4xl mx-auto sticky bottom-0 z-10 p-3 sm:py-6">
+  <div class="absolute bottom-0 left-0 right-0 z-10 p-3 sm:py-6">
+    <div class="max-w-4xl mx-auto">
 
     <div class="relative">
       <textarea id="chat-input" class="p-3 sm:p-4 pb-12 sm:pb-12 block w-full bg-gray-100 border-gray-200 rounded-lg sm:text-sm focus:border-blue-500 focus:ring-blue-500" placeholder="Ask me anything..."></textarea>
