@@ -3,7 +3,7 @@ return [
   'lang' => 'zh',
   'title' => 'Meta Esthetic — 美容诊所的智能 AI',
   'desc'  => '为患者和医生提供精准、贴心、临床感知的AI。',
-  'hero_h1' => '美容诊所的智能 AI',
+  'hero_h1' => '医生与患者的智能 AI',
   'hero_p'  => '为患者和医生提供双重智能 — 精准、贴心、临床感知。',
   'cta_primary' => '预约演示',
   'cta_secondary'=> '了解更多',

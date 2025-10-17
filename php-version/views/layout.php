@@ -54,7 +54,7 @@
                      opacity-100 translate-y-0"
               aria-live="polite">
           <!-- Fallback text if JS disabled -->
-          Intelligent AI for Esthetic Clinics
+          Intelligent AI for Doctors and Patients
         </span>
       </div>
     </div>
@@ -79,22 +79,22 @@
       {
         lang: "en",
         text:
-          "Intelligent AI for Esthetic Clinics"
+          "Intelligent AI for Doctors and Patients"
       },
       {
         lang: "th",
         text:
-          "เอไออัจฉริยะสำหรับคลินิกความงาม"
+          "เอไออัจฉริยะสำหรับแพทย์และผู้ป่วย"
       },
       {
         lang: "ko",
         text:
-          "미용의학 클리닉을 위한 지능형 AI"
+          "의사와 환자를 위한 지능형 AI"
       },
       {
         lang: "zh",
         text:
-          "美容诊所的智能 AI"
+          "医生与患者的智能 AI"
       }
     ];
 
