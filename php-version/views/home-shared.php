@@ -15,10 +15,14 @@
       </div>
 
       <h1 class="text-3xl font-bold text-gray-800 sm:text-4xl dark:text-white">
-        <?= htmlspecialchars($i18n['hero_h1']) ?>
+        <span id="hero-title-rotator" class="inline-block transition-all duration-500 ease-in-out opacity-100 translate-y-0" aria-live="polite">
+          <?= htmlspecialchars($i18n['hero_h1']) ?>
+        </span>
       </h1>
       <p class="mt-3 text-gray-600 dark:text-neutral-400">
-        <?= htmlspecialchars($i18n['hero_p']) ?>
+        <span id="hero-subtitle-rotator" class="inline-block transition-all duration-500 ease-in-out opacity-100 translate-y-0" aria-live="polite">
+          <?= htmlspecialchars($i18n['hero_p']) ?>
+        </span>
       </p>
     </div>
 

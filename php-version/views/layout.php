@@ -148,6 +148,90 @@
     if (mq.matches) return; // don't auto-rotate
     start();
   })();
+
+  // Hero Section Language Rotator
+  (function () {
+    const heroTitles = [
+      {
+        lang: "en",
+        title: "Intelligent AI for Doctors and Patients",
+        subtitle: "Dual intelligence for clients and doctors — precise, empathetic, and clinically aware."
+      },
+      {
+        lang: "th",
+        title: "เอไออัจฉริยะสำหรับแพทย์และผู้ป่วย",
+        subtitle: "ระบบคู่ขนานสำหรับผู้รับบริการและแพทย์ — ทั้งแม่นยำ อบอุ่น และเข้าใจการรักษา"
+      },
+      {
+        lang: "ko",
+        title: "의사와 환자를 위한 지능형 AI",
+        subtitle: "환자와 의사를 아우르는 듀얼 인텔리전스 — 정밀함과 공감을 동시에"
+      },
+      {
+        lang: "zh",
+        title: "医生与患者的智能 AI",
+        subtitle: "为患者和医生提供双重智能 — 精准、贴心、临床感知"
+      }
+    ];
+
+    const startLang = "<?= isset($langCode) ? htmlspecialchars($langCode) : 'en' ?>";
+    let idx = Math.max(0, heroTitles.findIndex(p => p.lang === startLang));
+    const titleEl = document.getElementById("hero-title-rotator");
+    const subtitleEl = document.getElementById("hero-subtitle-rotator");
+    
+    if (!titleEl || !subtitleEl) return;
+
+    function setHeroText(i) {
+      titleEl.setAttribute("lang", heroTitles[i].lang);
+      titleEl.textContent = heroTitles[i].title;
+      subtitleEl.setAttribute("lang", heroTitles[i].lang);
+      subtitleEl.textContent = heroTitles[i].subtitle;
+    }
+
+    // Initial text
+    setHeroText(idx);
+
+    let timer = null;
+    const DUR = 4000; // change every 4s
+    const FADE = 300; // fade transition ms
+
+    function next() {
+      // fade out
+      titleEl.classList.add("opacity-0", "translate-y-2");
+      subtitleEl.classList.add("opacity-0", "translate-y-2");
+      setTimeout(() => {
+        idx = (idx + 1) % heroTitles.length;
+        setHeroText(idx);
+        // fade in
+        titleEl.classList.remove("opacity-0", "translate-y-2");
+        subtitleEl.classList.remove("opacity-0", "translate-y-2");
+      }, FADE);
+    }
+
+    function start() {
+      if (timer) return;
+      timer = setInterval(next, DUR);
+    }
+    function stop() {
+      if (!timer) return;
+      clearInterval(timer);
+      timer = null;
+    }
+
+    // Pause on hover/focus for readability
+    const heroSection = document.querySelector('.h-screen');
+    if (heroSection) {
+      heroSection.addEventListener("mouseenter", stop);
+      heroSection.addEventListener("mouseleave", start);
+      heroSection.addEventListener("focusin", stop);
+      heroSection.addEventListener("focusout", start);
+    }
+
+    // Respect user reduced-motion preference
+    const mq = window.matchMedia("(prefers-reduced-motion: reduce)");
+    if (mq.matches) return; // don't auto-rotate
+    start();
+  })();
   </script>
 </body>
 </html>
