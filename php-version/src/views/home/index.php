@@ -4,7 +4,7 @@
     <div class="absolute inset-0 bg-gradient-to-br from-pink-50 via-white to-purple-50"></div>
     
     <!-- Content -->
-    <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 lg:py-32">
+    <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 md:py-16 lg:py-32">
         <div class="text-center">
             <!-- Badge -->
             <div class="inline-flex items-center gap-x-2 bg-pink-100 text-pink-800 text-sm font-medium px-4 py-2 rounded-full mb-8">
@@ -64,7 +64,7 @@
 </section>
 
 <!-- Features Section -->
-<section class="py-24 bg-white">
+<section class="py-10 md:py-16 bg-white">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="text-center mb-16">
             <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
@@ -113,7 +113,7 @@
 </section>
 
 <!-- Chat Interface -->
-<section class="py-24 bg-gray-50">
+<section class="py-10 md:py-16 bg-gray-50">
     <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="text-center mb-12">
             <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">

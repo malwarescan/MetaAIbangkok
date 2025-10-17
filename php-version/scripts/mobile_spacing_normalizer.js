@@ -21,6 +21,18 @@ const DOWNMAP = {
   "gap-6": ["gap-4", "md:gap-6"],
   "space-y-16": ["space-y-10", "md:space-y-16"],
   "space-y-12": ["space-y-8", "md:space-y-12"],
+  // Extended oversized classes
+  "py-24": ["py-10", "md:py-16"],
+  "pt-24": ["pt-12", "md:pt-20"],
+  "pb-24": ["pb-10", "md:pb-16"],
+  "my-24": ["my-8", "md:my-14"],
+  "mt-24": ["mt-8", "md:mt-14"],
+  "mb-24": ["mb-8", "md:mb-14"],
+  "gap-12": ["gap-4", "md:gap-8"],
+  "gap-14": ["gap-5", "md:gap-10"],
+  "py-28": ["py-12", "md:py-20"],
+  "py-32": ["py-12", "md:py-24"],
+  "py-36": ["py-12", "md:py-28"],
 };
 
 const GLOBS = ["**/*.{php,html,js,ts}", "!node_modules/**", "!public/**"];

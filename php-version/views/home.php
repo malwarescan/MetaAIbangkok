@@ -1,6 +1,6 @@
 <?php ob_start(); ?>
 <section class="relative overflow-hidden bg-gradient-to-b from-white via-white to-me-silver">
-  <div class="max-w-7xl mx-auto px-6 py-24">
+  <div class="max-w-7xl mx-auto px-6 py-10 md:py-16">
     <div class="text-center">
       <div class="mb-8">
         <p class="text-sm text-black/60">Clinic Intelligence In Your Palm</p>
@@ -73,7 +73,7 @@
   </div>
 </section>
 
-<section id="learn" class="py-24">
+<section id="learn" class="py-10 md:py-16">
   <div class="max-w-7xl mx-auto px-6">
     <!-- Preline Tabs -->
     <div class="max-w-4xl mx-auto">
@@ -161,7 +161,7 @@
   </div>
 </section>
 
-<section id="demo" class="py-24">
+<section id="demo" class="py-10 md:py-16">
   <div class="max-w-7xl mx-auto px-6">
     <div class="bg-white rounded-2xl border border-black/10 shadow-me-soft p-12 flex flex-col md:flex-row items-center justify-between gap-4 md:gap-8">
       <div>
