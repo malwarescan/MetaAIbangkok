@@ -58,6 +58,9 @@ dark:bg-neutral-900 dark:border-neutral-700" role="dialog" tabindex="-1" aria-la
   <div class="py-8 md:py-12 lg:py-16 pt-[22%] sm:pt-[18%] md:pt-[12%] lg:pt-[8%]">
     <!-- Title -->
     <div class="max-w-4xl px-4 sm:px-6 lg:px-8 mx-auto text-center">
+      <div class="mb-4 flex justify-center items-center">
+        <img src="/assets/metaaisymbiote.png" alt="meta(ai) symbiote logo" class="h-12 sm:h-14">
+      </div>
       <h1 class="text-4xl sm:text-5xl font-semibold text-gray-800 dark:text-white">
         <span id="hero-title-rotator" class="block min-h-[3.75rem] md:min-h-[5rem] transition-all duration-200 ease-in-out opacity-100 translate-y-0" aria-live="polite">
           <?= htmlspecialchars($i18n['hero_h1']) ?>
