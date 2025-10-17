@@ -1,5 +1,5 @@
 <!-- Content -->
-<div class="relative h-screen w-full bg-[url('/assets/chat-bg.png')] bg-center bg-no-repeat bg-[length:520px_auto]">
+<div class="relative h-screen w-full">
   <div class="py-10 lg:py-14">
     <!-- Title / Hero -->
     <div data-hero class="max-w-4xl px-4 sm:px-6 lg:px-8 mx-auto text-center">
