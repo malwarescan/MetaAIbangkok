@@ -12,7 +12,11 @@
     "build:css": "tailwindcss -i ./assets/css/app.css -o ./public/css/app.css --minify",
     "purge": "purgecss --config scripts/purgecss.config.cjs -o ./public/css/",
     "audit:classes": "node scripts/class_audit_fix.js",
-    "fix:all": "npm run audit:classes && npm run prettier && npm run stylelint && npm run build:css && npm run purge"
+    "audit:env": "node scripts/env_sanity_check.js",
+    "audit:preline": "node scripts/preline_contract_check.js",
+    "audit:layout": "node scripts/layout_stack_audit.js",
+    "audit:diff": "node scripts/dom_attr_diff.js",
+    "fix:all": "npm run audit:env && npm run audit:classes && npm run prettier && npm run stylelint && npm run build:css && npm run purge && npm run audit:preline && npm run audit:layout && npm run audit:diff"
   },
   "keywords": [],
   "author": "",

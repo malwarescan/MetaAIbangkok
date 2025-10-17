@@ -1,0 +1,4 @@
+- ✅ Single tailwindcss installation.
+- ✅ Preline runtime present.
+- ✅ Tailwind config present.
+- ✅ preline.js included in layout.

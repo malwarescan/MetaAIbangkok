@@ -22,7 +22,7 @@
 <div class="relative h-screen w-full lg:ps-64 pt-14 md:pt-16 overflow-hidden flex flex-col">
   <div class="flex-1 flex flex-col py-4 lg:py-6">
     <!-- Title / Hero -->
-    <div data-hero class="max-w-4xl px-4 sm:px-6 lg:px-8 mx-auto text-center pt-[18%] sm:pt-[12%] md:pt-[6%] lg:pt-[4%]">
+    <div data-hero class="max-w-4xl pt-[18%] sm:px-6 lg:px-8 mx-auto text-center sm:pt-[12%] md:pt-[6%] lg:pt-[4%]">
       <h1 class="text-gray-800 font-bold sm:text-4xl">
         <span class="inline-block">Intelligent AI for Doctors and Patients</span>
       </h1>
