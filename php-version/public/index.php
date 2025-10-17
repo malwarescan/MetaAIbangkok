@@ -9,7 +9,7 @@
   $startDiagnosis  = "Start AI Consultation";
 
   ob_start();
-  include __DIR__ . "/../src/views/home/index.php"; // chat UI content
+  include __DIR__ . "/../views/partials/chat_layout.php"; // Preline chat layout as homepage
   $content = ob_get_clean();
   include __DIR__ . "/../views/layout.php";
 ?>
