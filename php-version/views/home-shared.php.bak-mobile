@@ -1,7 +1,7 @@
 <?php ob_start(); ?>
 <section class="relative overflow-hidden bg-gradient-to-b from-white via-white to-me-silver">
   <div class="max-w-7xl mx-auto px-4 pt-12 pb-10 md:pt-20 md:pb-16">
-    <div class="grid lg:grid-cols-2 gap-4 md:gap-8 md:gap-10 items-center">
+    <div class="grid lg:grid-cols-2 gap-8 md:gap-10 items-center">
       <div>
         <div class="flex items-center gap-3 mb-6">
           <?php include __DIR__ . "/partials/logo-meta-esthetic.svg.php"; ?>

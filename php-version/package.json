@@ -12,7 +12,8 @@
     "build:css": "tailwindcss -i ./assets/css/app.css -o ./public/css/app.css --minify",
     "purge": "purgecss --config scripts/purgecss.config.cjs -o ./public/css/",
     "audit:classes": "node scripts/class_audit_fix.js",
-    "fix:all": "npm run audit:classes && npm run prettier && npm run eslint && npm run stylelint && npm run build:css && npm run purge"
+    "fix:all": "npm run audit:classes && npm run prettier && npm run eslint && npm run stylelint && npm run build:css && npm run purge",
+    "mobile:refactor": "node scripts/mobile_spacing_normalizer.js && npm run build && purgecss --config scripts/purgecss.config.cjs -o ./public/css/"
   },
   "keywords": [],
   "author": "",

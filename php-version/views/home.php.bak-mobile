@@ -13,10 +13,10 @@
       </p>
       
       <!-- Treatment Consultation Form -->
-      <div class="bg-white rounded-2xl border border-black/10 shadow-me-subtle p-6 md:p-8 mb-12 max-w-2xl mx-auto">
+      <div class="bg-white rounded-2xl border border-black/10 shadow-me-subtle p-8 mb-12 max-w-2xl mx-auto">
         <h3 class="text-xl font-semibold mb-6">Get Your Personalized Consultation</h3>
         <form class="space-y-6">
-          <div class="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div>
               <label class="block text-sm font-medium mb-3 text-gray-800">Treatment You're Seeking</label>
               <select class="py-4 px-6 block w-full border-gray-200 rounded-lg text-sm focus:border-me-core focus:ring-me-core disabled:opacity-50 disabled:pointer-events-none">
@@ -40,7 +40,7 @@
         </form>
       </div>
       
-      <div class="flex items-center justify-center gap-4 md:gap-6 mb-12">
+      <div class="flex items-center justify-center gap-6 mb-12">
         <a href="#learn" class="inline-flex items-center px-6 py-4 rounded-2xl bg-white text-me-graphite shadow-me-subtle border border-black/10 hover:shadow-md transition">
           Learn More
         </a>
@@ -101,9 +101,9 @@
           </li>
         </ul>
 
-        <div class="mt-4 md:mt-6 lg:mt-0">
+        <div class="mt-6 lg:mt-0">
           <div id="tabs-with-icons-1" role="tabpanel" aria-labelledby="tabs-with-icons-item-1">
-            <div class="bg-white rounded-2xl border border-black/10 shadow-me-subtle p-6 md:p-10">
+            <div class="bg-white rounded-2xl border border-black/10 shadow-me-subtle p-10">
               <div class="flex items-center gap-4 mb-6">
                 <h2 class="text-2xl font-semibold">Client-Facing AI</h2>
                 <span class="hs-badge hs-badge-sm hs-badge-primary">Popular</span>
@@ -130,7 +130,7 @@
           </div>
 
           <div id="tabs-with-icons-2" role="tabpanel" aria-labelledby="tabs-with-icons-item-2" class="hidden">
-            <div class="bg-white rounded-2xl border border-black/10 shadow-me-subtle p-6 md:p-10">
+            <div class="bg-white rounded-2xl border border-black/10 shadow-me-subtle p-10">
               <div class="flex items-center gap-4 mb-6">
                 <h2 class="text-2xl font-semibold">Doctor-Facing AI</h2>
                 <span class="hs-badge hs-badge-sm hs-badge-success">Clinical</span>
@@ -163,7 +163,7 @@
 
 <section id="demo" class="py-24">
   <div class="max-w-7xl mx-auto px-6">
-    <div class="bg-white rounded-2xl border border-black/10 shadow-me-soft p-12 flex flex-col md:flex-row items-center justify-between gap-4 md:gap-8">
+    <div class="bg-white rounded-2xl border border-black/10 shadow-me-soft p-12 flex flex-col md:flex-row items-center justify-between gap-8">
       <div>
         <h3 class="text-3xl font-semibold mb-4">Bring Meta Esthetic to your clinic</h3>
         <p class="text-lg text-black/70 leading-relaxed">Precision meets beauty — intelligently.</p>
@@ -196,7 +196,7 @@
           Get personalized pricing for Meta Esthetic AI solutions tailored to your clinic's needs.
         </p>
         <form class="space-y-6">
-          <div class="grid gap-4 md:gap-6">
+          <div class="grid gap-6">
             <div>
               <label class="block text-sm font-medium mb-3 text-gray-800">Clinic Name</label>
               <input type="text" class="py-4 px-6 block w-full border-gray-200 rounded-lg text-sm focus:border-me-core focus:ring-me-core disabled:opacity-50 disabled:pointer-events-none" placeholder="Enter clinic name">

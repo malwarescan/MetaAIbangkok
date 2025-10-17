@@ -37,10 +37,10 @@
 </head>
 <body class="min-h-full bg-me-silver text-me-graphite antialiased [font-family:Inter,ui-sans-serif,system-ui]">
   <header class="sticky top-0 z-50 bg-white/80 backdrop-blur border-b border-black/5">
-    <div class="max-w-7xl mx-auto px-4 py-3 flex items-center justify-between">
+    <div class="max-w-7xl mx-auto px-4 py-2 md:py-3 flex items-center justify-between">
       <a href="/" class="flex items-center gap-3">
         <?php include __DIR__ . "/partials/logo-meta-esthetic.svg.php"; ?>
-        <span class="text-lg font-semibold tracking-tight">Meta Esthetic</span>
+        <span class="text-base md:text-lg font-semibold tracking-tight">Meta Esthetic</span>
       </a>
 
       <!-- Language switch -->
@@ -56,7 +56,7 @@
     </div>
   </header>
 
-  <main>
+  <main class="space-y-10 md:space-y-16">
     <?= $content ?? '' ?>
   </main>
 
