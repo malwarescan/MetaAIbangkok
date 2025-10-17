@@ -48,12 +48,12 @@ dark:bg-neutral-900 dark:border-neutral-700" role="dialog" tabindex="-1" aria-la
     <!-- Title -->
     <div class="max-w-4xl px-4 sm:px-6 lg:px-8 mx-auto text-center">
       <h1 class="text-3xl font-bold text-gray-800 sm:text-4xl dark:text-white">
-        <span id="hero-title-rotator" class="inline-block transition-all duration-200 ease-in-out opacity-100 translate-y-0" aria-live="polite">
+        <span id="hero-title-rotator" class="block min-h-[3.75rem] md:min-h-[5rem] transition-all duration-200 ease-in-out opacity-100 translate-y-0" aria-live="polite">
           <?= htmlspecialchars($i18n['hero_h1']) ?>
         </span>
       </h1>
       <p class="mt-3 text-gray-600 dark:text-neutral-400">
-        <span id="hero-subtitle-rotator" class="inline-block transition-all duration-200 ease-in-out opacity-100 translate-y-0" aria-live="polite">
+        <span id="hero-subtitle-rotator" class="block min-h-[2.25rem] md:min-h-[2.75rem] transition-all duration-200 ease-in-out opacity-100 translate-y-0" aria-live="polite">
           <?= htmlspecialchars($i18n['hero_p']) ?>
         </span>
       </p>
