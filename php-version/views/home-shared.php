@@ -1,40 +1,50 @@
 <?php ob_start(); ?>
-<section class="relative overflow-hidden bg-gradient-to-b from-white via-white to-me-silver">
-  <div class="max-w-7xl mx-auto px-4 pt-12 pb-10 md:pt-20 md:pb-16">
-    <div class="grid lg:grid-cols-2 gap-4 md:gap-8 md:gap-10 items-center">
-      <div>
-        <div class="flex items-center gap-3 mb-6">
+<!-- Content -->
+<div class="h-screen flex flex-col pb-6">
+  <div class="h-full flex flex-col justify-center">
+    <div class="-mt-20 max-w-4xl w-full text-center mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="mb-4 flex justify-center items-center">
+        <!-- Logo -->
+        <a class="flex-none rounded-md text-xl inline-block font-semibold focus:outline-hidden focus:opacity-80" href="/" aria-label="Meta Esthetic">
           <?php include __DIR__ . "/partials/logo-meta-esthetic.svg.php"; ?>
-          <p class="text-xs md:text-sm text-black/60">Clinic Intelligence In Your Palm</p>
-        </div>
-        <h1 class="text-3xl md:text-5xl font-semibold tracking-tight">
-          <?= htmlspecialchars($i18n['hero_h1']) ?>
-        </h1>
-        <p class="mt-3 md:mt-5 text-base md:text-lg text-black/70">
-          <?= htmlspecialchars($i18n['hero_p']) ?>
-        </p>
-        <div class="mt-6 md:mt-8 flex items-center gap-3 md:gap-4">
-          <a href="#demo" class="hs-button inline-flex items-center px-4 md:px-5 py-2.5 md:py-3 rounded-2xl bg-me-core text-me-graphite font-medium shadow-me-soft hover:shadow-lg transition">
-            <?= htmlspecialchars($i18n['cta_primary']) ?>
-          </a>
-          <a href="#learn" class="inline-flex items-center px-4 md:px-5 py-2.5 md:py-3 rounded-2xl bg-white text-me-graphite shadow-me-subtle border border-black/10 hover:shadow-md transition">
-            <?= htmlspecialchars($i18n['cta_secondary']) ?>
-          </a>
+        </a>
+        <!-- End Logo -->
+
+        <div class="ms-2">
+          <span class="text-lg font-semibold tracking-tight text-me-graphite">Meta Esthetic</span>
         </div>
       </div>
 
+      <h1 class="text-3xl font-bold text-gray-800 sm:text-4xl dark:text-white">
+        <?= htmlspecialchars($i18n['hero_h1']) ?>
+      </h1>
+      <p class="mt-3 text-gray-600 dark:text-neutral-400">
+        <?= htmlspecialchars($i18n['hero_p']) ?>
+      </p>
+    </div>
+
+    <!-- Search -->
+    <div class="mt-10 max-w-2xl w-full mx-auto px-4 sm:px-6 lg:px-8">
       <div class="relative">
-        <div class="aspect-[4/3] rounded-xl md:rounded-2xl bg-white shadow-me-soft border border-black/5 grid place-items-center">
-          <div class="relative">
-            <div class="w-40 h-40 md:w-52 md:h-52 rounded-full bg-me-core/30 blur-3xl absolute -left-6 md:-left-8 -top-5 md:-top-6"></div>
-            <div class="w-40 h-40 md:w-52 md:h-52 rounded-full bg-me-core/30 blur-3xl absolute left-10 md:left-12 -top-1 md:-top-2"></div>
-            <?php include __DIR__ . "/partials/logo-meta-esthetic.svg.php"; ?>
-          </div>
+        <input type="text" class="p-3 sm:p-4 block w-full border-gray-200 rounded-full sm:text-sm focus:border-me-core focus:ring-me-core disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-900 dark:border-neutral-700 dark:text-neutral-400 dark:placeholder-neutral-500 dark:focus:ring-neutral-600" placeholder="Ask me anything...">
+        <div class="absolute top-1/2 end-2 -translate-y-1/2">
+          <button type="button" class="size-10 inline-flex justify-center items-center gap-x-2 text-sm font-semibold rounded-full border border-transparent text-gray-500 hover:text-gray-800 focus:outline-hidden focus:text-gray-800 disabled:opacity-50 disabled:pointer-events-none dark:text-neutral-400 dark:hover:text-white dark:focus:text-white">
+            <svg class="shrink-0 size-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 14.899A7 7 0 1 1 15.71 8h1.79a4.5 4.5 0 0 1 2.5 8.242"/><path d="M12 12v9"/><path d="m16 16-4-4-4 4"/></svg>
+          </button>
+          <button type="button" class="size-10 inline-flex justify-center items-center gap-x-2 text-sm font-semibold rounded-full border border-transparent text-gray-500 hover:text-gray-800 focus:outline-hidden focus:text-gray-800 bg-gray-100 disabled:opacity-50 disabled:pointer-events-none dark:text-neutral-400 dark:bg-neutral-800 dark:hover:text-white dark:focus:text-white">
+            <svg class="shrink-0 size-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3Z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" x2="12" y1="19" y2="22"/></svg>
+          </button>
         </div>
       </div>
     </div>
+    <!-- End Search -->
   </div>
-</section>
+
+  <footer class="mt-auto max-w-4xl text-center mx-auto px-4 sm:px-6 lg:px-8">
+    <p class="text-xs text-gray-600 dark:text-neutral-500">© <?= date('Y') ?> Meta Esthetic — Clinic Intelligence In Your Palm</p>
+  </footer>
+</div>
+<!-- End Content -->
 
 <section id="learn" class="py-10 md:py-16">
   <div class="max-w-7xl mx-auto px-4">
