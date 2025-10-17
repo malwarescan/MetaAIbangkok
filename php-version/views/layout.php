@@ -54,7 +54,7 @@
                      opacity-100 translate-y-0"
               aria-live="polite">
           <!-- Fallback text if JS disabled -->
-          Intelligent AI connecting hospitals, clinics, doctors, and patients — all in the palm of your hand.
+          Intelligent AI for Esthetic Clinics
         </span>
       </div>
     </div>
@@ -79,22 +79,22 @@
       {
         lang: "en",
         text:
-          "Intelligent AI connecting hospitals, clinics, doctors, and patients — all in the palm of your hand."
+          "Intelligent AI for Esthetic Clinics"
       },
       {
         lang: "th",
         text:
-          "เอไออัจฉริยะ เชื่อมโรงพยาบาล คลินิก แพทย์ และผู้ป่วย — อย่างชาญฉลาดในมือคุณ"
+          "เอไออัจฉริยะสำหรับคลินิกความงาม"
       },
       {
         lang: "ko",
         text:
-          "병원·클리닉·의사·환자를 하나로 잇는 지능형 AI — 당신의 손안에서."
+          "미용의학 클리닉을 위한 지능형 AI"
       },
       {
         lang: "zh",
         text:
-          "连接医院、诊所、医生与患者的智能 AI — 尽在您掌心。"
+          "美容诊所的智能 AI"
       }
     ];
 
