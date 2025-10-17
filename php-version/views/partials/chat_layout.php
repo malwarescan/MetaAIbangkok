@@ -3,7 +3,7 @@
   <div class="py-10 lg:py-14">
     <!-- Title / Hero -->
     <div data-hero class="max-w-4xl px-4 sm:px-6 lg:px-8 mx-auto text-center">
-      <img src="/assets/chat-ui-logo-small.png" alt="Meta Esthetic" class="mx-auto mb-3 h-8 sm:h-9 w-auto select-none" loading="lazy">
+      <img src="/assets/chat-ui-logo-small.png" alt="Meta Esthetic" class="mx-auto mb-3 h-10 sm:h-12 w-auto select-none" loading="lazy">
       <h1 class="text-gray-800 font-bold sm:text-4xl">
         <span class="inline-block">Intelligent AI for Doctors and Patients</span>
       </h1>
