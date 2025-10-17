@@ -37,22 +37,13 @@
 </head>
 <body class="min-h-full bg-me-silver text-me-graphite antialiased [font-family:Inter,ui-sans-serif,system-ui]">
   <header class="sticky top-0 z-50 bg-white/80 backdrop-blur border-b border-black/5">
-    <div class="max-w-7xl mx-auto px-4 py-2 md:py-3 flex items-center justify-between">
-      <a href="/" class="flex items-center gap-3">
-        <?php include __DIR__ . "/partials/logo-meta-esthetic.svg.php"; ?>
-        <span class="text-base md:text-lg font-semibold tracking-tight">Meta Esthetic</span>
-      </a>
-
+    <div class="max-w-7xl mx-auto px-4 py-2 md:py-3 flex items-center justify-center">
       <!-- Language switch -->
-      <nav class="hidden md:flex items-center gap-4">
+      <nav class="flex items-center gap-4">
         <a class="text-sm hover:opacity-80 transition <?= $langCode==='en'?'font-semibold':'' ?>" href="<?= htmlspecialchars($localePaths['en']) ?>">EN</a>
         <a class="text-sm hover:opacity-80 transition <?= $langCode==='th'?'font-semibold':'' ?>" href="<?= htmlspecialchars($localePaths['th']) ?>">TH</a>
         <a class="text-sm hover:opacity-80 transition <?= $langCode==='ko'?'font-semibold':'' ?>" href="<?= htmlspecialchars($localePaths['ko']) ?>">KR</a>
       </nav>
-
-      <a href="#contact" class="hs-button inline-flex items-center justify-center px-4 py-2 rounded-xl bg-me-core text-me-graphite font-medium shadow-me-soft hover:shadow-lg transition">
-        Request Demo
-      </a>
     </div>
   </header>
 
