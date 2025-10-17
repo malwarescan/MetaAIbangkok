@@ -71,19 +71,19 @@
   </div>
 </section>
 
-<section id="faq" class="py-10 md:py-16">
-  <div class="max-w-7xl mx-auto px-4">
-    <div class="text-center mb-8 md:mb-12">
+<section id="faq" class="py-16 md:py-24">
+  <div class="max-w-7xl mx-auto px-6 md:px-8">
+    <div class="text-center mb-12 md:mb-16">
       <h2 class="text-2xl md:text-3xl font-semibold text-gray-800 dark:text-white">Frequently Asked Questions</h2>
-      <p class="mt-3 text-gray-600 dark:text-neutral-400">Quick answers to common questions about Meta Esthetic AI</p>
+      <p class="mt-4 text-gray-600 dark:text-neutral-400">Quick answers to common questions about Meta Esthetic AI</p>
     </div>
     
-    <div class="grid lg:grid-cols-2 gap-8 md:gap-10">
+    <div class="grid lg:grid-cols-2 gap-12 md:gap-16">
       <!-- Doctor FAQs -->
       <div>
-        <div class="mb-4">
+        <div class="mb-6">
           <span class="inline-flex items-center rounded-full bg-white border border-black/10 px-3 py-1 text-xs text-black/70">For Doctors & Clinic Teams</span>
-          <h3 class="mt-3 text-lg md:text-xl font-semibold">Clinical & Operational</h3>
+          <h3 class="mt-4 text-lg md:text-xl font-semibold">Clinical & Operational</h3>
         </div>
         <?php 
         $faqDoctors = [
@@ -100,9 +100,9 @@
 
       <!-- Patient FAQs -->
       <div>
-        <div class="mb-4">
+        <div class="mb-6">
           <span class="inline-flex items-center rounded-full bg-white border border-black/10 px-3 py-1 text-xs text-black/70">For Patients</span>
-          <h3 class="mt-3 text-lg md:text-xl font-semibold">Care & Safety</h3>
+          <h3 class="mt-4 text-lg md:text-xl font-semibold">Care & Safety</h3>
         </div>
         <?php 
         $faqPatients = [
@@ -118,8 +118,8 @@
       </div>
     </div>
 
-    <div class="text-center mt-8 md:mt-12">
-      <a href="/<?= $langCode ?>/faq.php" class="hs-button inline-flex items-center px-5 md:px-6 py-2.5 md:py-3 rounded-2xl bg-me-core text-me-graphite font-medium shadow-me-soft hover:shadow-lg transition">
+    <div class="text-center mt-12 md:mt-16">
+      <a href="/<?= $langCode ?>/faq.php" class="hs-button inline-flex items-center px-6 md:px-8 py-3 md:py-4 rounded-2xl bg-me-core text-me-graphite font-medium shadow-me-soft hover:shadow-lg transition">
         View All FAQs
       </a>
     </div>
