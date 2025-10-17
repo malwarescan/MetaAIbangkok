@@ -3,7 +3,7 @@
   <div class="flex-1 flex flex-col py-6 lg:py-8 min-h-0">
     <!-- Title / Hero -->
     <div data-hero class="max-w-4xl px-4 sm:px-6 lg:px-8 mx-auto text-center">
-      <img src="/assets/chat-ui-logo-small.png" alt="Meta Esthetic" class="mx-auto mb-3 h-10 sm:h-12 w-auto select-none" loading="lazy">
+      <img src="/assets/chat-ui-logo-small.png" alt="Meta Esthetic" class="mb-3 h-10 sm:h-12 w-auto select-none" loading="lazy">
       <h1 class="text-gray-800 font-bold sm:text-4xl">
         <span class="inline-block">Intelligent AI for Doctors and Patients</span>
       </h1>
@@ -14,18 +14,18 @@
     <!-- End Title -->
 
     <!-- Chat Messages -->
-    <ul id="chat-messages" class="mt-4 space-y-5 max-w-4xl px-4 sm:px-6 lg:px-8 mx-auto flex-1 overflow-y-auto min-h-0"></ul>
+    <ul id="chat-messages" class="mx-auto space-y-5 max-w-4xl px-4 sm:px-6 lg:px-8 flex-1 overflow-y-auto min-h-0"></ul>
   </div>
 
   <!-- Composer -->
-  <div class="absolute bottom-0 left-0 right-0 z-10 p-3 sm:py-6">
+  <div class="absolute right-0 z-10 p-3 sm:py-6">
     <div class="max-w-4xl mx-auto">
 
     <div class="relative">
-      <textarea id="chat-input" class="p-3 sm:p-4 pb-12 sm:pb-12 block w-full bg-gray-100 border-gray-200 rounded-lg sm:text-sm focus:border-blue-500 focus:ring-blue-500" placeholder="Ask me anything..."></textarea>
+      <textarea id="chat-input" class="pb-12 sm:p-4 sm:pb-12 block w-full bg-gray-100 border-gray-200 rounded-lg sm:text-sm focus:border-blue-500 focus:ring-blue-500" placeholder="Ask me anything..."></textarea>
 
       <!-- Toolbar -->
-      <div class="absolute bottom-px right-px px-2 pb-2 pt-2.5 w-max rounded-b-lg bg-gray-100">
+      <div class="absolute right-px pt-2.5 w-max rounded-b-lg bg-gray-100">
         <div class="flex items-center justify-end gap-2">
           <button id="upload-btn" type="button" class="inline-flex shrink-0 justify-center items-center size-8 rounded-lg text-gray-500 hover:bg-white focus:z-10 focus:outline-hidden focus:bg-white">
             <svg class="shrink-0 size-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m21.44 11.05-9.19 9.19a6 6 0 0 1-8.49-8.49l8.57-8.57A4 4 0 1 1 18 8.84l-8.59 8.57a2 2 0 0 1-2.83-2.83l8.49-8.48"/></svg>

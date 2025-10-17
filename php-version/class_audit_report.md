@@ -1,6 +1,22 @@
 # Class Conflict Report
 
 - **views/partials/chat_layout.php**
-  - removed: `px-4`→`pt-[18%]`
-  - before: `max-w-4xl px-4 sm:px-6 lg:px-8 mx-auto text-center pt-[18%] sm:pt-[12%] md:pt-[6%] lg:pt-[4%]`
-  - after : `max-w-4xl pt-[18%] sm:px-6 lg:px-8 mx-auto text-center sm:pt-[12%] md:pt-[6%] lg:pt-[4%]`
+  - removed: `mx-auto`→`mb-3`
+  - before: `mx-auto mb-3 h-10 sm:h-12 w-auto select-none`
+  - after : `mb-3 h-10 sm:h-12 w-auto select-none`
+- **views/partials/chat_layout.php**
+  - removed: `mt-4`→`mx-auto`
+  - before: `mt-4 space-y-5 max-w-4xl px-4 sm:px-6 lg:px-8 mx-auto flex-1 overflow-y-auto min-h-0`
+  - after : `mx-auto space-y-5 max-w-4xl px-4 sm:px-6 lg:px-8 flex-1 overflow-y-auto min-h-0`
+- **views/partials/chat_layout.php**
+  - removed: `bottom-0`→`left-0`, `left-0`→`right-0`
+  - before: `absolute bottom-0 left-0 right-0 z-10 p-3 sm:py-6`
+  - after : `absolute right-0 z-10 p-3 sm:py-6`
+- **views/partials/chat_layout.php**
+  - removed: `p-3`→`pb-12`
+  - before: `p-3 sm:p-4 pb-12 sm:pb-12 block w-full bg-gray-100 border-gray-200 rounded-lg sm:text-sm focus:border-blue-500 focus:ring-blue-500`
+  - after : `pb-12 sm:p-4 sm:pb-12 block w-full bg-gray-100 border-gray-200 rounded-lg sm:text-sm focus:border-blue-500 focus:ring-blue-500`
+- **views/partials/chat_layout.php**
+  - removed: `bottom-px`→`right-px`, `px-2`→`pb-2`, `pb-2`→`pt-2.5`
+  - before: `absolute bottom-px right-px px-2 pb-2 pt-2.5 w-max rounded-b-lg bg-gray-100`
+  - after : `absolute right-px pt-2.5 w-max rounded-b-lg bg-gray-100`
