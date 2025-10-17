@@ -59,7 +59,7 @@ dark:bg-neutral-900 dark:border-neutral-700" role="dialog" tabindex="-1" aria-la
     <!-- Title (Logo only) -->
     <div class="max-w-4xl px-4 sm:px-6 lg:px-8 mx-auto text-center">
       <div class="flex justify-center items-center">
-        <img src="/assets/metaaisymbiote.png" alt="meta(ai) symbiote logo" class="w-auto h-auto max-w-[70vw] md:max-w-[200px] lg:max-w-[160px] xl:max-w-[140px] select-none" decoding="async" loading="eager" draggable="false">
+        <img src="/assets/metaaisymbiote.png" alt="meta(ai) symbiote logo" class="w-auto h-auto max-w-[70vw] md:max-w-[160px] lg:max-w-[120px] xl:max-w-[96px] select-none" decoding="async" loading="eager" draggable="false">
       </div>
     </div>
     <!-- End Title (Logo only) -->
