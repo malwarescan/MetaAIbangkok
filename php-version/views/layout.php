@@ -60,7 +60,7 @@
     </div>
   </header>
 
-  <main class="space-y-10 md:space-y-16">
+  <main class="space-y-8 md:space-y-16">
     <?= $content ?? '' ?>
   </main>
 
@@ -71,6 +71,15 @@
   </footer>
 
   <script src="/node_modules/preline/dist/preline.js"></script>
+  
+  <!-- Tailwind arbitrary class keeper + inline fallback for hero min-height -->
+  <div class="hidden min-h-[72dvh] md:min-h-screen"></div>
+  <script>
+    // If your CSS build doesn't include min-h-[72dvh] yet, this inline fallback helps:
+    document.querySelectorAll('[data-hero]').forEach(el=>{
+      el.style.minHeight = '72dvh';
+    });
+  </script>
   
   <script>
   (function () {
@@ -219,7 +228,7 @@
     }
 
     // Pause on hover/focus for readability
-    const heroSection = document.querySelector('.h-screen');
+    const heroSection = document.querySelector('[data-hero]');
     if (heroSection) {
       heroSection.addEventListener("mouseenter", stop);
       heroSection.addEventListener("mouseleave", start);

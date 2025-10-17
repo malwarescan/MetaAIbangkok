@@ -1,7 +1,7 @@
 <!-- Content -->
-<div class="h-screen flex flex-col pb-6">
+<div data-hero class="min-h-[72dvh] md:min-h-screen flex flex-col pb-6">
   <div class="h-full flex flex-col justify-center">
-    <div class="-mt-20 max-w-4xl w-full text-center mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="mt-6 md:mt-12 max-w-4xl w-full text-center mx-auto px-4 sm:px-6 lg:px-8">
       <div class="mb-4 flex justify-center items-center">
         <!-- Logo -->
         <a class="flex-none rounded-md text-xl inline-block font-semibold focus:outline-hidden focus:opacity-80" href="/" aria-label="Meta Esthetic">
@@ -27,7 +27,7 @@
     </div>
 
     <!-- Search -->
-    <div class="mt-10 max-w-2xl w-full mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="mt-6 md:mt-10 max-w-2xl w-full mx-auto px-4 sm:px-6 lg:px-8">
       <div class="relative">
         <input type="text" class="p-3 sm:p-4 block w-full border-gray-200 rounded-full sm:text-sm focus:border-me-core focus:ring-me-core disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-900 dark:border-neutral-700 dark:text-neutral-400 dark:placeholder-neutral-500 dark:focus:ring-neutral-600" placeholder="Ask me anything...">
         <div class="absolute top-1/2 end-2 -translate-y-1/2">
@@ -75,7 +75,7 @@
   </div>
 </section>
 
-<section id="faq" class="py-16 md:py-24">
+<section id="faq" class="py-10 md:py-16">
   <div class="max-w-7xl mx-auto px-6 md:px-8">
     <div class="text-center mb-12 md:mb-16">
       <h2 class="text-2xl md:text-3xl font-semibold text-gray-800 dark:text-white">Frequently Asked Questions</h2>
