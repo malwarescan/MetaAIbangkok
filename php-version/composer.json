@@ -1,0 +1,25 @@
+{
+  "name": "metaesthetic/php-app",
+  "description": "Meta Esthetic AI - PHP Application",
+  "type": "project",
+  "require": {
+    "php": ">=8.1"
+  },
+  "require-dev": {},
+  "autoload": {
+    "psr-4": {
+      "App\\": "src/"
+    }
+  },
+  "scripts": {
+    "post-install-cmd": [
+      "echo 'PHP dependencies installed'"
+    ]
+  },
+  "config": {
+    "optimize-autoloader": true,
+    "sort-packages": true
+  },
+  "minimum-stability": "stable",
+  "prefer-stable": true
+}

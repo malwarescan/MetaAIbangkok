@@ -1,0 +1,11 @@
+[phases.setup]
+nixPkgs = ["php82", "php82Packages.composer"]
+
+[phases.install]
+cmds = ["cd php-version && composer install --no-dev --optimize-autoloader"]
+
+[phases.build]
+cmds = ["cd php-version && npm install && npm run build"]
+
+[start]
+cmd = "cd php-version && php -S 0.0.0.0:$PORT -t public"
