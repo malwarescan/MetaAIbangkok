@@ -37,7 +37,7 @@
 </head>
 <body class="min-h-full bg-me-silver text-me-graphite antialiased [font-family:Inter,ui-sans-serif,system-ui]">
   <header class="sticky top-0 z-50 bg-white/80 backdrop-blur border-b border-black/5">
-    <div class="max-w-7xl mx-auto px-4 py-2 md:py-3 flex items-center justify-center">
+    <div class="max-w-7xl mx-auto px-4 py-2 md:py-3 flex flex-col md:flex-row items-center justify-center gap-1 md:gap-0">
       <!-- Language switch -->
       <nav class="flex items-center gap-4">
         <a class="text-sm hover:opacity-80 transition <?= $langCode==='en'?'font-semibold':'' ?>" href="<?= htmlspecialchars($localePaths['en']) ?>">EN</a>
@@ -47,8 +47,7 @@
 
       <!-- Language Rotator (Header) -->
       <div id="hero-rotator"
-           class="w-full md:w-auto mt-2 md:mt-0 md:ml-6 text-xs md:text-sm text-black/70 tracking-tight
-                  overflow-hidden select-none">
+           class="w-full md:w-auto mt-1 md:mt-0 md:ml-6 px-2 text-[11px] sm:text-xs md:text-sm leading-tight text-black/70 tracking-tight text-center md:text-left overflow-hidden select-none">
         <span id="rot-text"
               class="inline-block transition-all duration-200 ease-in-out
                      opacity-100 translate-y-0"
