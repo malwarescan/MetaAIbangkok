@@ -1,4 +1,3 @@
-<?php ob_start(); ?>
 <!-- Content -->
 <div class="h-screen flex flex-col pb-6">
   <div class="h-full flex flex-col justify-center">
@@ -85,4 +84,3 @@
     </div>
   </div>
 </section>
-<?php $content = ob_get_clean(); ?>
