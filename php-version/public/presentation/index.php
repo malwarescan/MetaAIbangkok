@@ -279,7 +279,7 @@
 <section class="bg-gradient-to-b from-white via-white to-me-silver">
   <div class="max-w-7xl mx-auto px-4 pt-10 md:pt-16 pb-6 md:pb-10">
     <div class="mb-4 flex items-center gap-2">
-      <?php if (file_exists(__DIR__ . '/../views/partials/logo-meta-esthetic.svg.php')) { include __DIR__ . '/../views/partials/logo-meta-esthetic.svg.php'; } ?>
+      <?php if (file_exists(__DIR__ . '/../../views/partials/logo-meta-esthetic.svg.php')) { include __DIR__ . '/../../views/partials/logo-meta-esthetic.svg.php'; } ?>
       <span class="text-sm text-black/60">Meta Esthetic — Clinic Intelligence In Your Palm</span>
     </div>
     <h1 class="text-2xl md:text-4xl font-semibold tracking-tight">Multilingual Clinical Presentation</h1>
@@ -315,5 +315,5 @@
 
 <?php
   $content = ob_get_clean();
-  include __DIR__ . '/../views/layout.php';
+  include __DIR__ . '/../../views/layout.php';
 ?>
