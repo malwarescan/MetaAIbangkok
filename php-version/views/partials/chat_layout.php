@@ -21,14 +21,7 @@ dark:bg-neutral-900 dark:border-neutral-700" role="dialog" tabindex="-1" aria-la
 
     <div class="h-full overflow-y-auto [&::-webkit-scrollbar]:w-2 [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-track]:bg-gray-100 [&::-webkit-scrollbar-thumb]:bg-gray-300 dark:[&::-webkit-scrollbar-track]:bg-neutral-700 dark:[&::-webkit-scrollbar-thumb]:bg-neutral-500"></div>
 
-    <div class="mt-auto">
-      <div class="py-2.5 px-7">
-        <p class="inline-flex items-center gap-x-2 text-xs text-green-600">
-          <span class="block size-1.5 rounded-full bg-green-600"></span>
-          Active
-        </p>
-      </div>
-    </div>
+    
   </nav>
 </div>
 <!-- End Sidebar -->
