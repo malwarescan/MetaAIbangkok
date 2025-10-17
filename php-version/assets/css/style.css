@@ -1,0 +1,229 @@
+/* MetaEsthAI PHP Version - Custom Styles */
+
+/* Custom scrollbar for chat */
+#chat-messages::-webkit-scrollbar {
+  width: 6px;
+}
+
+#chat-messages::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 3px;
+}
+
+#chat-messages::-webkit-scrollbar-thumb {
+  background: #c1c1c1;
+  border-radius: 3px;
+}
+
+#chat-messages::-webkit-scrollbar-thumb:hover {
+  background: #a8a8a8;
+}
+
+/* Smooth transitions */
+* {
+  transition: all 0.3s ease;
+}
+
+/* Custom gradient backgrounds */
+.bg-gradient-pink-purple {
+  background: linear-gradient(135deg, #ec4899 0%, #8b5cf6 100%);
+}
+
+.bg-gradient-pink-purple-light {
+  background: linear-gradient(135deg, #fce7f3 0%, #f3e8ff 100%);
+}
+
+/* Custom animations */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fade-in-up {
+  animation: fadeInUp 0.6s ease-out;
+}
+
+@keyframes pulse {
+  0%,
+  100% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0.5;
+  }
+}
+
+.pulse {
+  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+/* Chat message animations */
+.chat-message {
+  animation: fadeInUp 0.3s ease-out;
+}
+
+/* Custom button hover effects */
+.btn-gradient {
+  background: linear-gradient(135deg, #ec4899 0%, #8b5cf6 100%);
+  transition: all 0.3s ease;
+}
+
+.btn-gradient:hover {
+  background: linear-gradient(135deg, #db2777 0%, #7c3aed 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px rgb(236 72 153 / 30%);
+}
+
+/* Loading spinner */
+.spinner {
+  border: 2px solid #f3f3f3;
+  border-top: 2px solid #ec4899;
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* Custom form styles */
+.form-input {
+  transition: all 0.3s ease;
+}
+
+.form-input:focus {
+  border-color: #ec4899;
+  box-shadow: 0 0 0 3px rgb(236 72 153 / 10%);
+}
+
+/* Card hover effects */
+.card-hover {
+  transition: all 0.3s ease;
+}
+
+.card-hover:hover {
+  transform: translateY(-5px);
+  box-shadow:
+    0 20px 25px -5px rgb(0 0 0 / 10%),
+    0 10px 10px -5px rgb(0 0 0 / 4%);
+}
+
+/* Responsive text */
+@media (width <= 640px) {
+  .text-responsive {
+    font-size: 1.5rem;
+    line-height: 2rem;
+  }
+}
+
+@media (width >= 641px) {
+  .text-responsive {
+    font-size: 2.5rem;
+    line-height: 3rem;
+  }
+}
+
+/* Custom shadows */
+.shadow-pink {
+  box-shadow: 0 10px 25px -5px rgb(236 72 153 / 30%);
+}
+
+.shadow-purple {
+  box-shadow: 0 10px 25px -5px rgb(139 92 246 / 30%);
+}
+
+/* Language selector styles */
+.language-selector {
+  position: relative;
+}
+
+.language-selector:hover .language-dropdown {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.language-dropdown {
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-10px);
+  transition: all 0.3s ease;
+}
+
+/* Chat interface styles */
+.chat-container {
+  background: linear-gradient(135deg, #fff 0%, #f8fafc 100%);
+  border: 1px solid #e2e8f0;
+}
+
+.chat-message-user {
+  background: linear-gradient(135deg, #ec4899 0%, #8b5cf6 100%);
+  color: white;
+  border-radius: 18px 18px 4px;
+}
+
+.chat-message-ai {
+  background: #f1f5f9;
+  color: #334155;
+  border-radius: 18px 18px 18px 4px;
+}
+
+/* Preline.co customizations */
+.hs-dropdown-menu {
+  box-shadow:
+    0 20px 25px -5px rgb(0 0 0 / 10%),
+    0 10px 10px -5px rgb(0 0 0 / 4%);
+  border: 1px solid #e2e8f0;
+}
+
+/* Mobile optimizations */
+@media (width <= 768px) {
+  .mobile-padding {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  .mobile-text {
+    font-size: 0.875rem;
+  }
+
+  .mobile-button {
+    padding: 0.5rem 1rem;
+    font-size: 0.875rem;
+  }
+}
+
+/* Dark mode support (if needed) */
+@media (prefers-color-scheme: dark) {
+  .dark-mode-support {
+    background-color: #1f2937;
+    color: #f9fafb;
+  }
+}
+
+/* Print styles */
+@media print {
+  .no-print {
+    display: none !important;
+  }
+
+  .print-break {
+    break-before: always;
+  }
+}

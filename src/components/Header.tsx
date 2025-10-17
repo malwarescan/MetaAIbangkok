@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { MenuIcon, X as CloseIcon, Sparkles } from 'lucide-react';
-import { useLanguage } from '../contexts/LanguageContext';
+import { useLanguage } from '../contexts/LanguageContext'; 6
 import { LanguageSelector } from './LanguageSelector';
 export function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);

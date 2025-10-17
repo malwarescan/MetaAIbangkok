@@ -1,0 +1,227 @@
+<!-- Hero Section -->
+<section class="relative overflow-hidden">
+    <!-- Background -->
+    <div class="absolute inset-0 bg-gradient-to-br from-pink-50 via-white to-purple-50"></div>
+    
+    <!-- Content -->
+    <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 lg:py-32">
+        <div class="text-center">
+            <!-- Badge -->
+            <div class="inline-flex items-center gap-x-2 bg-pink-100 text-pink-800 text-sm font-medium px-4 py-2 rounded-full mb-8">
+                <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                    <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                </svg>
+                <?php echo $subtitle; ?>
+            </div>
+
+            <!-- Title -->
+            <h1 class="text-4xl md:text-6xl font-bold text-gray-900 mb-6">
+                <?php echo $title; ?>
+            </h1>
+
+            <!-- Description -->
+            <p class="text-lg md:text-xl text-gray-600 mb-8 max-w-3xl mx-auto">
+                <?php echo $description; ?>
+            </p>
+
+            <!-- CTA Buttons -->
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-4 mb-12">
+                <button onclick="startChat()" class="py-3 px-6 inline-flex items-center gap-x-2 text-sm font-semibold rounded-lg border-transparent bg-gradient-to-r from-pink-500 to-purple-500 text-white hover:from-pink-600 hover:to-purple-600 disabled:opacity-50 disabled:pointer-events-none">
+                    <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                    </svg>
+                    <?php echo $startDiagnosis; ?>
+                </button>
+                <button class="py-3 px-6 inline-flex items-center gap-x-2 text-sm font-semibold rounded-lg border border-gray-200 bg-white text-gray-800 shadow-sm hover:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none">
+                    Learn More
+                    <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                        <path fill-rule="evenodd" d="M7.21 14.77a.75.75 0 01.02-1.06L11.168 10 7.23 6.29a.75.75 0 111.04-1.08l4.5 4.25a.75.75 0 010 1.08l-4.5 4.25a.75.75 0 01-1.06-.02z" clip-rule="evenodd" />
+                    </svg>
+                </button>
+            </div>
+
+            <!-- Stats -->
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-2xl mx-auto">
+                <div class="text-center">
+                    <div class="text-2xl md:text-3xl font-bold text-gray-900">1000+</div>
+                    <div class="text-sm text-gray-600">Patients Served</div>
+                </div>
+                <div class="text-center">
+                    <div class="text-2xl md:text-3xl font-bold text-gray-900">98%</div>
+                    <div class="text-sm text-gray-600">Success Rate</div>
+                </div>
+                <div class="text-center">
+                    <div class="text-2xl md:text-3xl font-bold text-gray-900">24/7</div>
+                    <div class="text-sm text-gray-600">AI Support</div>
+                </div>
+                <div class="text-center">
+                    <div class="text-2xl md:text-3xl font-bold text-gray-900">5★</div>
+                    <div class="text-sm text-gray-600">Rating</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Features Section -->
+<section class="py-24 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-16">
+            <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+                Why Choose MetaEsthAI?
+            </h2>
+            <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+                Experience the future of aesthetic medicine with our AI-powered consultation platform
+            </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <!-- Feature 1 -->
+            <div class="text-center p-6 rounded-lg border border-gray-200 hover:border-pink-300 transition duration-300">
+                <div class="w-12 h-12 bg-gradient-to-br from-pink-400 to-purple-500 rounded-lg flex items-center justify-center mx-auto mb-4">
+                    <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
+                    </svg>
+                </div>
+                <h3 class="text-xl font-semibold text-gray-900 mb-2">AI-Powered Diagnosis</h3>
+                <p class="text-gray-600">Advanced machine learning algorithms provide accurate preliminary assessments</p>
+            </div>
+
+            <!-- Feature 2 -->
+            <div class="text-centerp-6 rounded-lg border-gray-200 hover:border-pink-300 transition duration-300">
+                <div class="w-12 h-12 bg-gradient-to-br from-pink-400 to-purple-500 rounded-lg flex items-center justify-center mx-auto mb-4">
+                    <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+                    </svg>
+                </div>
+                <h3 class="text-xl font-semibold text-gray-900 mb-2">Expert Consultation</h3>
+                <p class="text-gray-600">Connect with board-certified aesthetic physicians for personalized treatment plans</p>
+            </div>
+
+            <!-- Feature 3 -->
+            <div class="text-center p-6 rounded-lg border-gray-200 hover:border-pink-300 transition duration-300">
+                <div class="w-12 h-12 bg-gradient-to-br from-pink-400 to-purple-500 rounded-lg flex items-center justify-center mb-4">
+                    <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                </div>
+                <h3 class="text-xl font-semibold text-gray-900 mb-2">24/7 Availability</h3>
+                <p class="text-gray-600">Get instant responses and support whenever you need it, day or night</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Chat Interface -->
+<section class="py-24 bg-gray-50">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-12">
+            <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+                Start Your AI Consultation
+            </h2>
+            <p class="text-lg text-gray-600">
+                Describe your symptoms or concerns and get personalized recommendations
+            </p>
+        </div>
+
+        <!-- Chat Container -->
+        <div id="chat-container" class="bg-white rounded-lg shadow-lg p-6 min-h-[400px] max-h-[600px] overflow-y-auto">
+            <div id="chat-messages" class="space-y-4 mb-4">
+                <div class="flex items-start space-x-3">
+                    <div class="w-8 h-8 bg-gradient-to-br from-pink-400 to-purple-500 rounded-full flex items-center justify-center">
+                        <svg class="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                        </svg>
+                    </div>
+                    <div class="bg-gray-100 rounded-lg p-3 max-w-xs">
+                        <p class="text-sm text-gray-800">Hello! I'm your AI aesthetic medicine assistant. How can I help you today? You can describe any symptoms, concerns, or questions you have about aesthetic treatments.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Chat Input -->
+            <div class="flex space-x-2">
+                <input type="text" id="chat-input" placeholder="Describe your symptoms or ask a question..." class="flex-1 px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-pink-500 focus:border-transparent">
+                <button onclick="sendMessage()" class="px-6 py-2 bg-gradient-to-r from-pink-500 to-purple-500 text-white rounded-lg hover:from-pink-600 hover:to-purple-600 transition duration-300">
+                    Send
+                </button>
+            </div>
+        </div>
+    </div>
+</section>
+
+<script>
+function startChat() {
+    document.getElementById('chat-container').scrollIntoView({ behavior: 'smooth' });
+    document.getElementById('chat-input').focus();
+}
+
+function sendMessage() {
+    const input = document.getElementById('chat-input');
+    const message = input.value.trim();
+    
+    if (!message) return;
+    
+    // Add user message to chat
+    addMessage(message, 'user');
+    input.value = '';
+    
+    // Send to API
+    fetch('/api/chat', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ message: message })
+    })
+    .then(response => response.json())
+    .then(data => {
+        addMessage(data.response, 'ai');
+    })
+    .catch(error => {
+        addMessage('Sorry, I encountered an error. Please try again.', 'ai');
+        console.error('Error:', error);
+    });
+}
+
+function addMessage(text, sender) {
+    const messagesContainer = document.getElementById('chat-messages');
+    const messageDiv = document.createElement('div');
+    
+    if (sender === 'user') {
+        messageDiv.className = 'flex items-start space-x-3 justify-end';
+        messageDiv.innerHTML = `
+            <div class="bg-gradient-to-r from-pink-500 to-purple-500 text-white rounded-lg p-3 max-w-xs">
+                <p class="text-sm">${text}</p>
+            </div>
+            <div class="w-8 h-8 bg-gray-300 rounded-full flex items-center justify-center">
+                <svg class="w-4 h-4 text-gray-600" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clip-rule="evenodd" />
+                </svg>
+            </div>
+        `;
+    } else {
+        messageDiv.className = 'flex items-start space-x-3';
+        messageDiv.innerHTML = `
+            <div class="w-8 h-8 bg-gradient-to-br from-pink-400 to-purple-500 rounded-full flex items-center justify-center">
+                <svg class="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 20 20">
+                    <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                </svg>
+            </div>
+            <div class="bg-gray-100 rounded-lg p-3 max-w-xs">
+                <p class="text-sm text-gray-800">${text.replace(/\n/g, '<br>')}</p>
+            </div>
+        `;
+    }
+    
+    messagesContainer.appendChild(messageDiv);
+    messagesContainer.scrollTop = messagesContainer.scrollHeight;
+}
+
+// Allow Enter key to send message
+document.getElementById('chat-input').addEventListener('keypress', function(e) {
+    if (e.key === 'Enter') {
+        sendMessage();
+    }
+});
+</script>
