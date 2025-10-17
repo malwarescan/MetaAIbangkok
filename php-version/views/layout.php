@@ -44,6 +44,19 @@
         <a class="text-sm hover:opacity-80 transition <?= $langCode==='th'?'font-semibold':'' ?>" href="<?= htmlspecialchars($localePaths['th']) ?>">TH</a>
         <a class="text-sm hover:opacity-80 transition <?= $langCode==='ko'?'font-semibold':'' ?>" href="<?= htmlspecialchars($localePaths['ko']) ?>">KR</a>
       </nav>
+      
+      <!-- Language Rotator (Header) -->
+      <div id="hero-rotator"
+           class="w-full md:w-auto mt-2 md:mt-0 md:ml-6 text-xs md:text-sm text-black/70 tracking-tight
+                  overflow-hidden select-none">
+        <span id="rot-text"
+              class="inline-block transition-all duration-200 ease-in-out
+                     opacity-100 translate-y-0"
+              aria-live="polite">
+          <!-- Fallback text if JS disabled -->
+          Intelligent AI connecting hospitals, clinics, doctors, and patients — all in the palm of your hand.
+        </span>
+      </div>
     </div>
   </header>
 
@@ -58,5 +71,83 @@
   </footer>
 
   <script src="/node_modules/preline/dist/preline.js"></script>
+  
+  <script>
+  (function () {
+    // Taglines in four languages (edit copy here anytime)
+    const phrases = [
+      {
+        lang: "en",
+        text:
+          "Intelligent AI connecting hospitals, clinics, doctors, and patients — all in the palm of your hand."
+      },
+      {
+        lang: "th",
+        text:
+          "เอไออัจฉริยะ เชื่อมโรงพยาบาล คลินิก แพทย์ และผู้ป่วย — อย่างชาญฉลาดในมือคุณ"
+      },
+      {
+        lang: "ko",
+        text:
+          "병원·클리닉·의사·환자를 하나로 잇는 지능형 AI — 당신의 손안에서."
+      },
+      {
+        lang: "zh",
+        text:
+          "连接医院、诊所、医生与患者的智能 AI — 尽在您掌心。"
+      }
+    ];
+
+    const startLang = "<?= isset($langCode) ? htmlspecialchars($langCode) : 'en' ?>";
+    let idx = Math.max(0, phrases.findIndex(p => p.lang === startLang));
+    const wrap = document.getElementById("hero-rotator");
+    const el = document.getElementById("rot-text");
+    if (!wrap || !el) return;
+
+    function setText(i) {
+      el.setAttribute("lang", phrases[i].lang);
+      el.textContent = phrases[i].text;
+    }
+
+    // Initial text
+    setText(idx);
+
+    let timer = null;
+    const DUR = 3500; // change every 3.5s
+    const FADE = 200; // fade transition ms (matches Tailwind classes)
+
+    function next() {
+      // fade out
+      el.classList.add("opacity-0", "translate-y-1");
+      setTimeout(() => {
+        idx = (idx + 1) % phrases.length;
+        setText(idx);
+        // fade in
+        el.classList.remove("opacity-0", "translate-y-1");
+      }, FADE);
+    }
+
+    function start() {
+      if (timer) return;
+      timer = setInterval(next, DUR);
+    }
+    function stop() {
+      if (!timer) return;
+      clearInterval(timer);
+      timer = null;
+    }
+
+    // Pause on hover/focus for readability
+    wrap.addEventListener("mouseenter", stop);
+    wrap.addEventListener("mouseleave", start);
+    wrap.addEventListener("focusin", stop);
+    wrap.addEventListener("focusout", start);
+
+    // Respect user reduced-motion preference
+    const mq = window.matchMedia("(prefers-reduced-motion: reduce)");
+    if (mq.matches) return; // don't auto-rotate
+    start();
+  })();
+  </script>
 </body>
 </html>
