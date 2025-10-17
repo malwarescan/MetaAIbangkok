@@ -1,4 +1,6 @@
 /** @type {import('tailwindcss').Config} */
+const plugin = require('tailwindcss/plugin');
+
 module.exports = {
   content: ["./**/*.php", "./**/*.html", "./**/*.{js,ts}", "./node_modules/preline/dist/*.js"],
   theme: {
@@ -23,7 +25,19 @@ module.exports = {
     },
   },
   plugins: [
-    require("@tailwindcss/forms")
+    require("@tailwindcss/forms"),
+    plugin(function ({ addUtilities }) {
+      addUtilities({
+        '.text-engraved': {
+          color: 'rgb(229 231 235)',
+          textShadow: '1px 1px 2px rgba(0,0,0,0.3), -1px -1px 2px rgba(255,255,255,0.7)',
+        },
+        '.text-embedded-dark': {
+          color: 'rgb(107 114 128)',
+          textShadow: 'inset 1px 1px 2px rgba(255,255,255,0.4), inset -1px -1px 2px rgba(0,0,0,0.4)',
+        },
+      })
+    })
   ],
   safelist: [
     { pattern: /^hs-/ }, // Preline components
