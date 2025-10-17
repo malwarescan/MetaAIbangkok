@@ -42,7 +42,7 @@
         if (file_exists($viewFile)) {
             include $viewFile;
         } else {
-            echo '<div class="container mx-auto py-8"><h1>View not found: ' . $view . '</h1></div>';
+            echo '<div class="container mx-auto px-4 py-8"><h1>View not found: ' . $view . '</h1></div>';
         }
         ?>
     </main>

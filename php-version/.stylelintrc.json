@@ -1,6 +1,26 @@
 {
   "extends": ["stylelint-config-standard"],
   "rules": {
-    "selector-class-pattern": null
+    "selector-class-pattern": null,
+    "no-invalid-position-at-import-rule": null,
+    "at-rule-no-unknown": [
+      true,
+      {
+        "ignoreAtRules": [
+          "tailwind",
+          "layer",
+          "apply",
+          "variants",
+          "responsive",
+          "screen",
+          "config",
+          "plugin",
+          "custom-variant",
+          "source"
+        ]
+      }
+    ],
+    "no-descending-specificity": null,
+    "keyframes-name-pattern": null
   }
 }

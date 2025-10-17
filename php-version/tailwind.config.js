@@ -23,7 +23,14 @@ module.exports = {
     },
   },
   plugins: [
-    require("@tailwindcss/forms")
+    require("@tailwindcss/forms"),
+    (() => {
+      try {
+        return require("preline/plugin");
+      } catch (e) {
+        return () => {};
+      }
+    })(),
   ],
   safelist: [
     { pattern: /^hs-/ }, // Preline components

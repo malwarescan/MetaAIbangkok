@@ -1,5 +1,5 @@
 <!-- Footer -->
-<footer class="bg-white border-gray-200">
+<footer class="bg-white border-t border-gray-200">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="py-12">
             <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
@@ -20,15 +20,15 @@
                             </div>
                         </div>
                         <div>
-                            <div class="text-transparent font-bold bg-gradient-to-r from-pink-500 to-purple-500">
+                            <div class="text-lg font-bold bg-clip-text text-transparent bg-gradient-to-r from-pink-500 to-purple-500">
                                 Meta Esthetic
                             </div>
-                            <div class="text-gray-500 font-medium tracking-wider">
+                            <div class="text-xs font-medium text-gray-500 tracking-wider">
                                 THAILAND <span class="text-pink-500">AI</span>
                             </div>
                         </div>
                     </div>
-                    <p class="text-sm mb-4">
+                    <p class="text-gray-600 text-sm mb-4">
                         AI-Powered Aesthetic Medicine Consultation. Advanced technology meets personalized care for your aesthetic journey.
                     </p>
                     <div class="flex space-x-4">
@@ -52,39 +52,39 @@
 
                 <!-- Quick Links -->
                 <div>
-                    <h3 class="text-gray-900 font-semibold uppercase tracking-wider mb-4">Services</h3>
+                    <h3 class="text-sm font-semibold text-gray-900 uppercase tracking-wider mb-4">Services</h3>
                     <ul class="space-y-2">
-                        <li><a href="#" class="text-sm hover:text-pink-500 transition duration-150">AI Diagnosis</a></li>
-                        <li><a href="#" class="text-sm hover:text-pink-500 transition duration-150">Dermatology</a></li>
-                        <li><a href="#" class="text-sm hover:text-pink-500 transition duration-150">HBOT Therapy</a></li>
-                        <li><a href="#" class="text-sm hover:text-pink-500 transition duration-150">Hair Restoration</a></li>
-                        <li><a href="#" class="text-sm hover:text-pink-500 transition duration-150">Botox Treatments</a></li>
+                        <li><a href="#" class="text-gray-600 hover:text-pink-500 text-sm transition duration-150">AI Diagnosis</a></li>
+                        <li><a href="#" class="text-gray-600 hover:text-pink-500 text-sm transition duration-150">Dermatology</a></li>
+                        <li><a href="#" class="text-gray-600 hover:text-pink-500 text-sm transition duration-150">HBOT Therapy</a></li>
+                        <li><a href="#" class="text-gray-600 hover:text-pink-500 text-sm transition duration-150">Hair Restoration</a></li>
+                        <li><a href="#" class="text-gray-600 hover:text-pink-500 text-sm transition duration-150">Botox Treatments</a></li>
                     </ul>
                 </div>
 
                 <!-- Contact Info -->
                 <div>
-                    <h3 class="text-gray-900 font-semibold uppercase tracking-wider mb-4">Contact</h3>
+                    <h3 class="text-sm font-semibold text-gray-900 uppercase tracking-wider mb-4">Contact</h3>
                     <ul class="space-y-2">
-                        <li class="text-sm">Bangkok, Thailand</li>
-                        <li class="text-sm">+66 XX XXX XXXX</li>
-                        <li class="text-sm">info@metaesthetic.ai</li>
-                        <li class="text-sm">Mon-Fri: 9AM-6PM</li>
+                        <li class="text-gray-600 text-sm">Bangkok, Thailand</li>
+                        <li class="text-gray-600 text-sm">+66 XX XXX XXXX</li>
+                        <li class="text-gray-600 text-sm">info@metaesthetic.ai</li>
+                        <li class="text-gray-600 text-sm">Mon-Fri: 9AM-6PM</li>
                     </ul>
                 </div>
             </div>
         </div>
 
         <!-- Bottom Bar -->
-        <div class="border-gray-200 py-6">
+        <div class="border-t border-gray-200 py-6">
             <div class="flex flex-col md:flex-row justify-between items-center">
-                <div class="text-gray-500 mb-4 md:mb-0">
+                <div class="text-sm text-gray-500 mb-4 md:mb-0">
                     © <?php echo date('Y'); ?> Meta Esthetic Thailand. All rights reserved.
                 </div>
                 <div class="flex space-x-6">
-                    <a href="#" class="text-gray-500 hover:text-pink-500 transition duration-150">Privacy Policy</a>
-                    <a href="#" class="text-gray-500 hover:text-pink-500 transition duration-150">Terms of Service</a>
-                    <a href="#" class="text-gray-500 hover:text-pink-500 transition duration-150">Cookie Policy</a>
+                    <a href="#" class="text-sm text-gray-500 hover:text-pink-500 transition duration-150">Privacy Policy</a>
+                    <a href="#" class="text-sm text-gray-500 hover:text-pink-500 transition duration-150">Terms of Service</a>
+                    <a href="#" class="text-sm text-gray-500 hover:text-pink-500 transition duration-150">Cookie Policy</a>
                 </div>
             </div>
         </div>
