@@ -1,5 +1,5 @@
 <!-- Content -->
-<div data-hero class="min-h-[72dvh] md:min-h-screen flex flex-col justify-center" style="min-height: 72dvh; padding-top: 50%;">
+<div data-hero class="min-h-[72dvh] md:min-h-screen flex flex-col justify-center pt-[50%] md:pt-[20%]" style="min-height: 72dvh;">
   <div class="h-full flex flex-col justify-center">
     <div class="mt-0 md:mt-2 max-w-4xl w-full text-center mx-auto px-4 sm:px-6 lg:px-8">
       <div class="mb-4 flex justify-center items-center">
