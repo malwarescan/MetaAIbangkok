@@ -44,7 +44,7 @@
         <a class="text-sm hover:opacity-80 transition <?= $langCode==='th'?'font-semibold':'' ?>" href="<?= htmlspecialchars($localePaths['th']) ?>">TH</a>
         <a class="text-sm hover:opacity-80 transition <?= $langCode==='ko'?'font-semibold':'' ?>" href="<?= htmlspecialchars($localePaths['ko']) ?>">KR</a>
       </nav>
-      
+
       <!-- Language Rotator (Header) -->
       <div id="hero-rotator"
            class="w-full md:w-auto mt-2 md:mt-0 md:ml-6 text-xs md:text-sm text-black/70 tracking-tight
@@ -245,14 +245,15 @@
 
   <script>
   // Chat functionality
-  document.addEventListener('DOMContentLoaded', function() {
-    const searchInput = document.querySelector('input[placeholder="Ask me anything..."]');
-    const uploadBtn = document.querySelector('button[type="button"]:has(svg path[d*="M4 14.899A7"])');
-    const micBtn = document.querySelector('button[type="button"]:has(svg path[d*="M12 2a3"])');
+    document.addEventListener('DOMContentLoaded', function() {
+    const chatInput = document.getElementById('chat-input');
+    const chatMessages = document.getElementById('chat-messages');
+    const uploadBtn = document.getElementById('upload-btn');
+    const micBtn = document.getElementById('mic-btn');
     
-    if (searchInput) {
+    if (chatInput) {
       // Handle Enter key press
-      searchInput.addEventListener('keypress', function(e) {
+      chatInput.addEventListener('keypress', function(e) {
         if (e.key === 'Enter') {
           e.preventDefault();
           sendMessage();
@@ -262,24 +263,62 @@
       // Handle click on buttons
       if (uploadBtn) {
         uploadBtn.addEventListener('click', function() {
-          alert('File upload feature coming soon!');
+          addMessage('system', 'File upload feature coming soon!');
         });
       }
       
       if (micBtn) {
         micBtn.addEventListener('click', function() {
-          alert('Voice input feature coming soon!');
+          addMessage('system', 'Voice input feature coming soon!');
         });
       }
     }
     
+    function addMessage(type, content) {
+      // Show chat messages container
+      chatMessages.classList.remove('hidden');
+      
+      // Create message element
+      const messageDiv = document.createElement('div');
+      messageDiv.className = `flex ${type === 'user' ? 'justify-end' : 'justify-start'}`;
+      
+      const messageContent = document.createElement('div');
+      messageContent.className = `max-w-xs lg:max-w-md px-4 py-2 rounded-2xl ${
+        type === 'user' 
+          ? 'bg-me-core text-white' 
+          : type === 'ai'
+          ? 'bg-gray-100 text-gray-800'
+          : 'bg-yellow-100 text-yellow-800'
+      }`;
+      
+      // Format content with line breaks
+      const formattedContent = content.replace(/\n/g, '<br>');
+      messageContent.innerHTML = formattedContent;
+      
+      messageDiv.appendChild(messageContent);
+      chatMessages.appendChild(messageDiv);
+      
+      // Scroll to bottom
+      chatMessages.scrollTop = chatMessages.scrollHeight;
+    }
+    
     function sendMessage() {
-      const message = searchInput.value.trim();
+      const message = chatInput.value.trim();
       if (!message) return;
       
+      // Add user message to chat
+      addMessage('user', message);
+      
       // Show loading state
-      searchInput.disabled = true;
-      searchInput.placeholder = 'Thinking...';
+      chatInput.disabled = true;
+      chatInput.placeholder = 'Thinking...';
+      
+      // Add typing indicator
+      const typingDiv = document.createElement('div');
+      typingDiv.className = 'flex justify-start';
+      typingDiv.innerHTML = '<div class="bg-gray-100 text-gray-800 px-4 py-2 rounded-2xl"><div class="flex space-x-1"><div class="w-2 h-2 bg-gray-400 rounded-full animate-bounce"></div><div class="w-2 h-2 bg-gray-400 rounded-full animate-bounce" style="animation-delay: 0.1s"></div><div class="w-2 h-2 bg-gray-400 rounded-full animate-bounce" style="animation-delay: 0.2s"></div></div></div>';
+      chatMessages.appendChild(typingDiv);
+      chatMessages.scrollTop = chatMessages.scrollHeight;
       
       // Send to Node.js API
       fetch('http://localhost:3000/api/chat', {
@@ -291,26 +330,34 @@
       })
       .then(response => response.json())
       .then(data => {
-        // Show response in alert for now (can be improved with a modal)
-        alert('AI Response:\n\n' + data.response);
+        // Remove typing indicator
+        typingDiv.remove();
+        
+        // Add AI response
+        addMessage('ai', data.response);
         
         // Reset input
-        searchInput.value = '';
-        searchInput.disabled = false;
-        searchInput.placeholder = 'Ask me anything...';
-        searchInput.focus();
+        chatInput.value = '';
+        chatInput.disabled = false;
+        chatInput.placeholder = 'Ask me anything...';
+        chatInput.focus();
       })
       .catch(error => {
         console.error('Error:', error);
-        alert('Sorry, there was an error. Please try again.');
+        
+        // Remove typing indicator
+        typingDiv.remove();
+        
+        // Add error message
+        addMessage('system', 'Sorry, there was an error. Please try again.');
         
         // Reset input
-        searchInput.disabled = false;
-        searchInput.placeholder = 'Ask me anything...';
-        searchInput.focus();
-      });
-    }
-  });
+        chatInput.disabled = false;
+        chatInput.placeholder = 'Ask me anything...';
+        chatInput.focus();
+        });
+      }
+    });
   </script>
 </body>
 </html>
