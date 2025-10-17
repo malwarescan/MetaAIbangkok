@@ -1,5 +1,5 @@
 <!-- Content -->
-<div data-hero class="min-h-[72dvh] md:min-h-screen flex flex-col justify-center pb-4 md:pb-6">
+<div data-hero class="min-h-[72dvh] md:min-h-screen flex flex-col justify-center">
   <div class="h-full flex flex-col justify-center">
     <div class="mt-0 md:mt-2 max-w-4xl w-full text-center mx-auto px-4 sm:px-6 lg:px-8">
       <div class="mb-4 flex justify-center items-center">
@@ -43,9 +43,9 @@
     <!-- End Search -->
   </div>
 
-  <footer class="mt-auto max-w-4xl text-center mx-auto px-4 sm:px-6 lg:px-8">
+  <div class="mt-auto max-w-4xl text-center mx-auto px-4 sm:px-6 lg:px-8">
     <p class="text-xs text-gray-600 dark:text-neutral-500">© <?= date('Y') ?> Meta Esthetic — Clinic Intelligence In Your Palm</p>
-  </footer>
+  </div>
 </div>
 <!-- End Content -->
 
