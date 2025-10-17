@@ -64,9 +64,10 @@
     <?= $content ?? '' ?>
   </main>
 
-  <footer class="border-t border-black/5 bg-white">
-    <div class="max-w-7xl mx-auto px-4 py-10 text-sm text-black/60">
-      © <?= date('Y') ?> Meta Esthetic — Clinic Intelligence In Your Palm
+  <footer class="border-t border-black/5 bg-white dark:bg-neutral-900 dark:border-neutral-700">
+    <div class="max-w-7xl mx-auto px-4 py-8 text-sm text-black/60 dark:text-neutral-400 text-center">
+      <p>© <?= date('Y') ?> Meta Esthetic — Clinic Intelligence In Your Palm</p>
+      <p class="mt-1">AI Language Model Powered by <a href="https://www.nrlc.ai" class="text-blue-600 hover:underline dark:text-blue-400">nrlc.ai</a></p>
     </div>
   </footer>
 
