@@ -43,8 +43,8 @@ dark:bg-neutral-900 dark:border-neutral-700" role="dialog" tabindex="-1" aria-la
 <!-- End Sidebar -->
 
 <!-- Content -->
-<div class="relative min-h-screen w-full lg:ps-64 pt-14 md:pt-16">
-  <div class="py-10 lg:py-14">
+<div data-hero class="relative min-h-[72dvh] md:min-h-screen w-full lg:ps-64 pt-14 md:pt-16" style="min-height: 72dvh;">
+  <div class="py-10 lg:py-14 pt-[50%] md:pt-[20%]">
     <!-- Title -->
     <div class="max-w-4xl px-4 sm:px-6 lg:px-8 mx-auto text-center">
       <h1 class="text-3xl font-bold text-gray-800 sm:text-4xl dark:text-white">
