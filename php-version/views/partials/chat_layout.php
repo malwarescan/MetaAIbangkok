@@ -78,7 +78,7 @@ dark:bg-neutral-900 dark:border-neutral-700" role="dialog" tabindex="-1" aria-la
       <textarea id="chat-input" class="p-3 sm:p-4 pb-12 sm:pb-12 block w-full bg-gray-100 border-gray-200 rounded-lg sm:text-sm focus:border-blue-500 focus:ring-blue-500 dark:bg-neutral-800 dark:border-neutral-700 dark:text-neutral-400 dark:placeholder-neutral-500 dark:focus:ring-neutral-600" placeholder="Ask me anything..."></textarea>
 
       <!-- Toolbar -->
-      <div class="absolute bottom-px right-px p-2 rounded-b-lg bg-gray-100 dark:bg-neutral-800 w-max">
+      <div class="absolute bottom-px right-px left-auto p-2 rounded-b-lg bg-gray-100 dark:bg-neutral-800 w-max">
         <div class="flex items-center justify-end gap-2">
           <div class="flex items-center">
             <button id="upload-btn" type="button" class="inline-flex shrink-0 justify-center items-center size-8 rounded-lg text-gray-500 hover:bg-white focus:z-10 focus:outline-hidden focus:bg-white dark:text-neutral-500 dark:hover:bg-neutral-700 dark:focus:bg-neutral-700">
