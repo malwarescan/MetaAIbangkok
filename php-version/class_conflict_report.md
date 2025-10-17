@@ -1,0 +1,390 @@
+# Class Conflict Read-Only Report
+
+Total files with conflicts: 16
+Total conflict instances: 258
+
+- **../en/faq.php**
+  - class: family /^(p|px|py|pt|pr|pb|pl)-/: `px-4` -> `pt-12`, family /^(p|px|py|pt|pr|pb|pl)-/: `pt-12` -> `pb-8`
+    - source: `max-w-7xl mx-auto px-4 pt-12 pb-8 md:pt-20 md:pb-12`
+  - class: family /^text-(?!opacity)/: `text-xs` -> `text-black/60`
+    - source: `text-xs md:text-sm text-black/60`
+  - class: family /^text-(?!opacity)/: `text-base` -> `text-black/70`
+    - source: `mt-3 md:mt-5 text-base md:text-lg text-black/70 max-w-3xl`
+  - class: family /^border(-[tblrxy])?/: `border` -> `border-black/10`, family /^(p|px|py|pt|pr|pb|pl)-/: `px-3` -> `py-1`, family /^text-(?!opacity)/: `text-xs` -> `text-black/70`
+    - source: `inline-flex items-center rounded-full bg-white border border-black/10 px-3 py-1 text-xs text-black/70`
+  - class: family /^border(-[tblrxy])?/: `border` -> `border-black/10`, family /^(p|px|py|pt|pr|pb|pl)-/: `px-3` -> `py-1`, family /^text-(?!opacity)/: `text-xs` -> `text-black/70`
+    - source: `inline-flex items-center rounded-full bg-white border border-black/10 px-3 py-1 text-xs text-black/70`
+  - class: family /^border(-[tblrxy])?/: `border` -> `border-black/10`
+    - source: `bg-white rounded-2xl border border-black/10 shadow-sm p-6 md:p-8`
+- **../kr/faq.php**
+  - class: family /^(p|px|py|pt|pr|pb|pl)-/: `px-4` -> `pt-12`, family /^(p|px|py|pt|pr|pb|pl)-/: `pt-12` -> `pb-8`
+    - source: `max-w-7xl mx-auto px-4 pt-12 pb-8 md:pt-20 md:pb-12`
+  - class: family /^text-(?!opacity)/: `text-base` -> `text-black/70`
+    - source: `mt-3 md:mt-5 text-base md:text-lg text-black/70 max-w-3xl`
+- **../th/faq.php**
+  - class: family /^(p|px|py|pt|pr|pb|pl)-/: `px-4` -> `pt-12`, family /^(p|px|py|pt|pr|pb|pl)-/: `pt-12` -> `pb-8`
+    - source: `max-w-7xl mx-auto px-4 pt-12 pb-8 md:pt-20 md:pb-12`
+  - class: family /^text-(?!opacity)/: `text-base` -> `text-black/70`
+    - source: `mt-3 md:mt-5 text-base md:text-lg text-black/70 max-w-3xl`
+- **../views/home-shared.php**
+  - class: family /^(m|mx|my|mt|mr|mb|ml)-/: `mt-0` -> `mx-auto`
+    - source: `mt-0 md:mt-2 max-w-4xl w-full text-center mx-auto px-4 sm:px-6 lg:px-8`
+  - class: family /^text-(?!opacity)/: `text-lg` -> `text-me-graphite`
+    - source: `text-lg font-semibold tracking-tight text-me-graphite`
+  - class: family /^text-(?!opacity)/: `text-3xl` -> `text-gray-800`
+    - source: `text-3xl font-bold text-gray-800 sm:text-4xl dark:text-white`
+  - class: family /^(m|mx|my|mt|mr|mb|ml)-/: `mt-6` -> `mx-auto`
+    - source: `mt-6 md:mt-10 max-w-2xl w-full mx-auto px-4 sm:px-6 lg:px-8`
+  - class: family /^border(-[tblrxy])?/: `border` -> `border-transparent`, family /^text-(?!opacity)/: `text-sm` -> `text-gray-500`
+    - source: `size-10 inline-flex justify-center items-center gap-x-2 text-sm font-semibold rounded-full border border-transparent text-gray-500 hover:text-gray-800 focus:outline-hidden focus:text-gray-800 disabled:opacity-50 disabled:pointer-events-none dark:text-neutral-400 dark:hover:text-white dark:focus:text-white`
+  - class: family /^border(-[tblrxy])?/: `border` -> `border-transparent`, family /^text-(?!opacity)/: `text-sm` -> `text-gray-500`
+    - source: `size-10 inline-flex justify-center items-center gap-x-2 text-sm font-semibold rounded-full border border-transparent text-gray-500 hover:text-gray-800 focus:outline-hidden focus:text-gray-800 bg-gray-100 disabled:opacity-50 disabled:pointer-events-none dark:text-neutral-400 dark:bg-neutral-800 dark:hover:text-white dark:focus:text-white`
+  - class: family /^(m|mx|my|mt|mr|mb|ml)-/: `mt-auto` -> `mx-auto`
+    - source: `mt-auto max-w-4xl text-center mx-auto px-4 sm:px-6 lg:px-8`
+  - class: family /^text-(?!opacity)/: `text-xs` -> `text-gray-600`
+    - source: `text-xs text-gray-600 dark:text-neutral-500`
+  - class: family /^border(-[tblrxy])?/: `border` -> `border-black/10`
+    - source: `bg-white rounded-2xl border border-black/10 shadow-me-subtle p-6 md:p-8`
+  - class: family /^border(-[tblrxy])?/: `border` -> `border-black/10`
+    - source: `bg-white rounded-2xl border border-black/10 shadow-me-subtle p-6 md:p-8`
+  - class: family /^text-(?!opacity)/: `text-2xl` -> `text-gray-800`
+    - source: `text-2xl md:text-3xl font-semibold text-gray-800 dark:text-white`
+  - class: family /^border(-[tblrxy])?/: `border` -> `border-black/10`, family /^(p|px|py|pt|pr|pb|pl)-/: `px-3` -> `py-1`, family /^text-(?!opacity)/: `text-xs` -> `text-black/70`
+    - source: `inline-flex items-center rounded-full bg-white border border-black/10 px-3 py-1 text-xs text-black/70`
+  - class: family /^border(-[tblrxy])?/: `border` -> `border-black/10`, family /^(p|px|py|pt|pr|pb|pl)-/: `px-3` -> `py-1`, family /^text-(?!opacity)/: `text-xs` -> `text-black/70`
+    - source: `inline-flex items-center rounded-full bg-white border border-black/10 px-3 py-1 text-xs text-black/70`
+  - class: family /^(p|px|py|pt|pr|pb|pl)-/: `px-6` -> `py-3`
+    - source: `hs-button inline-flex items-center px-6 md:px-8 py-3 md:py-4 rounded-2xl bg-me-core text-me-graphite font-medium shadow-me-soft hover:shadow-lg transition`
+  - class: family /^border(-[tblrxy])?/: `border` -> `border-black/10`
+    - source: `bg-white rounded-2xl border border-black/10 shadow-me-soft p-6 md:p-10 flex flex-col md:flex-row items-center justify-between gap-4 md:gap-6`
+  - class: family /^(p|px|py|pt|pr|pb|pl)-/: `px-5` -> `py-2.5`
+    - source: `hs-button inline-flex items-center px-5 md:px-6 py-2.5 md:py-3 rounded-2xl bg-me-core text-me-graphite font-medium shadow-me-soft hover:shadow-lg transition`
+- **../views/home.php**
+  - class: family /^(p|px|py|pt|pr|pb|pl)-/: `px-6` -> `py-10`
+    - source: `max-w-7xl mx-auto px-6 py-10 md:py-16`
+  - class: family /^text-(?!opacity)/: `text-sm` -> `text-black/60`
+    - source: `text-sm text-black/60`
+  - class: family /^text-(?!opacity)/: `text-xl` -> `text-black/70`, family /^(m|mx|my|mt|mr|mb|ml)-/: `mb-12` -> `mx-auto`
+    - source: `text-xl text-black/70 leading-relaxed mb-12 max-w-3xl mx-auto`
+  - class: family /^border(-[tblrxy])?/: `border` -> `border-black/10`, family /^(m|mx|my|mt|mr|mb|ml)-/: `mb-12` -> `mx-auto`
+    - source: `bg-white rounded-2xl border border-black/10 shadow-me-subtle p-6 md:p-8 mb-12 max-w-2xl mx-auto`
+  - class: family /^text-(?!opacity)/: `text-sm` -> `text-gray-800`
+    - source: `block text-sm font-medium mb-3 text-gray-800`
+  - class: family /^(p|px|py|pt|pr|pb|pl)-/: `py-4` -> `px-6`
+    - source: `py-4 px-6 block w-full border-gray-200 rounded-lg text-sm focus:border-me-core focus:ring-me-core disabled:opacity-50 disabled:pointer-events-none`
+  - class: family /^text-(?!opacity)/: `text-sm` -> `text-gray-800`
+    - source: `block text-sm font-medium mb-3 text-gray-800`
+  - class: family /^(p|px|py|pt|pr|pb|pl)-/: `py-4` -> `px-6`
+    - source: `py-4 px-6 block w-full border-gray-200 rounded-lg text-sm focus:border-me-core focus:ring-me-core disabled:opacity-50 disabled:pointer-events-none`
+  - class: family /^(p|px|py|pt|pr|pb|pl)-/: `px-8` -> `py-4`
+    - source: `w-full hs-button inline-flex items-center justify-center px-8 py-4 rounded-2xl bg-me-core text-me-graphite font-medium shadow-me-soft hover:shadow-lg transition`
+  - class: family /^(p|px|py|pt|pr|pb|pl)-/: `px-6` -> `py-4`, family /^border(-[tblrxy])?/: `border` -> `border-black/10`
+    - source: `inline-flex items-center px-6 py-4 rounded-2xl bg-white text-me-graphite shadow-me-subtle border border-black/10 hover:shadow-md transition`
+  - class: family /^(p|px|py|pt|pr|pb|pl)-/: `py-6` -> `px-6`, family /^text-(?!opacity)/: `text-start` -> `text-gray-800`
+    - source: `hs-accordion-toggle group py-6 px-6 inline-flex items-center gap-x-4 w-full font-semibold text-start text-gray-800 rounded-lg transition hover:text-gray-500 focus:outline-none focus:text-gray-500 focus:ring-0`
+  - class: family /^(p|px|py|pt|pr|pb|pl)-/: `pb-6` -> `px-6`
+    - source: `pb-6 px-6`
+  - class: family /^(p|px|py|pt|pr|pb|pl)-/: `py-4` -> `px-6`, family /^border(-[tblrxy])?/: `border-b-2` -> `border-transparent`, family /^text-(?!opacity)/: `text-sm` -> `text-gray-500`
+    - source: `hs-tabs-default-link py-4 px-6 inline-flex items-center gap-x-3 border-b-2 border-transparent text-sm whitespace-nowrap text-gray-500 hover:text-gray-700 focus:outline-none focus:text-gray-700 disabled:opacity-50 disabled:pointer-events-none hs-tabs-default-link-active:font-semibold hs-tabs-default-link-active:text-gray-700 hs-tabs-default-link-active:border-me-core`
+  - class: family /^(p|px|py|pt|pr|pb|pl)-/: `py-4` -> `px-6`, family /^border(-[tblrxy])?/: `border-b-2` -> `border-transparent`, family /^text-(?!opacity)/: `text-sm` -> `text-gray-500`
+    - source: `hs-tabs-default-link py-4 px-6 inline-flex items-center gap-x-3 border-b-2 border-transparent text-sm whitespace-nowrap text-gray-500 hover:text-gray-700 focus:outline-none focus:text-gray-700 disabled:opacity-50 disabled:pointer-events-none hs-tabs-default-link-active:font-semibold hs-tabs-default-link-active:text-gray-700 hs-tabs-default-link-active:border-me-core`
+  - class: family /^border(-[tblrxy])?/: `border` -> `border-black/10`
+    - source: `bg-white rounded-2xl border border-black/10 shadow-me-subtle p-6 md:p-10`
+  - class: family /^text-(?!opacity)/: `text-lg` -> `text-black/70`
+    - source: `text-lg text-black/70 leading-relaxed mb-8`
+  - class: family /^text-(?!opacity)/: `text-sm` -> `text-gray-700`
+    - source: `text-sm font-medium text-gray-700`
+  - class: family /^text-(?!opacity)/: `text-sm` -> `text-gray-500`
+    - source: `text-sm text-gray-500`
+  - class: family /^text-(?!opacity)/: `text-me-core` -> `text-lg`
+    - source: `text-me-core text-lg`
+  - class: family /^text-(?!opacity)/: `text-me-core` -> `text-lg`
+    - source: `text-me-core text-lg`
+  - class: family /^text-(?!opacity)/: `text-me-core` -> `text-lg`
+    - source: `text-me-core text-lg`
+  - class: family /^border(-[tblrxy])?/: `border` -> `border-black/10`
+    - source: `bg-white rounded-2xl border border-black/10 shadow-me-subtle p-6 md:p-10`
+  - class: family /^text-(?!opacity)/: `text-lg` -> `text-black/70`
+    - source: `text-lg text-black/70 leading-relaxed mb-8`
+  - class: family /^text-(?!opacity)/: `text-sm` -> `text-gray-700`
+    - source: `text-sm font-medium text-gray-700`
+  - class: family /^text-(?!opacity)/: `text-sm` -> `text-gray-500`
+    - source: `text-sm text-gray-500`
+  - class: family /^text-(?!opacity)/: `text-me-core` -> `text-lg`
+    - source: `text-me-core text-lg`
+  - class: family /^text-(?!opacity)/: `text-me-core` -> `text-lg`
+    - source: `text-me-core text-lg`
+  - class: family /^text-(?!opacity)/: `text-me-core` -> `text-lg`
+    - source: `text-me-core text-lg`
+  - class: family /^border(-[tblrxy])?/: `border` -> `border-black/10`
+    - source: `bg-white rounded-2xl border border-black/10 shadow-me-soft p-12 flex flex-col md:flex-row items-center justify-between gap-4 md:gap-8`
+  - class: family /^text-(?!opacity)/: `text-lg` -> `text-black/70`
+    - source: `text-lg text-black/70 leading-relaxed`
+  - class: family /^(p|px|py|pt|pr|pb|pl)-/: `px-8` -> `py-4`
+    - source: `hs-overlay-open hs-button inline-flex items-center px-8 py-4 rounded-2xl bg-me-core text-me-graphite font-medium shadow-me-soft hover:shadow-lg transition`
+  - class: family /^overflow-/: `overflow-x-hidden` -> `overflow-y-auto`
+    - source: `hs-overlay hs-overlay-open:opacity-100 hs-overlay-open:duration-500 hidden size-full fixed top-0 start-0 z-[80] opacity-0 overflow-x-hidden overflow-y-auto pointer-events-none`
+  - class: family /^(m|mx|my|mt|mr|mb|ml)-/: `mt-0` -> `m-3`
+    - source: `hs-overlay-open:mt-7 hs-overlay-open:opacity-100 hs-overlay-open:duration-500 mt-0 opacity-0 ease-out transition-all sm:max-w-lg sm:w-full m-3 sm:mx-auto`
+  - class: family /^(p|px|py|pt|pr|pb|pl)-/: `py-6` -> `px-6`
+    - source: `flex justify-between items-center py-6 px-6 border-b`
+  - class: family /^text-(?!opacity)/: `text-xl` -> `text-gray-800`
+    - source: `text-xl font-bold text-gray-800`
+  - class: family /^border(-[tblrxy])?/: `border` -> `border-transparent`, family /^text-(?!opacity)/: `text-sm` -> `text-gray-800`
+    - source: `flex justify-center items-center size-8 text-sm font-semibold rounded-full border border-transparent text-gray-800 hover:bg-gray-100 disabled:opacity-50 disabled:pointer-events-none`
+  - class: family /^text-(?!opacity)/: `text-sm` -> `text-gray-800`
+    - source: `block text-sm font-medium mb-3 text-gray-800`
+  - class: family /^(p|px|py|pt|pr|pb|pl)-/: `py-4` -> `px-6`
+    - source: `py-4 px-6 block w-full border-gray-200 rounded-lg text-sm focus:border-me-core focus:ring-me-core disabled:opacity-50 disabled:pointer-events-none`
+  - class: family /^text-(?!opacity)/: `text-sm` -> `text-gray-800`
+    - source: `block text-sm font-medium mb-3 text-gray-800`
+  - class: family /^(p|px|py|pt|pr|pb|pl)-/: `py-4` -> `px-6`
+    - source: `py-4 px-6 block w-full border-gray-200 rounded-lg text-sm focus:border-me-core focus:ring-me-core disabled:opacity-50 disabled:pointer-events-none`
+  - class: family /^text-(?!opacity)/: `text-sm` -> `text-gray-800`
+    - source: `block text-sm font-medium mb-3 text-gray-800`
+  - class: family /^(p|px|py|pt|pr|pb|pl)-/: `py-4` -> `px-6`
+    - source: `py-4 px-6 block w-full border-gray-200 rounded-lg text-sm focus:border-me-core focus:ring-me-core disabled:opacity-50 disabled:pointer-events-none`
+  - class: family /^(p|px|py|pt|pr|pb|pl)-/: `py-3` -> `px-6`, family /^border(-[tblrxy])?/: `border` -> `border-gray-200`, family /^text-(?!opacity)/: `text-sm` -> `text-gray-800`
+    - source: `py-3 px-6 inline-flex items-center gap-x-2 text-sm font-medium rounded-lg border border-gray-200 bg-white text-gray-800 shadow-sm hover:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none`
+  - class: family /^(p|px|py|pt|pr|pb|pl)-/: `py-3` -> `px-6`, family /^border(-[tblrxy])?/: `border` -> `border-transparent`, family /^text-(?!opacity)/: `text-sm` -> `text-me-graphite`
+    - source: `py-3 px-6 inline-flex items-center gap-x-2 text-sm font-semibold rounded-lg border border-transparent bg-me-core text-me-graphite hover:bg-me-core/90 disabled:opacity-50 disabled:pointer-events-none`
+- **../views/layout.php**
+  - class: family /^border(-[tblrxy])?/: `border-b` -> `border-black/5`
+    - source: `sticky top-0 z-50 bg-white/80 backdrop-blur border-b border-black/5`
+  - class: family /^(p|px|py|pt|pr|pb|pl)-/: `px-4` -> `py-2`
+    - source: `max-w-7xl mx-auto px-4 py-2 md:py-3 flex flex-col md:flex-row items-center justify-center gap-1 md:gap-0`
+  - class: family /^border(-[tblrxy])?/: `border-t` -> `border-black/5`
+    - source: `border-t border-black/5 bg-transparent dark:bg-transparent dark:border-neutral-700`
+  - class: family /^(p|px|py|pt|pr|pb|pl)-/: `px-4` -> `py-8`, family /^text-(?!opacity)/: `text-sm` -> `text-center`
+    - source: `max-w-7xl mx-auto px-4 py-8 text-sm text-center`
+  - class: family /^text-(?!opacity)/: `text-gray-500` -> `text-sm`
+    - source: `text-gray-500 text-sm tracking-tight select-none`
+  - class: family /^text-(?!opacity)/: `text-gray-500` -> `text-sm`
+    - source: `mt-1 text-gray-500 text-sm tracking-tight select-none`
+  - class: family /^(p|px|py|pt|pr|pb|pl)-/: `px-4` -> `py-2`
+    - source: `bg-gray-100 text-gray-800 px-4 py-2 rounded-2xl`
+- **../zh/faq.php**
+  - class: family /^(p|px|py|pt|pr|pb|pl)-/: `px-4` -> `pt-12`, family /^(p|px|py|pt|pr|pb|pl)-/: `pt-12` -> `pb-8`
+    - source: `max-w-7xl mx-auto px-4 pt-12 pb-8 md:pt-20 md:pb-12`
+  - class: family /^text-(?!opacity)/: `text-base` -> `text-black/70`
+    - source: `mt-3 md:mt-5 text-base md:text-lg text-black/70 max-w-3xl`
+- **../assets/js/main.js**
+  - class: family /^text-(?!opacity)/: `text-sm` -> `text-gray-800`
+    - source: `text-sm text-gray-800`
+- **../public/js/preline.js**
+  - class: family /^border(-[tblrxy])?/: `border` -> `border-solid`, family /^border(-[tblrxy])?/: `border-solid` -> `border-gray-300`
+    - source: `p-3 bg-white border border-solid border-gray-300 rounded-xl dark:bg-neutral-800 dark:border-neutral-600`
+  - class: family /^border(-[tblrxy])?/: `border` -> `border-gray-200`
+    - source: `size-8 flex justify-center items-center border border-gray-200 text-gray-500 rounded-lg dark:border-neutral-700 dark:text-neutral-500`
+  - class: family /^text-(?!opacity)/: `text-sm` -> `text-gray-800`
+    - source: `text-sm font-medium text-gray-800 dark:text-white`
+  - class: family /^text-(?!opacity)/: `text-xs` -> `text-gray-500`
+    - source: `text-xs text-gray-500 dark:text-neutral-500`
+  - class: family /^text-(?!opacity)/: `text-xs` -> `text-white`, family /^text-(?!opacity)/: `text-white` -> `text-center`
+    - source: `flex flex-col justify-center rounded-full overflow-hidden bg-blue-600 text-xs text-white text-center whitespace-nowrap transition-all duration-500 hs-file-upload-complete:bg-green-600 dark:bg-blue-500`
+  - class: family /^text-(?!opacity)/: `text-sm` -> `text-gray-800`
+    - source: `text-sm text-gray-800 dark:text-white`
+  - class: family /^(p|px|py|pt|pr|pb|pl)-/: `py-2` -> `px-4`, family /^text-(?!opacity)/: `text-sm` -> `text-gray-800`
+    - source: `cursor-pointer py-2 px-4 w-full text-sm text-gray-800 hover:bg-gray-100 rounded-lg focus:outline-hidden focus:bg-gray-100 dark:bg-neutral-900 dark:hover:bg-neutral-800 dark:text-neutral-200 dark:focus:bg-neutral-800`
+  - class: family /^(p|px|py|pt|pr|pb|pl)-/: `py-2` -> `px-4`, family /^text-(?!opacity)/: `text-sm` -> `text-gray-800`
+    - source: `py-2 px-4 w-full text-sm text-gray-800 rounded-lg dark:bg-neutral-900 dark:text-neutral-200`
+  - class: family /^(p|px|py|pt|pr|pb|pl)-/: `py-2` -> `px-4`, family /^text-(?!opacity)/: `text-sm` -> `text-gray-800`
+    - source: `flex justify-center items-center py-2 px-4 text-sm text-gray-800 rounded-lg bg-white dark:bg-neutral-900 dark:text-neutral-200`
+  - class: family /^border(-[tblrxy])?/: `border-3` -> `border-current`, family /^border(-[tblrxy])?/: `border-current` -> `border-t-transparent`
+    - source: `animate-spin inline-block size-6 border-3 border-current border-t-transparent text-blue-600 rounded-full dark:text-blue-500`
+  - class: family /^text-(?!opacity)/: `text-xs` -> `text-blue-600`
+    - source: `block mb-1 text-xs font-semibold uppercase text-blue-600 dark:text-blue-500`
+  - class: family /^(p|px|py|pt|pr|pb|pl)-/: `py-2` -> `px-3`, family /^border(-[tblrxy])?/: `border` -> `border-transparent`, family /^text-(?!opacity)/: `text-sm` -> `text-white`
+    - source: `py-2 px-3 inline-flex items-center gap-x-2 text-sm font-semibold whitespace-nowrap rounded-lg border border-transparent bg-blue-600 text-white hover:bg-blue-700 disabled:opacity-50 disabled:pointer-events-none`
+- **../public/presentation/index.php**
+  - class: family /^border(-[tblrxy])?/: `border` -> `border-black/10`
+    - source: `bg-white rounded-2xl border border-black/10 shadow-me-soft p-6 md:p-8`
+  - class: family /^border(-[tblrxy])?/: `border` -> `border-dashed`, family /^border(-[tblrxy])?/: `border-dashed` -> `border-black/10`
+    - source: `bg-white rounded-2xl border border-dashed border-black/10 p-6 md:p-8`
+  - class: family /^(p|px|py|pt|pr|pb|pl)-/: `px-4` -> `pt-10`, family /^(p|px|py|pt|pr|pb|pl)-/: `pt-10` -> `pb-6`
+    - source: `max-w-7xl mx-auto px-4 pt-10 md:pt-16 pb-6 md:pb-10`
+  - class: family /^text-(?!opacity)/: `text-sm` -> `text-black/60`
+    - source: `text-sm text-black/60`
+  - class: family /^border(-[tblrxy])?/: `border-b` -> `border-black/10`
+    - source: `flex items-center gap-2 border-b border-black/10 pb-2`
+  - class: family /^(p|px|py|pt|pr|pb|pl)-/: `px-3` -> `py-1.5`, family /^text-(?!opacity)/: `text-sm` -> `text-black/60`
+    - source: `hs-tab-active:bg-me-core/10 hs-tab-active:text-me-graphite px-3 py-1.5 rounded-md text-sm text-black/60 hover:text-me-graphite focus:outline-hidden`
+  - class: family /^(p|px|py|pt|pr|pb|pl)-/: `px-3` -> `py-1.5`, family /^text-(?!opacity)/: `text-sm` -> `text-black/60`
+    - source: `hs-tab-active:bg-me-core/10 hs-tab-active:text-me-graphite px-3 py-1.5 rounded-md text-sm text-black/60 hover:text-me-graphite focus:outline-hidden`
+  - class: family /^(p|px|py|pt|pr|pb|pl)-/: `px-3` -> `py-1.5`, family /^text-(?!opacity)/: `text-sm` -> `text-black/60`
+    - source: `hs-tab-active:bg-me-core/10 hs-tab-active:text-me-graphite px-3 py-1.5 rounded-md text-sm text-black/60 hover:text-me-graphite focus:outline-hidden`
+- **../views/partials/chat_layout.php**
+  - class: family /^(top|right|bottom|left)-/: `top-0` -> `bottom-0`, family /^border(-[tblrxy])?/: `border-e` -> `border-gray-200`
+    - source: `hs-overlay [--auto-close:lg]
+hs-overlay-open:block hs-overlay-open:translate-x-0 -translate-x-full duration-300 transform
+hidden
+fixed top-0 start-0 bottom-0 z-60
+w-64 h-full
+bg-white border-e border-gray-200
+lg:block lg:translate-x-0 lg:end-auto lg:bottom-0
+dark:bg-neutral-900 dark:border-neutral-700`
+  - class: family /^text-(?!opacity)/: `text-sm` -> `text-gray-700`
+    - source: `text-sm font-medium text-gray-700`
+  - class: family /^(p|px|py|pt|pr|pb|pl)-/: `py-2` -> `px-3`, family /^text-(?!opacity)/: `text-sm` -> `text-gray-700`
+    - source: `w-full inline-flex items-center gap-x-3 py-2 px-3 text-sm text-gray-700 rounded-lg hover:bg-gray-100 focus:outline-hidden focus:bg-gray-100 dark:text-neutral-400 dark:hover:bg-neutral-900 dark:hover:text-neutral-300 dark:focus:bg-neutral-900 dark:focus:text-neutral-300`
+  - class: family /^(p|px|py|pt|pr|pb|pl)-/: `py-2` -> `px-3`, family /^text-(?!opacity)/: `text-sm` -> `text-gray-700`
+    - source: `w-full inline-flex items-center gap-x-3 py-2 px-3 text-sm text-gray-700 rounded-lg hover:bg-gray-100 focus:outline-hidden focus:bg-gray-100 dark:text-neutral-400 dark:hover:bg-neutral-900 dark:hover:text-neutral-300 dark:focus:bg-neutral-900 dark:focus:text-neutral-300`
+  - class: family /^(p|px|py|pt|pr|pb|pl)-/: `py-2` -> `px-3`, family /^text-(?!opacity)/: `text-start` -> `text-sm`, family /^text-(?!opacity)/: `text-sm` -> `text-gray-700`
+    - source: `w-full text-start inline-flex items-center gap-x-3 py-2 px-3 text-sm text-gray-700 rounded-lg hover:bg-gray-100 focus:outline-hidden focus:bg-gray-100 dark:text-neutral-400 dark:hover:bg-neutral-900 dark:hover:text-neutral-300 dark:focus:bg-neutral-900 dark:focus:text-neutral-300`
+  - class: family /^(p|px|py|pt|pr|pb|pl)-/: `py-2` -> `px-3`, family /^text-(?!opacity)/: `text-start` -> `text-sm`, family /^text-(?!opacity)/: `text-sm` -> `text-gray-700`
+    - source: `w-full text-start inline-flex items-center gap-x-3 py-2 px-3 text-sm text-gray-700 rounded-lg hover:bg-gray-100 focus:outline-hidden focus:bg-gray-100 dark:text-neutral-400 dark:hover:bg-neutral-900 dark:hover:text-neutral-300 dark:focus:bg-neutral-900 dark:focus:text-neutral-300`
+  - class: family /^bg-/: `bg-white` -> `bg-[url('/assets/metaaisymbiote-beige.png')]`, family /^bg-/: `bg-[url('/assets/metaaisymbiote-beige.png')]` -> `bg-center`, family /^bg-/: `bg-center` -> `bg-no-repeat`, family /^bg-/: `bg-no-repeat` -> `bg-[length:48%_auto]`
+    - source: `relative min-h-[72dvh] md:min-h-screen w-full lg:ps-64 pt-8 md:pt-12 bg-white bg-[url('/assets/metaaisymbiote-beige.png')] bg-center bg-no-repeat bg-[length:48%_auto] sm:bg-[length:40%_auto] md:bg-[length:28%_auto] lg:bg-[length:18%_auto]`
+  - class: family /^(p|px|py|pt|pr|pb|pl)-/: `py-8` -> `pt-[22%]`
+    - source: `py-8 md:py-12 lg:py-16 pt-[22%] sm:pt-[18%] md:pt-[12%] lg:pt-[8%]`
+  - class: family /^(m|mx|my|mt|mr|mb|ml)-/: `mt-8` -> `mx-auto`
+    - source: `mt-8 space-y-5 max-w-4xl px-4 sm:px-6 lg:px-8 mx-auto hidden`
+  - class: family /^border(-[tblrxy])?/: `border` -> `border-gray-200`, family /^text-(?!opacity)/: `text-xs` -> `text-gray-800`
+    - source: `p-2 inline-flex items-center gap-x-2 text-xs font-medium rounded-lg border border-gray-200 bg-white text-gray-800 shadow-2xs hover:bg-gray-50 focus:outline-hidden focus:bg-gray-50 dark:bg-neutral-900 dark:border-neutral-700 dark:text-white dark:hover:bg-neutral-800 dark:focus:bg-neutral-800`
+  - class: family /^(p|px|py|pt|pr|pb|pl)-/: `p-3` -> `pb-12`
+    - source: `p-3 sm:p-4 pb-12 sm:pb-12 block w-full bg-gray-100 border-gray-200 rounded-lg sm:text-sm focus:border-blue-500 focus:ring-blue-500 dark:bg-neutral-800 dark:border-neutral-700 dark:text-neutral-400 dark:placeholder-neutral-500 dark:focus:ring-neutral-600`
+  - class: family /^(top|right|bottom|left)-/: `bottom-px` -> `right-px`, family /^(top|right|bottom|left)-/: `right-px` -> `left-auto`
+    - source: `absolute bottom-px right-px left-auto p-2 rounded-b-lg bg-gray-100 dark:bg-neutral-800 w-max`
+- **../views/partials/faq_accordion.php**
+  - class: family /^border(-[tblrxy])?/: `border` -> `border-black/10`
+    - source: `hs-accordion hs-accordion-active:bg-white hs-accordion-active:border-me-core/20 hs-accordion-active:shadow-sm border border-black/10 rounded-xl mb-2`
+  - class: family /^(p|px|py|pt|pr|pb|pl)-/: `py-4` -> `px-6`, family /^text-(?!opacity)/: `text-start` -> `text-gray-800`
+    - source: `hs-accordion-toggle py-4 px-6 inline-flex items-center gap-x-3 w-full font-semibold text-start text-gray-800 rounded-xl transition hover:text-gray-500 focus:outline-none focus:text-gray-500 disabled:max-w-xs disabled:text-neutral-400 disabled:pointer-events-none dark:text-neutral-200 dark:hover:text-neutral-400 dark:focus:text-neutral-400`
+  - class: family /^(p|px|py|pt|pr|pb|pl)-/: `px-6` -> `pb-4`
+    - source: `px-6 pb-4`
+  - class: family /^text-(?!opacity)/: `text-gray-600` -> `text-sm`
+    - source: `text-gray-600 dark:text-neutral-400 text-sm md:text-base leading-relaxed`
+- **../src/views/home/index.php**
+  - class: family /^(p|px|py|pt|pr|pb|pl)-/: `px-4` -> `py-10`
+    - source: `relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 md:py-16 lg:py-32`
+  - class: family /^text-(?!opacity)/: `text-pink-800` -> `text-sm`, family /^(p|px|py|pt|pr|pb|pl)-/: `px-4` -> `py-2`
+    - source: `inline-flex items-center gap-x-2 bg-pink-100 text-pink-800 text-sm font-medium px-4 py-2 rounded-full mb-8`
+  - class: family /^text-(?!opacity)/: `text-4xl` -> `text-gray-900`
+    - source: `text-4xl md:text-6xl font-bold text-gray-900 mb-6`
+  - class: family /^text-(?!opacity)/: `text-lg` -> `text-gray-600`, family /^(m|mx|my|mt|mr|mb|ml)-/: `mb-8` -> `mx-auto`
+    - source: `text-lg md:text-xl text-gray-600 mb-8 max-w-3xl mx-auto`
+  - class: family /^(p|px|py|pt|pr|pb|pl)-/: `py-3` -> `px-6`, family /^text-(?!opacity)/: `text-sm` -> `text-white`
+    - source: `py-3 px-6 inline-flex items-center gap-x-2 text-sm font-semibold rounded-lg border-transparent bg-gradient-to-r from-pink-500 to-purple-500 text-white hover:from-pink-600 hover:to-purple-600 disabled:opacity-50 disabled:pointer-events-none`
+  - class: family /^(p|px|py|pt|pr|pb|pl)-/: `py-3` -> `px-6`, family /^border(-[tblrxy])?/: `border` -> `border-gray-200`, family /^text-(?!opacity)/: `text-sm` -> `text-gray-800`
+    - source: `py-3 px-6 inline-flex items-center gap-x-2 text-sm font-semibold rounded-lg border border-gray-200 bg-white text-gray-800 shadow-sm hover:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none`
+  - class: family /^text-(?!opacity)/: `text-2xl` -> `text-gray-900`
+    - source: `text-2xl md:text-3xl font-bold text-gray-900`
+  - class: family /^text-(?!opacity)/: `text-sm` -> `text-gray-600`
+    - source: `text-sm text-gray-600`
+  - class: family /^text-(?!opacity)/: `text-2xl` -> `text-gray-900`
+    - source: `text-2xl md:text-3xl font-bold text-gray-900`
+  - class: family /^text-(?!opacity)/: `text-sm` -> `text-gray-600`
+    - source: `text-sm text-gray-600`
+  - class: family /^text-(?!opacity)/: `text-2xl` -> `text-gray-900`
+    - source: `text-2xl md:text-3xl font-bold text-gray-900`
+  - class: family /^text-(?!opacity)/: `text-sm` -> `text-gray-600`
+    - source: `text-sm text-gray-600`
+  - class: family /^text-(?!opacity)/: `text-2xl` -> `text-gray-900`
+    - source: `text-2xl md:text-3xl font-bold text-gray-900`
+  - class: family /^text-(?!opacity)/: `text-sm` -> `text-gray-600`
+    - source: `text-sm text-gray-600`
+  - class: family /^text-(?!opacity)/: `text-3xl` -> `text-gray-900`
+    - source: `text-3xl md:text-4xl font-bold text-gray-900 mb-4`
+  - class: family /^text-(?!opacity)/: `text-lg` -> `text-gray-600`
+    - source: `text-lg text-gray-600 max-w-2xl mx-auto`
+  - class: family /^border(-[tblrxy])?/: `border` -> `border-gray-200`
+    - source: `text-center p-6 rounded-lg border border-gray-200 hover:border-pink-300 transition duration-300`
+  - class: family /^(m|mx|my|mt|mr|mb|ml)-/: `mx-auto` -> `mb-4`
+    - source: `w-12 h-12 bg-gradient-to-br from-pink-400 to-purple-500 rounded-lg flex items-center justify-center mx-auto mb-4`
+  - class: family /^text-(?!opacity)/: `text-xl` -> `text-gray-900`
+    - source: `text-xl font-semibold text-gray-900 mb-2`
+  - class: family /^(m|mx|my|mt|mr|mb|ml)-/: `mx-auto` -> `mb-4`
+    - source: `w-12 h-12 bg-gradient-to-br from-pink-400 to-purple-500 rounded-lg flex items-center justify-center mx-auto mb-4`
+  - class: family /^text-(?!opacity)/: `text-xl` -> `text-gray-900`
+    - source: `text-xl font-semibold text-gray-900 mb-2`
+  - class: family /^text-(?!opacity)/: `text-xl` -> `text-gray-900`
+    - source: `text-xl font-semibold text-gray-900 mb-2`
+  - class: family /^text-(?!opacity)/: `text-3xl` -> `text-gray-900`
+    - source: `text-3xl md:text-4xl font-bold text-gray-900 mb-4`
+  - class: family /^text-(?!opacity)/: `text-lg` -> `text-gray-600`
+    - source: `text-lg text-gray-600`
+  - class: family /^text-(?!opacity)/: `text-sm` -> `text-gray-800`
+    - source: `text-sm text-gray-800`
+  - class: family /^(p|px|py|pt|pr|pb|pl)-/: `px-4` -> `py-2`, family /^border(-[tblrxy])?/: `border` -> `border-gray-300`
+    - source: `flex-1 px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-pink-500 focus:border-transparent`
+  - class: family /^(p|px|py|pt|pr|pb|pl)-/: `px-6` -> `py-2`
+    - source: `px-6 py-2 bg-gradient-to-r from-pink-500 to-purple-500 text-white rounded-lg hover:from-pink-600 hover:to-purple-600 transition duration-300`
+  - class: family /^text-(?!opacity)/: `text-sm` -> `text-gray-800`
+    - source: `text-sm text-gray-800`
+- **../src/views/layouts/main.php**
+  - class: family /^(p|px|py|pt|pr|pb|pl)-/: `px-4` -> `py-8`
+    - source: `container mx-auto px-4 py-8`
+- **../src/views/components/footer.php**
+  - class: family /^border(-[tblrxy])?/: `border-t` -> `border-gray-200`
+    - source: `bg-white border-t border-gray-200`
+  - class: family /^text-(?!opacity)/: `text-lg` -> `text-transparent`, family /^bg-/: `bg-clip-text` -> `bg-gradient-to-r`
+    - source: `text-lg font-bold bg-clip-text text-transparent bg-gradient-to-r from-pink-500 to-purple-500`
+  - class: family /^text-(?!opacity)/: `text-xs` -> `text-gray-500`
+    - source: `text-xs font-medium text-gray-500 tracking-wider`
+  - class: family /^text-(?!opacity)/: `text-gray-600` -> `text-sm`
+    - source: `text-gray-600 text-sm mb-4`
+  - class: family /^text-(?!opacity)/: `text-sm` -> `text-gray-900`
+    - source: `text-sm font-semibold text-gray-900 uppercase tracking-wider mb-4`
+  - class: family /^text-(?!opacity)/: `text-gray-600` -> `text-sm`
+    - source: `text-gray-600 hover:text-pink-500 text-sm transition duration-150`
+  - class: family /^text-(?!opacity)/: `text-gray-600` -> `text-sm`
+    - source: `text-gray-600 hover:text-pink-500 text-sm transition duration-150`
+  - class: family /^text-(?!opacity)/: `text-gray-600` -> `text-sm`
+    - source: `text-gray-600 hover:text-pink-500 text-sm transition duration-150`
+  - class: family /^text-(?!opacity)/: `text-gray-600` -> `text-sm`
+    - source: `text-gray-600 hover:text-pink-500 text-sm transition duration-150`
+  - class: family /^text-(?!opacity)/: `text-gray-600` -> `text-sm`
+    - source: `text-gray-600 hover:text-pink-500 text-sm transition duration-150`
+  - class: family /^text-(?!opacity)/: `text-sm` -> `text-gray-900`
+    - source: `text-sm font-semibold text-gray-900 uppercase tracking-wider mb-4`
+  - class: family /^text-(?!opacity)/: `text-gray-600` -> `text-sm`
+    - source: `text-gray-600 text-sm`
+  - class: family /^text-(?!opacity)/: `text-gray-600` -> `text-sm`
+    - source: `text-gray-600 text-sm`
+  - class: family /^text-(?!opacity)/: `text-gray-600` -> `text-sm`
+    - source: `text-gray-600 text-sm`
+  - class: family /^text-(?!opacity)/: `text-gray-600` -> `text-sm`
+    - source: `text-gray-600 text-sm`
+  - class: family /^border(-[tblrxy])?/: `border-t` -> `border-gray-200`
+    - source: `border-t border-gray-200 py-6`
+  - class: family /^text-(?!opacity)/: `text-sm` -> `text-gray-500`
+    - source: `text-sm text-gray-500 mb-4 md:mb-0`
+  - class: family /^text-(?!opacity)/: `text-sm` -> `text-gray-500`
+    - source: `text-sm text-gray-500 hover:text-pink-500 transition duration-150`
+  - class: family /^text-(?!opacity)/: `text-sm` -> `text-gray-500`
+    - source: `text-sm text-gray-500 hover:text-pink-500 transition duration-150`
+  - class: family /^text-(?!opacity)/: `text-sm` -> `text-gray-500`
+    - source: `text-sm text-gray-500 hover:text-pink-500 transition duration-150`
+- **../src/views/components/header.php**
+  - class: family /^text-(?!opacity)/: `text-xl` -> `text-transparent`, family /^bg-/: `bg-clip-text` -> `bg-gradient-to-r`
+    - source: `text-xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-pink-500 to-purple-500 leading-tight`
+  - class: family /^text-(?!opacity)/: `text-xs` -> `text-gray-500`
+    - source: `text-xs font-medium text-gray-500 tracking-wider -mt-1`
+  - class: family /^(p|px|py|pt|pr|pb|pl)-/: `px-3` -> `py-2`, family /^text-(?!opacity)/: `text-gray-700` -> `text-sm`
+    - source: `text-gray-700 hover:text-pink-500 px-3 py-2 rounded-md text-sm font-medium transition duration-150`
+  - class: family /^(p|px|py|pt|pr|pb|pl)-/: `px-3` -> `py-2`, family /^text-(?!opacity)/: `text-gray-700` -> `text-sm`
+    - source: `text-gray-700 hover:text-pink-500 px-3 py-2 rounded-md text-sm font-medium transition duration-150`
+  - class: family /^(p|px|py|pt|pr|pb|pl)-/: `px-3` -> `py-2`, family /^text-(?!opacity)/: `text-gray-700` -> `text-sm`
+    - source: `text-gray-700 hover:text-pink-500 px-3 py-2 rounded-md text-sm font-medium transition duration-150`
+  - class: family /^(p|px|py|pt|pr|pb|pl)-/: `px-3` -> `py-2`, family /^text-(?!opacity)/: `text-gray-700` -> `text-sm`
+    - source: `text-gray-700 hover:text-pink-500 px-3 py-2 rounded-md text-sm font-medium transition duration-150`
+  - class: family /^(p|px|py|pt|pr|pb|pl)-/: `py-3` -> `px-4`, family /^border(-[tblrxy])?/: `border` -> `border-gray-200`, family /^text-(?!opacity)/: `text-sm` -> `text-gray-800`
+    - source: `hs-dropdown-toggle py-3 px-4 inline-flex items-center gap-x-2 text-sm font-medium rounded-lg border border-gray-200 bg-white text-gray-800 shadow-sm hover:bg-gray-50 focus:outline-none focus:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none`
+  - class: family /^(p|px|py|pt|pr|pb|pl)-/: `py-2` -> `px-3`, family /^text-(?!opacity)/: `text-sm` -> `text-gray-800`
+    - source: `flex items-center gap-x-3.5 py-2 px-3 rounded-lg text-sm text-gray-800 hover:bg-gray-100 focus:outline-none focus:bg-gray-100`
+  - class: family /^overflow-/: `overflow-hidden` -> `overflow-y-auto`
+    - source: `overflow-hidden overflow-y-auto max-h-[75vh] [&::-webkit-scrollbar]:w-2 [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-track]:bg-gray-100 [&::-webkit-scrollbar-thumb]:bg-gray-300`
+  - class: family /^(p|px|py|pt|pr|pb|pl)-/: `px-4` -> `pt-4`, family /^(p|px|py|pt|pr|pb|pl)-/: `pt-4` -> `pb-3`
+    - source: `px-4 pt-4 pb-3 space-y-1`
+  - class: family /^(p|px|py|pt|pr|pb|pl)-/: `py-2` -> `px-3`, family /^text-(?!opacity)/: `text-sm` -> `text-gray-800`
+    - source: `flex items-center gap-x-3.5 py-2 px-3 rounded-lg text-sm text-gray-800 hover:bg-gray-100 focus:outline-none focus:bg-gray-100`
+  - class: family /^(p|px|py|pt|pr|pb|pl)-/: `py-2` -> `px-3`, family /^text-(?!opacity)/: `text-sm` -> `text-gray-800`
+    - source: `flex items-center gap-x-3.5 py-2 px-3 rounded-lg text-sm text-gray-800 hover:bg-gray-100 focus:outline-none focus:bg-gray-100`
+  - class: family /^(p|px|py|pt|pr|pb|pl)-/: `py-2` -> `px-3`, family /^text-(?!opacity)/: `text-sm` -> `text-gray-800`
+    - source: `flex items-center gap-x-3.5 py-2 px-3 rounded-lg text-sm text-gray-800 hover:bg-gray-100 focus:outline-none focus:bg-gray-100`
+  - class: family /^(p|px|py|pt|pr|pb|pl)-/: `py-2` -> `px-3`, family /^text-(?!opacity)/: `text-sm` -> `text-gray-800`
+    - source: `flex items-center gap-x-3.5 py-2 px-3 rounded-lg text-sm text-gray-800 hover:bg-gray-100 focus:outline-none focus:bg-gray-100`
+  - class: family /^(p|px|py|pt|pr|pb|pl)-/: `py-2` -> `px-3`, family /^border(-[tblrxy])?/: `border` -> `border-gray-200`, family /^text-(?!opacity)/: `text-sm` -> `text-gray-800`
+    - source: `hs-dropdown-toggle w-full py-2 px-3 inline-flex items-center gap-x-2 text-sm font-medium rounded-lg border border-gray-200 bg-white text-gray-800 shadow-sm hover:bg-gray-50 focus:outline-none focus:bg-gray-50`
+  - class: family /^(p|px|py|pt|pr|pb|pl)-/: `py-2` -> `px-3`, family /^text-(?!opacity)/: `text-sm` -> `text-gray-800`
+    - source: `flex items-center gap-x-3.5 py-2 px-3 rounded-lg text-sm text-gray-800 hover:bg-gray-100 focus:outline-none focus:bg-gray-100`
