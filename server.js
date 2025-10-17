@@ -404,9 +404,63 @@ app.post('/api/chat', async (req, res) => {
       return res.status(400).json({ error: 'Message is required' });
     }
 
-    // Generate response using our rule-based system (no external AI needed)
+    // Use OpenAI if available, otherwise fall back to rule-based system
+    if (openai) {
+      try {
+        const completion = await openai.chat.completions.create({
+          model: "gpt-4o-mini",
+          messages: [
+            {
+              role: "system",
+              content: `You are Meta Esthetic AI, an intelligent assistant for Meta Esthetic Thailand, a premium aesthetic clinic specializing in:
+
+- Advanced dermatology and aesthetic treatments
+- Hair restoration services (FUE, PRP, scalp micropigmentation)
+- Hyperbaric Oxygen Therapy (HBOT) with state-of-the-art systems
+- Botox and dermal filler treatments
+- Laser therapy and skin resurfacing
+- Chemical peels and microneedling
+- Anti-aging treatments
+- Acne and scar treatment
+- Skin rejuvenation
+
+Guidelines:
+- Be professional, empathetic, and clinically aware
+- Provide helpful information while emphasizing the importance of professional consultation
+- Always recommend scheduling a consultation for personalized treatment plans
+- Be knowledgeable about aesthetic treatments but never provide medical diagnoses
+- Focus on Meta Esthetic Thailand's services and expertise
+- Respond in ${language || 'English'} when possible
+
+Remember: You enhance the patient experience by providing intelligent guidance while ensuring they understand the value of professional medical consultation.`
+            },
+            {
+              role: "user",
+              content: message
+            }
+          ],
+          max_tokens: 500,
+          temperature: 0.7
+        });
+
+        const aiResponse = completion.choices[0].message.content;
+        
+        // Add Meta Esthetic branding and consultation prompt
+        const brandedResponse = `${aiResponse}
+
+**Next Steps:**
+Schedule a consultation with our specialists at Meta Esthetic Thailand for personalized treatment planning and professional evaluation.`;
+
+        res.json({ response: brandedResponse });
+        return;
+      } catch (openaiError) {
+        console.error('OpenAI API error:', openaiError);
+        // Fall back to rule-based system if OpenAI fails
+      }
+    }
+
+    // Fallback to rule-based system
     const response = generateClientResponse(message);
-    
     res.json({ response });
   } catch (error) {
     console.error('Response generation error:', error);
