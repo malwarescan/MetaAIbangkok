@@ -17,16 +17,3 @@
 
 /* Defaults hover styles on all devices */
 @custom-variant hover (&:hover);
-
-/* Overrides requested */
-@layer utilities {
-  .px-2 {
-    margin-top: 0.5rem; /* add top margin alongside horizontal padding */
-  }
-
-  .bg-gray-100 {
-    --tw-bg-opacity: 1;
-
-    background-color: transparent !important; /* neutralize gray bg */
-  }
-}

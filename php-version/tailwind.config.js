@@ -23,14 +23,7 @@ module.exports = {
     },
   },
   plugins: [
-    require("@tailwindcss/forms"),
-    (() => {
-      try {
-        return require("preline/plugin");
-      } catch (e) {
-        return () => {};
-      }
-    })(),
+    require("@tailwindcss/forms")
   ],
   safelist: [
     { pattern: /^hs-/ }, // Preline components
@@ -38,8 +31,5 @@ module.exports = {
     { pattern: /^i$/ }, // icon utility 'i'
     { pattern: /^material-symbols/ }, // material icons
     { pattern: /^aria-/ }, // aria-state patterns if used in classes
-    { pattern: /^group-\[/ }, // arbitrary group variants
-    { pattern: /^data-\[/ }, // data-[state]
-    { pattern: /^\[/ }, // arbitrary variants
   ],
 };

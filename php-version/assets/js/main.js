@@ -115,7 +115,7 @@ function addMessage(text, sender) {
                 </svg>
             </div>
             <div class="bg-gray-100 rounded-lg p-3 max-w-xs">
-                <p class="text-gray-800">${formatMessage(text)}</p>
+                <p class="text-sm text-gray-800">${formatMessage(text)}</p>
             </div>
         `;
   }

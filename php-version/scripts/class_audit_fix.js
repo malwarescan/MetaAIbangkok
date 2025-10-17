@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 const fg = require("fast-glob");
 const fs = require("fs");
+const path = require("path");
 
 const FILE_GLOB = ["**/*.{php,html,js,ts}", "!node_modules", "!.git", "!public/**/*.min.*"];
 
@@ -45,7 +46,7 @@ function extractClassBlocks(src) {
   let m;
   while ((m = regex.exec(src))) {
     const raw = m[1] || m[2] || "";
-    blocks.push({ start: m.index, end: regex.lastIndex, raw });
+    blocks.push({ start: m.index, end: regex.lastIndex, raw, quote: m[1] ? '"' : "'" });
   }
   return blocks;
 }
@@ -53,28 +54,34 @@ function extractClassBlocks(src) {
 function analyzeAndFixClasses(raw) {
   const parts = raw.split(/\s+/).filter(Boolean);
   const keep = [];
-  const seen = {};
+  const seen = {}; // { familyKey: indexKept }
   const removed = [];
 
   for (let i = 0; i < parts.length; i++) {
     const c = parts[i];
 
+    // If variant-scoped (md:, hover:, etc.), keep as-is.
     if (VARIANT_PREFIX.test(c)) {
       keep.push(c);
       continue;
     }
+
+    // Not exclusive? keep.
     if (!isExclusive(c)) {
       keep.push(c);
       continue;
     }
+
     const fk = familyKey(c);
     if (!fk) {
       keep.push(c);
       continue;
     }
+
+    // If we've already seen a class from this family (unscoped), remove the earlier one.
     if (seen[fk] !== undefined) {
       removed.push({ dup: c, replacedPrevious: keep[seen[fk]] });
-      keep[seen[fk]] = c;
+      keep[seen[fk]] = c; // last one wins: replace earlier
     } else {
       seen[fk] = keep.length;
       keep.push(c);
@@ -85,7 +92,7 @@ function analyzeAndFixClasses(raw) {
 }
 
 (async function run() {
-  const files = await fg(FILE_GLOB, { dot: true, cwd: process.cwd() });
+  const files = await fg(FILE_GLOB, { dot: true });
   const report = [];
   for (const file of files) {
     let src = fs.readFileSync(file, "utf8");
@@ -93,13 +100,24 @@ function analyzeAndFixClasses(raw) {
     if (!blocks.length) continue;
 
     let mutated = false;
+    let offset = 0;
+
     for (const b of blocks) {
-      const before = b.raw;
-      const { fixed, removed } = analyzeAndFixClasses(before);
+      const start = b.start + src.slice(0, b.start).lastIndexOf("class");
+      const match = src.slice(start).match(/class\s*=\s*["']/);
+      if (!match) continue;
+
+      const valueStart = start + match[0].length;
+      const quote = match[0].endsWith('"') ? '"' : "'";
+      const valueEnd = src.indexOf(quote, valueStart);
+      const raw = src.slice(valueStart, valueEnd);
+
+      const { fixed, removed } = analyzeAndFixClasses(raw);
       if (removed.length) {
         mutated = true;
-        report.push({ file, removed, before, after: fixed });
-        src = src.replace(before, fixed);
+        report.push({ file, removed, before: raw, after: fixed });
+        // replace in src
+        src = src.slice(0, valueStart) + fixed + src.slice(valueEnd);
       }
     }
 
@@ -110,6 +128,7 @@ function analyzeAndFixClasses(raw) {
     }
   }
 
+  // Write report
   const out = [
     "# Class Conflict Report",
     "",

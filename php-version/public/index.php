@@ -1,15 +1,32 @@
 <?php
-  // Homepage -> Chat UI layout
-  $title = "Meta Esthetic — Clinic Intelligence In Your Palm";
-  $desc  = "Dual AI for clients and doctors: refined, clinical, empathetic.";
+$baseUrl = 'https://metaesthetic.com';
+$i18n = include __DIR__ . '/../languages/en.php';
+$langCode = $i18n['lang'];
+$title = $i18n['title'];
+$desc  = $i18n['desc'];
 
-  // Variables used by chat UI view
-  $subtitle        = "Intelligent AI for Doctors and Patients";
-  $description     = "Describe symptoms or concerns and get personalized guidance.";
-  $startDiagnosis  = "Start AI Consultation";
+ob_start();
+include __DIR__ . '/../views/partials/chat_layout.php';
+$page = ob_get_clean();
 
-  ob_start();
-  include __DIR__ . "/../views/partials/chat_layout.php"; // Preline chat layout as homepage
-  $content = ob_get_clean();
-  include __DIR__ . "/../views/layout.php";
+// Localized JSON-LD
+$schema = [
+  "@context" => "https://schema.org",
+  "@type" => "Organization",
+  "name" => "Meta Esthetic",
+  "url" => $baseUrl . "/",
+  "inLanguage" => "en",
+  "description" => $i18n['schema_org_desc'],
+  "address" => [
+    "@type" => "PostalAddress",
+    "addressCountry" => "US"
+  ]
+];
+ob_start();
 ?>
+<script type="application/ld+json"><?= json_encode($schema, JSON_UNESCAPED_UNICODE|JSON_UNESCAPED_SLASHES) ?></script>
+<?php
+$schemaTag = ob_get_clean();
+
+$content = $page . $schemaTag;
+include __DIR__ . '/../views/layout.php';

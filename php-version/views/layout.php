@@ -36,52 +36,284 @@
   <link rel="stylesheet" href="/css/app.css?v=<?= time() ?>" />
 </head>
 <body class="min-h-full bg-me-silver text-me-graphite antialiased [font-family:Inter,ui-sans-serif,system-ui]">
-  
+  <header class="sticky top-0 z-50 bg-white/80 backdrop-blur border-b border-black/5">
+    <div class="max-w-7xl mx-auto px-4 py-2 md:py-3 flex flex-col md:flex-row items-center justify-center gap-1 md:gap-0">
+      <!-- Language switch -->
+      <nav class="flex items-center gap-4">
+        <a class="text-sm hover:opacity-80 transition <?= $langCode==='en'?'font-semibold':'' ?>" href="<?= htmlspecialchars($localePaths['en']) ?>">EN</a>
+        <a class="text-sm hover:opacity-80 transition <?= $langCode==='th'?'font-semibold':'' ?>" href="<?= htmlspecialchars($localePaths['th']) ?>">TH</a>
+        <a class="text-sm hover:opacity-80 transition <?= $langCode==='ko'?'font-semibold':'' ?>" href="<?= htmlspecialchars($localePaths['ko']) ?>">KR</a>
+      </nav>
 
-  <main>
+      
+    </div>
+  </header>
+
+  <main class="space-y-8 md:space-y-16">
     <?= $content ?? '' ?>
   </main>
 
-  <footer class="border-black/5 bg-white">
-    <div class="max-w-7xl mx-auto py-10 text-black/60">
-      © <?= date('Y') ?> Meta Esthetic — Clinic Intelligence In Your Palm
+  <footer class="border-t border-black/5 bg-white dark:bg-neutral-900 dark:border-neutral-700">
+    <div class="max-w-7xl mx-auto px-4 py-8 text-sm text-black/60 dark:text-neutral-400 text-center">
+      <p>© <?= date('Y') ?> Meta Esthetic — Clinic Intelligence In Your Palm</p>
+      <p class="mt-1">AI Language Model Powered by <a href="https://www.nrlc.ai" class="text-blue-600 hover:underline dark:text-blue-400">nrlc.ai</a></p>
     </div>
   </footer>
 
-  <!-- Contact / Request Demo Modal -->
-  <div id="contact-modal" class="hs-overlay hs-overlay-open:opacity-100 hs-overlay-open:duration-500 hidden size-full fixed top-0 start-0 z-[80] opacity-0 overflow-x-hidden overflow-y-auto pointer-events-none">
-    <div class="hs-overlay-open:mt-7 hs-overlay-open:opacity-100 hs-overlay-open:duration-500 m-3 opacity-0 ease-out transition-all sm:max-w-lg sm:w-full sm:mx-auto">
-      <div class="flex flex-col bg-white border shadow-sm rounded-xl pointer-events-auto">
-        <div class="flex justify-between items-center py-4 border-b">
-          <h3 class="text-gray-800 font-bold">Request a Demo</h3>
-          <button type="button" class="flex justify-center items-center size-8 text-gray-800 font-semibold rounded-full hover:bg-gray-100" data-hs-overlay="#contact-modal" aria-label="Close">
-            <svg class="size-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m18 6-12 12"/><path d="m6 6 12 12"/></svg>
-          </button>
-        </div>
-        <div class="p-6">
-          <form class="space-y-5" onsubmit="event.preventDefault(); this.reset(); document.querySelector('[data-hs-overlay=\'#contact-modal\']')?.click();">
-            <div>
-              <label class="block text-gray-800 font-medium mb-2">Clinic Name</label>
-              <input type="text" class="py-2.5 block w-full border-gray-200 rounded-lg text-sm focus:border-me-core focus:ring-me-core" placeholder="Enter clinic name" required>
-            </div>
-            <div>
-              <label class="block text-gray-800 font-medium mb-2">Email</label>
-              <input type="email" class="py-2.5 block w-full border-gray-200 rounded-lg text-sm focus:border-me-core focus:ring-me-core" placeholder="name@clinic.com" required>
-            </div>
-            <div>
-              <label class="block text-gray-800 font-medium mb-2">Message</label>
-              <textarea class="py-2.5 block w-full border-gray-200 rounded-lg text-sm focus:border-me-core focus:ring-me-core" rows="3" placeholder="Tell us a bit about your needs..."></textarea>
-            </div>
-            <div class="flex justify-end gap-x-3 pt-2">
-              <button type="button" class="py-2 rounded-lg border-gray-200 text-gray-800 bg-white hover:bg-gray-50" data-hs-overlay="#contact-modal">Cancel</button>
-              <button type="submit" class="py-2 rounded-lg bg-me-core text-me-graphite font-semibold shadow-me-soft hover:shadow-lg">Send</button>
-            </div>
-          </form>
-        </div>
-      </div>
-    </div>
-  </div>
+  <script src="/node_modules/preline/dist/preline.js" defer></script>
+  
+  <!-- Tailwind arbitrary class keeper + inline fallback for hero min-height -->
+  <div class="hidden min-h-[72dvh] md:min-h-screen"></div>
+  <script>
+    // If your CSS build doesn't include min-h-[72dvh] yet, this inline fallback helps:
+    document.querySelectorAll('[data-hero]').forEach(el=>{
+      el.style.minHeight = '72dvh';
+    });
+  </script>
+  
+  </script>
 
-  <script src="/js/preline.js"></script>
+  <script>
+  // Chat functionality
+    document.addEventListener('DOMContentLoaded', function() {
+    const chatInput = document.getElementById('chat-input');
+    const chatMessages = document.getElementById('chat-messages');
+    const sendBtn = document.getElementById('send-btn');
+    const uploadBtn = document.getElementById('upload-btn');
+    const micBtn = document.getElementById('mic-btn');
+    
+    if (chatInput) {
+      // Handle Enter key press
+      chatInput.addEventListener('keypress', function(e) {
+        if (e.key === 'Enter') {
+          e.preventDefault();
+          sendMessage();
+        }
+      });
+
+      if (sendBtn) {
+        sendBtn.addEventListener('click', function() {
+          sendMessage();
+        });
+      }
+      
+      // Handle click on buttons
+      if (uploadBtn) {
+        uploadBtn.addEventListener('click', function() {
+          addMessage('system', 'File upload feature coming soon!');
+        });
+      }
+      
+      if (micBtn) {
+        micBtn.addEventListener('click', function() {
+          startVoiceRecognition();
+        });
+      }
+    }
+    
+    function addMessage(type, content) {
+      // Show chat messages container
+      chatMessages.classList.remove('hidden');
+      
+      // Create message element
+      const messageDiv = document.createElement('div');
+      messageDiv.className = `flex ${type === 'user' ? 'justify-end' : 'justify-start'}`;
+      
+      const messageContent = document.createElement('div');
+      messageContent.className = `max-w-xs lg:max-w-md px-4 py-2 rounded-2xl ${
+        type === 'user' 
+          ? 'bg-me-core text-white' 
+          : type === 'ai'
+          ? 'bg-gray-100 text-gray-800'
+          : 'bg-yellow-100 text-yellow-800'
+      }`;
+      
+      // Format content with line breaks
+      const formattedContent = content.replace(/\n/g, '<br>');
+      messageContent.innerHTML = formattedContent;
+      
+      messageDiv.appendChild(messageContent);
+      chatMessages.appendChild(messageDiv);
+      
+      // Scroll to bottom
+      chatMessages.scrollTop = chatMessages.scrollHeight;
+    }
+    
+    function sendMessage() {
+      const message = chatInput.value.trim();
+      if (!message) return;
+      
+      // Add user message to chat
+      addMessage('user', message);
+      
+      // Show loading state
+      chatInput.disabled = true;
+      chatInput.placeholder = 'Thinking...';
+      
+      // Add typing indicator
+      const typingDiv = document.createElement('div');
+      typingDiv.className = 'flex justify-start';
+      typingDiv.innerHTML = '<div class="bg-gray-100 text-gray-800 px-4 py-2 rounded-2xl"><div class="flex space-x-1"><div class="w-2 h-2 bg-gray-400 rounded-full animate-bounce"></div><div class="w-2 h-2 bg-gray-400 rounded-full animate-bounce" style="animation-delay: 0.1s"></div><div class="w-2 h-2 bg-gray-400 rounded-full animate-bounce" style="animation-delay: 0.2s"></div></div></div>';
+      chatMessages.appendChild(typingDiv);
+      chatMessages.scrollTop = chatMessages.scrollHeight;
+      
+      // Choose endpoint: Node in dev, PHP in prod
+      const isLocal = location.hostname === 'localhost' || location.hostname === '127.0.0.1';
+      const endpoint = isLocal ? 'http://localhost:3000/api/chat' : '/api/chat.php';
+
+      // Send to API
+      fetch(endpoint, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ message: message })
+      })
+      .then(response => response.json())
+      .then(data => {
+        // Remove typing indicator
+        typingDiv.remove();
+        
+        // Add AI response
+        addMessage('ai', data.response);
+        
+        // Reset input
+        chatInput.value = '';
+        chatInput.disabled = false;
+        chatInput.placeholder = 'Ask me anything...';
+        chatInput.focus();
+      })
+      .catch(error => {
+        console.error('Error:', error);
+        
+        // Remove typing indicator
+        typingDiv.remove();
+        
+        // Add error message
+        addMessage('system', 'Sorry, there was an error. Please try again.');
+        
+        // Reset input
+        chatInput.disabled = false;
+        chatInput.placeholder = 'Ask me anything...';
+        chatInput.focus();
+        });
+    }
+    
+    // Voice recognition functionality
+    let recognition = null;
+    let isListening = false;
+    
+    function startVoiceRecognition() {
+      // Check if browser supports speech recognition
+      if (!('webkitSpeechRecognition' in window) && !('SpeechRecognition' in window)) {
+        addMessage('system', 'Voice recognition is not supported in your browser. Please use Chrome, Edge, or Safari.');
+        return;
+      }
+      
+      // Initialize speech recognition
+      const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+      recognition = new SpeechRecognition();
+      
+      // Configure recognition settings
+      recognition.continuous = false;
+      recognition.interimResults = false;
+      
+      // Detect language from current page
+      const currentLang = document.documentElement.lang || 'en';
+      const langMap = {
+        'en': 'en-US',
+        'th': 'th-TH', 
+        'ko': 'ko-KR',
+        'zh': 'zh-CN'
+      };
+      recognition.lang = langMap[currentLang] || 'en-US';
+      
+      // Visual feedback - change button appearance
+      const micBtn = document.getElementById('mic-btn');
+      if (micBtn) {
+        micBtn.classList.add('bg-red-500', 'text-white');
+        micBtn.classList.remove('bg-gray-100', 'text-gray-500');
+      }
+      
+      // Add listening message with language info
+      const langName = {
+        'en-US': 'English',
+        'th-TH': 'Thai', 
+        'ko-KR': 'Korean',
+        'zh-CN': 'Chinese'
+      };
+      addMessage('system', `🎤 Listening in ${langName[recognition.lang]}... Speak now!`);
+      
+      // Start recognition
+      recognition.start();
+      isListening = true;
+      
+      // Handle results
+      recognition.onresult = function(event) {
+        const transcript = event.results[0][0].transcript;
+        console.log('Voice input:', transcript);
+        
+        // Update chat input with voice transcript
+        chatInput.value = transcript;
+        
+        // Automatically send the message
+        sendMessage();
+        
+        // Reset button appearance
+        resetMicButton();
+      };
+      
+      // Handle errors
+      recognition.onerror = function(event) {
+        console.error('Speech recognition error:', event.error);
+        
+        let errorMessage = 'Voice recognition error. ';
+        switch(event.error) {
+          case 'no-speech':
+            errorMessage += 'No speech detected. Please try again.';
+            break;
+          case 'audio-capture':
+            errorMessage += 'No microphone found. Please check your microphone.';
+            break;
+          case 'not-allowed':
+            errorMessage += 'Microphone permission denied. Please allow microphone access.';
+            break;
+          case 'network':
+            errorMessage += 'Network error. Please check your connection.';
+            break;
+          default:
+            errorMessage += 'Please try again.';
+        }
+        
+        addMessage('system', errorMessage);
+        resetMicButton();
+      };
+      
+      // Handle end of recognition
+      recognition.onend = function() {
+        isListening = false;
+        resetMicButton();
+      };
+    }
+    
+    function resetMicButton() {
+      const micBtn = document.getElementById('mic-btn');
+      if (micBtn) {
+        micBtn.classList.remove('bg-red-500', 'text-white');
+        micBtn.classList.add('bg-gray-100', 'text-gray-500');
+      }
+    }
+    
+    // Stop recognition if user clicks again while listening
+    function stopVoiceRecognition() {
+      if (recognition && isListening) {
+        recognition.stop();
+        isListening = false;
+        resetMicButton();
+        addMessage('system', 'Voice recognition stopped.');
+      }
+      }
+    });
+  </script>
 </body>
 </html>
