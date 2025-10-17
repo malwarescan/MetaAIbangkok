@@ -26,7 +26,7 @@ dark:bg-neutral-900 dark:border-neutral-700" role="dialog" tabindex="-1" aria-la
 </div>
 
 <!-- Content -->
-<div class="relative h-screen w-full lg:ps-64">
+<div class="relative h-screen w-full lg:ps-64 bg-[url('/assets/chat-bg.png')] bg-center bg-no-repeat bg-[length:520px_auto]">
   <div class="py-10 lg:py-14">
     <!-- Title / Hero -->
     <div data-hero class="max-w-4xl px-4 sm:px-6 lg:px-8 mx-auto text-center">
