@@ -269,7 +269,7 @@
       
       if (micBtn) {
         micBtn.addEventListener('click', function() {
-          addMessage('system', 'Voice input feature coming soon!');
+          startVoiceRecognition();
         });
       }
     }
@@ -356,8 +356,123 @@
         chatInput.placeholder = 'Ask me anything...';
         chatInput.focus();
         });
+    }
+    
+    // Voice recognition functionality
+    let recognition = null;
+    let isListening = false;
+    
+    function startVoiceRecognition() {
+      // Check if browser supports speech recognition
+      if (!('webkitSpeechRecognition' in window) && !('SpeechRecognition' in window)) {
+        addMessage('system', 'Voice recognition is not supported in your browser. Please use Chrome, Edge, or Safari.');
+        return;
       }
-    });
+      
+      // Initialize speech recognition
+      const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+      recognition = new SpeechRecognition();
+      
+      // Configure recognition settings
+      recognition.continuous = false;
+      recognition.interimResults = false;
+      
+      // Detect language from current page
+      const currentLang = document.documentElement.lang || 'en';
+      const langMap = {
+        'en': 'en-US',
+        'th': 'th-TH', 
+        'ko': 'ko-KR',
+        'zh': 'zh-CN'
+      };
+      recognition.lang = langMap[currentLang] || 'en-US';
+      
+      // Visual feedback - change button appearance
+      const micBtn = document.getElementById('mic-btn');
+      if (micBtn) {
+        micBtn.classList.add('bg-red-500', 'text-white');
+        micBtn.classList.remove('bg-gray-100', 'text-gray-500');
+      }
+      
+      // Add listening message with language info
+      const langName = {
+        'en-US': 'English',
+        'th-TH': 'Thai', 
+        'ko-KR': 'Korean',
+        'zh-CN': 'Chinese'
+      };
+      addMessage('system', `🎤 Listening in ${langName[recognition.lang]}... Speak now!`);
+      
+      // Start recognition
+      recognition.start();
+      isListening = true;
+      
+      // Handle results
+      recognition.onresult = function(event) {
+        const transcript = event.results[0][0].transcript;
+        console.log('Voice input:', transcript);
+        
+        // Update chat input with voice transcript
+        chatInput.value = transcript;
+        
+        // Automatically send the message
+        sendMessage();
+        
+        // Reset button appearance
+        resetMicButton();
+      };
+      
+      // Handle errors
+      recognition.onerror = function(event) {
+        console.error('Speech recognition error:', event.error);
+        
+        let errorMessage = 'Voice recognition error. ';
+        switch(event.error) {
+          case 'no-speech':
+            errorMessage += 'No speech detected. Please try again.';
+            break;
+          case 'audio-capture':
+            errorMessage += 'No microphone found. Please check your microphone.';
+            break;
+          case 'not-allowed':
+            errorMessage += 'Microphone permission denied. Please allow microphone access.';
+            break;
+          case 'network':
+            errorMessage += 'Network error. Please check your connection.';
+            break;
+          default:
+            errorMessage += 'Please try again.';
+        }
+        
+        addMessage('system', errorMessage);
+        resetMicButton();
+      };
+      
+      // Handle end of recognition
+      recognition.onend = function() {
+        isListening = false;
+        resetMicButton();
+      };
+    }
+    
+    function resetMicButton() {
+      const micBtn = document.getElementById('mic-btn');
+      if (micBtn) {
+        micBtn.classList.remove('bg-red-500', 'text-white');
+        micBtn.classList.add('bg-gray-100', 'text-gray-500');
+      }
+    }
+    
+    // Stop recognition if user clicks again while listening
+    function stopVoiceRecognition() {
+      if (recognition && isListening) {
+        recognition.stop();
+        isListening = false;
+        resetMicButton();
+        addMessage('system', 'Voice recognition stopped.');
+      }
+    }
+  });
   </script>
 </body>
 </html>
