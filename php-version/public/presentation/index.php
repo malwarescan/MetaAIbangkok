@@ -315,5 +315,44 @@
 
 <?php
   $content = ob_get_clean();
+  
+  // Add Preline tab initialization script
+  $content .= '
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      // Initialize Preline tabs
+      if (typeof HSStaticMethods !== "undefined" && HSStaticMethods.tab) {
+        HSStaticMethods.tab.init();
+      }
+      
+      // Fallback tab switching if Preline fails
+      const tabButtons = document.querySelectorAll("[data-hs-tab]");
+      const tabPanels = document.querySelectorAll(".hs-tab-content");
+      
+      tabButtons.forEach(button => {
+        button.addEventListener("click", function() {
+          const targetId = this.getAttribute("data-hs-tab");
+          const targetPanel = document.querySelector(targetId);
+          
+          if (targetPanel) {
+            // Hide all panels
+            tabPanels.forEach(panel => {
+              panel.classList.add("hidden");
+            });
+            
+            // Show target panel
+            targetPanel.classList.remove("hidden");
+            
+            // Update active states
+            tabButtons.forEach(btn => {
+              btn.classList.remove("hs-tab-active:bg-me-core/10", "hs-tab-active:text-me-graphite");
+            });
+            this.classList.add("hs-tab-active:bg-me-core/10", "hs-tab-active:text-me-graphite");
+          }
+        });
+      });
+    });
+  </script>';
+  
   include __DIR__ . '/../../views/layout.php';
 ?>
