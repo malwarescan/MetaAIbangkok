@@ -242,5 +242,75 @@
     start();
   })();
   </script>
+
+  <script>
+  // Chat functionality
+  document.addEventListener('DOMContentLoaded', function() {
+    const searchInput = document.querySelector('input[placeholder="Ask me anything..."]');
+    const uploadBtn = document.querySelector('button[type="button"]:has(svg path[d*="M4 14.899A7"])');
+    const micBtn = document.querySelector('button[type="button"]:has(svg path[d*="M12 2a3"])');
+    
+    if (searchInput) {
+      // Handle Enter key press
+      searchInput.addEventListener('keypress', function(e) {
+        if (e.key === 'Enter') {
+          e.preventDefault();
+          sendMessage();
+        }
+      });
+      
+      // Handle click on buttons
+      if (uploadBtn) {
+        uploadBtn.addEventListener('click', function() {
+          alert('File upload feature coming soon!');
+        });
+      }
+      
+      if (micBtn) {
+        micBtn.addEventListener('click', function() {
+          alert('Voice input feature coming soon!');
+        });
+      }
+    }
+    
+    function sendMessage() {
+      const message = searchInput.value.trim();
+      if (!message) return;
+      
+      // Show loading state
+      searchInput.disabled = true;
+      searchInput.placeholder = 'Thinking...';
+      
+      // Send to Node.js API
+      fetch('http://localhost:3000/api/chat', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ message: message })
+      })
+      .then(response => response.json())
+      .then(data => {
+        // Show response in alert for now (can be improved with a modal)
+        alert('AI Response:\n\n' + data.response);
+        
+        // Reset input
+        searchInput.value = '';
+        searchInput.disabled = false;
+        searchInput.placeholder = 'Ask me anything...';
+        searchInput.focus();
+      })
+      .catch(error => {
+        console.error('Error:', error);
+        alert('Sorry, there was an error. Please try again.');
+        
+        // Reset input
+        searchInput.disabled = false;
+        searchInput.placeholder = 'Ask me anything...';
+        searchInput.focus();
+      });
+    }
+  });
+  </script>
 </body>
 </html>
