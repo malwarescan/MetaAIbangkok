@@ -36,25 +36,7 @@
   <link rel="stylesheet" href="/css/app.css?v=<?= time() ?>" />
 </head>
 <body class="min-h-full bg-me-silver text-me-graphite antialiased [font-family:Inter,ui-sans-serif,system-ui]">
-  <header class="sticky top-0 z-50 bg-white/80 backdrop-blur border-black/5">
-    <div class="max-w-7xl mx-auto py-3 flex items-center justify-between">
-      <a href="/" class="flex items-center gap-3">
-        <?php include __DIR__ . "/partials/logo-meta-esthetic.svg.php"; ?>
-        <span class="text-lg font-semibold tracking-tight">Meta Esthetic</span>
-      </a>
-
-      <!-- Language switch -->
-      <nav class="hidden md:flex items-center gap-4">
-        <a class="text-sm hover:opacity-80 transition <?= $langCode==='en'?'font-semibold':'' ?>" href="<?= htmlspecialchars($localePaths['en']) ?>">EN</a>
-        <a class="text-sm hover:opacity-80 transition <?= $langCode==='th'?'font-semibold':'' ?>" href="<?= htmlspecialchars($localePaths['th']) ?>">TH</a>
-        <a class="text-sm hover:opacity-80 transition <?= $langCode==='ko'?'font-semibold':'' ?>" href="<?= htmlspecialchars($localePaths['ko']) ?>">KR</a>
-      </nav>
-
-      <button type="button" class="hs-button inline-flex items-center justify-center py-2 rounded-xl bg-me-core text-me-graphite font-medium shadow-me-soft hover:shadow-lg transition" data-hs-overlay="#contact-modal">
-        Request Demo
-      </button>
-    </div>
-  </header>
+  
 
   <main>
     <?= $content ?? '' ?>
