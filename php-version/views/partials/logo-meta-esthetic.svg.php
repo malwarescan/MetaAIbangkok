@@ -1,5 +1,5 @@
-<?php /* Dual-core polished icon */ ?>
-<svg width="40" height="28" viewBox="0 0 40 28" fill="none" xmlns="http://www.w3.org/2000/svg" class="drop-shadow">
+<?php /* Polished dual-core icon */ ?>
+<svg width="40" height="28" viewBox="0 0 40 28" fill="none" xmlns="http://www.w3.org/2000/svg">
   <defs>
     <radialGradient id="g1" cx="50%" cy="50%" r="70%">
       <stop offset="0%" stop-color="#FFFFFF"/>

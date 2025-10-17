@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+Sitemap: https://metaesthetic.com/sitemap_en.xml
+Sitemap: https://metaesthetic.com/sitemap_th.xml
+Sitemap: https://metaesthetic.com/sitemap_kr.xml
