@@ -4,8 +4,8 @@ nixPkgs = ["php82", "php82Packages.composer"]
 [phases.install]
 cmds = ["cd php-version && composer install --no-dev --optimize-autoloader"]
 
-#[phases.build]
-# No Node build needed for PHP-only deploy
+[phases.build]
+cmds = ["echo 'Skipping frontend build (PHP-only deploy)' "]
 
 [start]
 cmd = "cd php-version && php -S 0.0.0.0:$PORT -t public"
