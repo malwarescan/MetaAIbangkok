@@ -19,10 +19,10 @@
 </div>
 
 <!-- Content -->
-<div class="relative h-screen w-full lg:ps-64 pt-14 md:pt-16">
-  <div class="py-10 lg:py-14">
+<div class="relative h-screen w-full lg:ps-64 pt-14 md:pt-16 overflow-hidden flex flex-col">
+  <div class="flex-1 flex flex-col py-4 lg:py-6">
     <!-- Title / Hero -->
-    <div data-hero class="max-w-4xl px-4 sm:px-6 lg:px-8 mx-auto text-center pt-[50%] md:pt-[8%] lg:pt-[6%]" style="min-height: 72dvh;">
+    <div data-hero class="max-w-4xl px-4 sm:px-6 lg:px-8 mx-auto text-center pt-[30%] sm:pt-[18%] md:pt-[6%] lg:pt-[4%]">
       <h1 class="text-3xl font-bold text-gray-800 sm:text-4xl">
         <span class="inline-block">Intelligent AI for Doctors and Patients</span>
       </h1>
@@ -33,11 +33,11 @@
     <!-- End Title -->
 
     <!-- Chat Messages -->
-    <ul id="chat-messages" class="mt-16 space-y-5 max-w-4xl px-4 sm:px-6 lg:px-8 mx-auto"></ul>
+    <ul id="chat-messages" class="mt-4 space-y-5 max-w-4xl px-4 sm:px-6 lg:px-8 mx-auto flex-1 overflow-y-auto"></ul>
   </div>
 
   <!-- Composer -->
-  <div class="max-w-4xl mx-auto sticky bottom-0 z-10 p-3 sm:py-6">
+  <div class="max-w-4xl mx-auto shrink-0 p-3 sm:py-6">
     <!-- Mobile: Sidebar toggle -->
     <div class="lg:hidden flex justify-end mb-2 sm:mb-3">
       <button type="button" class="p-2 inline-flex items-center gap-x-2 text-xs font-medium rounded-lg border border-gray-200 bg-white text-gray-800 shadow-2xs hover:bg-gray-50 focus:outline-hidden" aria-haspopup="dialog" aria-expanded="false" aria-controls="hs-application-sidebar" aria-label="Toggle navigation" data-hs-overlay='{"target": "#hs-application-sidebar"}'>
