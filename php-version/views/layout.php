@@ -55,8 +55,8 @@
 
   <footer class="border-t border-black/5 bg-transparent dark:bg-transparent dark:border-neutral-700">
     <div class="max-w-7xl mx-auto px-4 py-8 text-sm text-center">
-      <p class="text-engraved dark:text-embedded-dark">© <?= date('Y') ?> Meta Esthetic — Clinic Intelligence In Your Palm</p>
-      <p class="mt-1 text-engraved dark:text-embedded-dark">AI Language Model Powered by <a href="https://www.nrlc.ai" class="text-blue-600 hover:underline dark:text-blue-400">nrlc.ai</a></p>
+      <p class="text-gray-400/70 text-sm tracking-tight [text-shadow:1px_1px_1px_rgba(0,0,0,.28),-1px_-1px_1px_rgba(255,255,255,.55)] select-none">© <?= date('Y') ?> Meta Esthetic — Clinic Intelligence In Your Palm</p>
+      <p class="mt-1 text-gray-400/70 text-sm tracking-tight [text-shadow:1px_1px_1px_rgba(0,0,0,.28),-1px_-1px_1px_rgba(255,255,255,.55)] select-none">AI Language Model Powered by <a href="https://www.nrlc.ai" class="text-blue-600 hover:underline dark:text-blue-400">nrlc.ai</a></p>
     </div>
   </footer>
 
