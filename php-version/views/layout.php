@@ -320,8 +320,12 @@
       chatMessages.appendChild(typingDiv);
       chatMessages.scrollTop = chatMessages.scrollHeight;
       
-      // Send to Node.js API
-      fetch('http://localhost:3000/api/chat', {
+      // Choose endpoint: Node in dev, PHP in prod
+      const isLocal = location.hostname === 'localhost' || location.hostname === '127.0.0.1';
+      const endpoint = isLocal ? 'http://localhost:3000/api/chat' : '/api/chat.php';
+
+      // Send to API
+      fetch(endpoint, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -472,7 +476,7 @@
         addMessage('system', 'Voice recognition stopped.');
       }
     }
-  });
+    });
   </script>
 </body>
 </html>
